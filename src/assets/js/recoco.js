@@ -102,6 +102,7 @@
       quickTimer = setTimeout(function () { slides.classList.remove('is-quick'); }, 700);
       showHero(cur + (dx < 0 ? 1 : -1));
       tick = 0;
+      (window.dataLayer = window.dataLayer || []).push({ event: 'click_cta', cta_name: 'hero_swipe', cta_label: dx < 0 ? 'next' : 'prev', cta_place: 'hero', cta_url: '', cta_store: 'recoco' });
     }, { passive: true });
     // 3秒ごとに1回動かす。トップの写真は2回に1回（約6秒ごと）、ABOUT の2枠は交互に
     var tick = 0;

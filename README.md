@@ -154,6 +154,11 @@ Node.js 18 以上だけで動く（追加のライブラリなし）。
 | gallery_open / gallery_prev / gallery_next / gallery_thumb / gallery_filter | ギャラリー・撮影ページの写真 |
 | menu_all / menu_chip | トップの「メニューをすべて見る」／メニューページの目次 |
 | news_more / news_filter | お知らせ一覧へ／カテゴリの絞り込み |
+| news_item | お知らせの各記事（トップ・一覧） |
+| store_card | トップ写真の下の店舗カード（`cta_store` に shibuya / shimokita） |
+| room_access | 渋谷店の個室の帯の「渋谷店のアクセス」 |
+| collab_item | トップのアーティストとのコラボの各カード |
+| hero_dot / hero_swipe | トップ写真の点を押した／スマホで左右にスワイプした（`cta_label` に next / prev） |
 | collab_more / gallery_more / voice_more | トップの各「見る」リンク |
 | nav_header / nav_fab / fab_toggle | 上のメニュー／スマホのレコードプレーヤー型メニュー（中のリンク・開け閉め） |
 | lang_switch | JP / EN の切り替え |

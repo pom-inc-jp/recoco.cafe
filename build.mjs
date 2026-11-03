@@ -224,7 +224,7 @@ function newsFilters(news, site) {
 function newsLatest(items, site, today) {
   const isNew = (d) => (today - new Date(`${d.length === 7 ? `${d}-01` : d}T00:00:00+09:00`).getTime()) / 864e5 < site.newDays;
   const lis = items.map((n, i) =>
-    `<li data-genre="${n.genre}"${i >= 5 ? ' hidden' : ''}${i >= 3 ? ' class="sp-off"' : ''}><a href="${newsHref(n)}">` +
+    `<li data-genre="${n.genre}"${i >= 5 ? ' hidden' : ''}${i >= 3 ? ' class="sp-off"' : ''}><a href="${newsHref(n)}" data-cta="news_item">` +
     `<time datetime="${n.date}">${dateLabel(n.date)}</time><span class="tagcell">${genreTag(n, site)}</span>` +
     `<span class="t">${esc(n.title)}${isNew(n.date) ? '<span class="new" lang="en">NEW</span>' : ''}</span></a></li>`).join('\n        ');
   return `<ul class="news" id="news-latest" data-limit="5" data-sp-limit="3">\n        ${lis}\n      </ul>`;
@@ -237,7 +237,7 @@ function newsAll(items, site) {
     const thumb = n.image ? `<span class="thumb">${img({ file: n.image }, '160px', { alt: '' })}</span>` : ph;
     const inner = `${thumb}<span class="body"><span class="meta"><time datetime="${n.date}">${dateLabel(n.date)}</time>${genreTag(n, site)}</span><span class="t">${esc(n.title)}</span></span>`;
     return n.hasPage
-      ? `<li data-genre="${n.genre}"><a class="row" href="/news/${n.id}/">${inner}<span class="more" aria-hidden="true"><span class="lb"><span class="en" lang="en">READ</span><span class="ja">詳しく見る</span></span><span class="more-dot">${icon('right', 16)}</span></span></a></li>`
+      ? `<li data-genre="${n.genre}"><a class="row" href="/news/${n.id}/" data-cta="news_item">${inner}<span class="more" aria-hidden="true"><span class="lb"><span class="en" lang="en">READ</span><span class="ja">詳しく見る</span></span><span class="more-dot">${icon('right', 16)}</span></span></a></li>`
       : `<li data-genre="${n.genre}"><div class="row">${inner}</div></li>`;
   }).join('\n      ');
   return `<ul class="news-list" id="news-all">\n      ${lis}\n    </ul>`;
@@ -260,7 +260,7 @@ const mapUrl = (st) => `https://www.google.com/maps/search/?api=1&query=${encode
 const mapEmbed = (st) => `https://www.google.com/maps?q=${encodeURIComponent(st.mapQuery)}&output=embed`;
 
 function storeCards(site, lang) {
-  return site.stores.map((s) => `<a class="store-card s-${s.color}" href="#${s.id}">
+  return site.stores.map((s) => `<a class="store-card s-${s.color}" href="#${s.id}" data-cta="store_card" data-store="${s.id}">
       <span class="txt"><span class="nm"><span class="dot" aria-hidden="true"></span>${esc(pick(s, 'name', lang, '店名'))}</span><span class="sub">${esc(pick(s, 'accessShort', lang, '店舗カード'))}・<span class="nb">${esc(s.opens)}${lang === 'en' ? '–' : '〜'}${esc(s.closes)}</span></span></span>
       ${icon('right', 20, 1.8)}
     </a>`).join('\n    ');
@@ -312,7 +312,7 @@ function privateRoomBand(site, lang) {
       <h3>${lines(pick(r, 'title', lang, w), lang)}</h3>
       <p class="room-body">${esc(pick(r, 'body', lang, w))}</p>
       <p class="room-note">${esc(pick(r, 'note', lang, w))}</p>
-      <p class="room-btn"><a class="btn btn-paper" href="#${s.id}">${esc(pick(r, 'button', lang, w))}${icon('down')}</a></p>
+      <p class="room-btn"><a class="btn btn-paper" href="#${s.id}" data-cta="room_access" data-store="${s.id}">${esc(pick(r, 'button', lang, w))}${icon('down')}</a></p>
     </div>
   </div>`;
 }
@@ -348,7 +348,7 @@ function homeParts(site, menu, news, today, lang) {
     const alt = altOf(p, lang);
     return img(p, '(max-width: 760px) 100vw, 1180px', { lazy: i > 0, priority: i === 0, cls: i === 0 ? 'is-on' : '', alt: i === 0 ? alt : '', attrs: ` data-alt="${esc(alt)}"${i === 0 ? '' : ' aria-hidden="true"'}` });
   }).join('\n      ');
-  const dots = h.photos.map((p, i) => `<button type="button" aria-label="${esc(ui.photoLabel.replace('{n}', i + 1))}" aria-pressed="${i === 0}"><span></span></button>`).join('');
+  const dots = h.photos.map((p, i) => `<button type="button" aria-label="${esc(ui.photoLabel.replace('{n}', i + 1))}" aria-pressed="${i === 0}" data-cta="hero_dot"><span></span></button>`).join('');
   const pool = (list) => list.map((p, i) => {
     const alt = altOf(p, lang);
     return img(p, '(max-width: 760px) 45vw, 272px', { cls: i === 0 ? 'is-on' : '', alt: i === 0 ? alt : '', attrs: ` data-alt="${esc(alt)}"${i === 0 ? '' : ' aria-hidden="true"'}` });
@@ -402,7 +402,7 @@ function homeParts(site, menu, news, today, lang) {
     newsFilters: en ? '' : newsFilters(news, site),
     news: en ? '' : newsLatest(news, site, today),
     newsEn: en ? newsEn(news, site) : '',
-    collab: en ? '' : site.collabTop.items.map((c) => `<li><a href="${esc(c.href)}"><figure>${img(c, '(max-width: 760px) 45vw, 280px')}<figcaption><span class="d" lang="en">${esc(c.date)}</span><span class="n">${esc(c.name)}</span></figcaption></figure></a></li>`).join('\n      '),
+    collab: en ? '' : site.collabTop.items.map((c) => `<li><a href="${esc(c.href)}" data-cta="collab_item"><figure>${img(c, '(max-width: 760px) 45vw, 280px')}<figcaption><span class="d" lang="en">${esc(c.date)}</span><span class="n">${esc(c.name)}</span></figcaption></figure></a></li>`).join('\n      '),
     // 撮影・取材・コラボへの入口。PCはお知らせの下、スマホはページのいちばん下に出す（同じ中身を2か所に置き、CSSで出し分ける）
     locBandPc: en ? '' : locBand(site, 'pc'),
     locBandSp: en ? '' : locBand(site, 'sp')
