@@ -695,12 +695,12 @@
       "catch": "A great music experience, on vinyl.",
       "contact": "Contact",
       "noReserve": "We do not take seat reservations.",
-      "jasrac": "JASRAC license",
-      "sister": "Sister shop",
+            "sister": "Sister shop",
       "sisterName": "CASSE, cassette tape café"
     },
     "ja": {
-      "jasrac": "JASRAC許諾番号",
+      "contact": "お問い合わせ",
+      "request": "撮影・取材",
       "sister": "姉妹店"
     }
   },
