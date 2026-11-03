@@ -237,7 +237,7 @@ function newsAll(items, site) {
     const thumb = n.image ? `<span class="thumb">${img({ file: n.image }, '160px', { alt: '' })}</span>` : ph;
     const inner = `${thumb}<span class="body"><span class="meta"><time datetime="${n.date}">${dateLabel(n.date)}</time>${genreTag(n, site)}</span><span class="t">${esc(n.title)}</span></span>`;
     return n.hasPage
-      ? `<li data-genre="${n.genre}"><a class="row" href="/news/${n.id}/" data-cta="news_item">${inner}<span class="more" aria-hidden="true"><span class="lb"><span class="en" lang="en">READ</span><span class="ja">詳しく見る</span></span><span class="more-dot">${icon('right', 16)}</span></span></a></li>`
+      ? `<li data-genre="${n.genre}"><a class="row" href="/news/${n.id}/" data-cta="news_item">${inner}<span class="more" aria-hidden="true"><span class="more-dot">${icon('right', 16)}</span></span></a></li>`
       : `<li data-genre="${n.genre}"><div class="row">${inner}</div></li>`;
   }).join('\n      ');
   return `<ul class="news-list" id="news-all">\n      ${lis}\n    </ul>`;
@@ -538,7 +538,7 @@ function shootingParts(site, news) {
           <p class="m"><span class="d" lang="en">${esc(c.date)}</span><span class="kind k-${sh.collabKinds[c.kind] || 'other'}">${esc(c.kind)}</span></p>
           <p class="n">${esc(c.name)}</p>
           <p class="x">${esc(c.text)}</p>${c.news ? `
-          <p class="more"><span class="lb"><span class="en" lang="en">READ</span><span class="ja">詳しく見る</span></span><span class="more-dot" aria-hidden="true">${icon('right')}</span></p>` : ''}
+          <p class="more"><span class="more-dot" aria-hidden="true">${icon('right')}</span></p>` : ''}
         </div>`;
     return c.news
       ? `<li class="has-link"><a href="/news/${esc(c.news)}/" data-cta="collab_card">${inner}</a></li>`
