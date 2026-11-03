@@ -601,6 +601,7 @@ html.lb-open { overflow: hidden; }
   .fab-ig { display: flex; gap: 10px; margin-top: 16px; }
   .fab-ig .btn { flex: 1 1 0; min-width: 0; min-height: 44px; padding: 0 8px; gap: 4px; font-size: 12px; letter-spacing: 0; white-space: nowrap; }
   html[lang="en"] .fab-ig .btn { font-size: 11px; } /* 英語は店名が長いので少し小さく */
+  .fab-lang { display: flex; justify-content: center; margin-top: 16px; } /* メニューの中にも日英の切り替え */
   .fab-girl { position: absolute; top: 12px; left: 20px; width: 62px; margin: 0; } /* 右上のプレーヤーと並ぶ、上の空いたところに置く */
   html.menu-open { overflow: hidden; }
 
