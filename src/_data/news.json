@@ -103,15 +103,107 @@
     },
     { "id": "2026summer", "date": "2026-07-08", "store": "recoco", "genre": "announce", "title": "特別営業期間のお知らせ 2026夏", "titleEn": "Peak period notice, summer 2026", "image": "news-summer-2026" },
     { "id": "2026spring", "date": "2026-02-10", "store": "recoco", "genre": "announce", "title": "特別営業期間のお知らせ 2026春", "titleEn": "Peak period notice, spring 2026", "image": "shibuya-player-headphones" },
-    { "id": "20260924-lee", "date": "2026-09-24", "store": "recoco", "genre": "press", "title": "『LEE』（集英社）12月号の撮影に店内をご利用いただきました" },
-    { "id": "20260915-tokyu-machitano", "date": "2026-09-15", "store": "recoco", "genre": "press", "title": "東急「まちを楽しむ」でRECOCO渋谷が紹介されました" },
-    { "id": "202609-nhk-doerai", "date": "2026-09", "store": "recoco", "genre": "press", "title": "NHK Eテレ「どえらい大学。」で店内の写真が紹介されました" },
-    { "id": "20260727-baila", "date": "2026-07-27", "store": "recoco", "genre": "press", "title": "『BAILA』（集英社）の撮影に店内をご利用いただきました" },
-    { "id": "20260715-shiritaikun", "date": "2026-07-15", "store": "recoco", "genre": "press", "title": "SHIRITAIKUN（日本出版貿易）でRECOCOが紹介されました" },
-    { "id": "20260629-fudge", "date": "2026-06-29", "store": "recoco", "genre": "press", "title": "『FUDGE』の撮影に店内をご利用いただきました" },
-    { "id": "20260326-non-no", "date": "2026-03-26", "store": "recoco", "genre": "press", "title": "『non-no』（集英社）7・8月合併号の撮影に店内をご利用いただきました" },
-    { "id": "20260315-niall-horan", "date": "2026-03-15", "store": "recoco", "genre": "campaign", "title": "Niall Horan 新曲「Dinner Party」の先行試聴会を開催しました" },
-    { "id": "202601-tokyo-cafe-catalog", "date": "2026-01", "store": "recoco", "genre": "press", "title": "『東京カフェカタログ』（朝日新聞出版）に掲載されました" },
+    {
+      "id": "20260924-lee",
+      "date": "2026-09-24",
+      "store": "recoco",
+      "genre": "press",
+      "title": "『LEE』（集英社）12月号の撮影に店内をご利用いただきました",
+      "body": [
+        "集英社の雑誌『LEE』12月号のファッション撮影に、RECOCO渋谷の店内をご利用いただきました。",
+        {"type": "table", "rows": [["媒体", "『LEE』（集英社）2026年12月号"], ["発売日", "2026年11月7日（土）"], ["撮影場所", "RECOCO渋谷"]]}
+      ]
+    },
+    {
+      "id": "20260915-tokyu-machitano",
+      "date": "2026-09-15",
+      "store": "recoco",
+      "genre": "press",
+      "title": "東急「まちを楽しむ」でRECOCO渋谷が紹介されました",
+      "body": [
+        "東急株式会社のウェブメディア「まちを楽しむ」の記事「渋谷のおすすめカフェ21選！夜カフェやスイーツなどテーマ別におすすめカフェを紹介」で、レコードカフェRECOCO渋谷をご紹介いただきました。",
+        "「渋谷でゆったり過ごせるおすすめカフェ」のひとつとして掲載されています。",
+        {"type": "buttons", "items": [{"text": "記事を読む", "url": "https://www.tokyu.co.jp/area/shibuya/article/arti-01JTMD2T3CAYE5YJBPHY8FG3C7/"}]}
+      ]
+    },
+    {
+      "id": "202609-nhk-doerai",
+      "date": "2026-09",
+      "store": "recoco",
+      "genre": "press",
+      "title": "NHK Eテレ「どえらい大学。」で店内の写真が紹介されました",
+      "body": [
+        "NHK Eテレの番組「どえらい大学。」の青山学院大学の回で、RECOCO渋谷の公式Instagramに投稿した店内の映像が、写真として紹介されました（写真提供：RECOCO渋谷）。",
+        {"type": "table", "rows": [["番組", "NHK Eテレ「どえらい大学。」"], ["放送", "2026年10月3日（土）20:30〜"], ["再放送", "2026年10月8日（木）22:00〜"]]}
+      ]
+    },
+    {
+      "id": "20260727-baila",
+      "date": "2026-07-27",
+      "store": "recoco",
+      "genre": "press",
+      "title": "『BAILA』（集英社）の撮影に店内をご利用いただきました",
+      "body": [
+        "集英社の雑誌『BAILA』の撮影に、RECOCO渋谷の店内をご利用いただきました。",
+        {"type": "table", "rows": [["媒体", "『BAILA』（集英社）"], ["撮影日", "2026年7月27日（月）"], ["撮影場所", "RECOCO渋谷"]]}
+      ]
+    },
+    {
+      "id": "20260715-shiritaikun",
+      "date": "2026-07-15",
+      "store": "recoco",
+      "genre": "press",
+      "title": "SHIRITAIKUN（日本出版貿易）でRECOCOが紹介されました",
+      "body": [
+        "日本出版貿易株式会社のウェブメディア「SHIRITAIKUN」に、RECOCOの体験レポート記事が掲載されました。",
+          {"type": "table", "rows": [["媒体", "SHIRITAIKUN（日本出版貿易）"], ["公開日", "2026年7月15日（水）"]]}
+      ]
+    },
+    {
+      "id": "20260629-fudge",
+      "date": "2026-06-29",
+      "store": "recoco",
+      "genre": "press",
+      "title": "『FUDGE』の撮影に店内をご利用いただきました",
+      "body": [
+        "雑誌『FUDGE』の撮影に、RECOCO渋谷の店内をご利用いただきました。",
+        {"type": "table", "rows": [["媒体", "『FUDGE』"], ["撮影日", "2026年6月29日（月）"], ["撮影場所", "RECOCO渋谷"]]}
+      ]
+    },
+    {
+      "id": "20260326-non-no",
+      "date": "2026-03-26",
+      "store": "recoco",
+      "genre": "press",
+      "title": "『non-no』（集英社）7・8月合併号の撮影に店内をご利用いただきました",
+      "body": [
+        "集英社の雑誌『non-no』7・8月合併号のファッション撮影に、RECOCO渋谷の店内をご利用いただきました。",
+        {"type": "table", "rows": [["媒体", "『non-no』（集英社）2026年7・8月合併号"], ["発売日", "2026年5月20日（水）"], ["撮影場所", "RECOCO渋谷"]]}
+      ]
+    },
+    {
+      "id": "20260315-niall-horan",
+      "date": "2026-03-15",
+      "store": "recoco",
+      "genre": "campaign",
+      "title": "Niall Horan 新曲「Dinner Party」の先行試聴会を開催しました",
+      "body": [
+        "ユニバーサル ミュージックの企画で、ナイル・ホーラン（Niall Horan）の新曲「Dinner Party」の先行試聴会をRECOCO渋谷で開催しました。",
+        "ワン・ダイレクションのメンバーとしても知られる、アイルランド出身のシンガー・ソングライターです。2026年3月20日の新曲リリースに先がけて、ナイル・ホーラン日本公式Xで募集されたファンの方に、ひと足先に新曲をお聴きいただきました。",
+        {"type": "table", "rows": [["日時", "2026年3月15日（日）18:00〜"], ["会場", "RECOCO渋谷"], ["主催", "ユニバーサル ミュージック"]]}
+      ]
+    },
+    {
+      "id": "202601-tokyo-cafe-catalog",
+      "date": "2026-01",
+      "store": "recoco",
+      "genre": "press",
+      "title": "『東京カフェカタログ』（朝日新聞出版）に掲載されました",
+      "body": [
+        "朝日新聞出版の書籍『東京カフェカタログ』に、レコードカフェRECOCO渋谷が掲載されました。",
+        "これまでの『Tokyo CAFE GUIDE』を再編集した総集版で、『Tokyo CAFE GUIDE25』でご紹介いただいた記事を、内容を新しくしたうえで掲載していただいています。"
+      ]
+    },
     {
       "id": "ava-max-x-recoco",
       "date": "2025-08-22",
