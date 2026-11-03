@@ -523,6 +523,34 @@
         "href": "/news/laufeyx-recoco2026/"
       },
       {
+        "date": "2026.05",
+        "name": "ソニー 公式グッズ",
+        "file": "collab-sony-goods",
+        "alt": "ソニー公式グッズのTシャツとトートバッグ",
+        "href": "/shooting/#collab"
+      },
+      {
+        "date": "2025.09",
+        "name": "FREAK’S STORE",
+        "file": "collab-freaks-store",
+        "alt": "RECOCOのロゴを背中にプリントしたコラボスウェット",
+        "href": "/shooting/#collab"
+      },
+      {
+        "date": "2025.06",
+        "name": "Ava Max",
+        "file": "collab-ava-max",
+        "alt": "Ava Maxのコラボ",
+        "href": "/shooting/#collab"
+      },
+      {
+        "date": "2025.06",
+        "name": "Benson Boone",
+        "file": "collab-benson",
+        "alt": "Benson Booneのコラボ",
+        "href": "/shooting/#collab"
+      },
+      {
         "date": "2025.04",
         "name": "Gracie Abrams",
         "file": "collab-gracie-2",
@@ -1047,6 +1075,7 @@
         "date": "2026.08",
         "kind": "コラボ",
         "name": "映画『マイケル』",
+        "news": "michael-movie",
         "photo": {
           "file": "collab-michael-2",
           "alt": "赤いレコードとコラボバームクーヘン"
@@ -1057,6 +1086,7 @@
         "date": "2026.06",
         "kind": "コラボ",
         "name": "Olivia Rodrigo",
+        "news": "olivia-rodrigox-recoco2026",
         "photo": {
           "file": "collab-olivia-main",
           "alt": "オリヴィア・ロドリゴのレコードに囲まれたコラボバームクーヘン"
@@ -1067,6 +1097,7 @@
         "date": "2026.05",
         "kind": "コラボ",
         "name": "Laufey",
+        "news": "laufeyx-recoco2026",
         "photo": {
           "file": "collab-laufey-1",
           "alt": "LPに囲まれたコラボバームクーヘン"

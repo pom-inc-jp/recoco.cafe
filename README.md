@@ -57,7 +57,7 @@ Node.js 18 以上だけで動く（追加のライブラリなし）。
 | トップの写真 | `hero.photos`（約6秒ごとに切り替わる）・`about.photosA`／`photosB` |
 | ナビの並び | `nav`（`fabOnly` はスマホのメニューだけ）。英語ページは `en.nav` |
 | 渋谷店の個室 | `stores` の渋谷店の `privateRoom`（トップの ABOUT の下の緑の帯と、店舗・アクセスの「個室あり」）。写真ができたら `photo` に `{ "file": "…", "alt": "…", "altEn": "…" }` を書くと写真の枠が出る。料金の金額は書かない |
-| 撮影ページ | `shooting`（並びは casse.cafe と同じ。`times`・`prices`・`minTime`・`priceNotes`・`flow`・`features`・`press`・`collabs` など）。問い合わせメールの件名と本文の項目は `mailSubject`・`mailItems` など |
+| 撮影ページ | `shooting`（並びは casse.cafe と同じ。`times`・`prices`・`minTime`・`priceNotes`・`flow`・`features`・`press`・`collabs` など）。問い合わせメールの件名と本文の項目は `mailSubject`・`mailItems` など | コラボ実績のカードに `news`（お知らせの id）を書くと、カードがその記事へのリンクになる（記事ページがない id だと書き出しが止まる）
 
 ## 英語ページ（`/en/`）
 
@@ -158,6 +158,7 @@ Node.js 18 以上だけで動く（追加のライブラリなし）。
 | store_card | トップ写真の下の店舗カード（`cta_store` に shibuya / shimokita） |
 | room_access | 渋谷店の個室の帯の「渋谷店のアクセス」 |
 | collab_item | トップのアーティストとのコラボの各カード |
+| collab_card | 撮影ページのコラボ実績のカード（記事があるもの） |
 | hero_dot / hero_swipe | トップ写真の点を押した／スマホで左右にスワイプした（`cta_label` に next / prev） |
 | collab_more / gallery_more / voice_more | トップの各「見る」リンク |
 | nav_header / nav_fab / fab_toggle | 上のメニュー／スマホのレコードプレーヤー型メニュー（中のリンク・開け閉め） |
