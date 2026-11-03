@@ -34,6 +34,7 @@
   --hand: #3A2A24;
   --tape: rgba(167, 36, 42, .18);
   --shadow: rgba(43, 30, 26, .10);
+  --scrim: rgba(43, 30, 26, .55);  /* 写真の上にのせる文字の下地（トップ写真の枚数） */
   --overlay: rgba(27, 18, 15, .94);
   --paper-dim: rgba(243, 236, 224, .55);
 
@@ -128,7 +129,6 @@ h2.mb { margin-bottom: 32px; }
 .tt-body { fill: var(--wood); } .tt-rim { stroke: var(--wood-rim); } .tt-mat { fill: var(--mat); } .tt-vinyl { fill: var(--vinyl); }
 .tt-groove { stroke: var(--vinyl-groove); } .tt-label { fill: var(--red); } .tt-shine { fill: var(--paper); opacity: .85; } .tt-hole { fill: var(--paper); }
 .tt-pivot { fill: var(--arm-base); } .tt-arm { stroke: var(--arm); } .tt-head { fill: var(--arm); } .tt-text { fill: var(--paper); }
-.tt-disc { transform-box: view-box; transform-origin: 26px 28px; }
 
 /* --- ファーストビュー --- */
 .hero-media { display: flex; align-items: stretch; border-radius: var(--r); overflow: hidden; }
@@ -144,6 +144,7 @@ h2.mb { margin-bottom: 32px; }
 .slide-dots button { width: 28px; height: 28px; padding: 0; border: 0; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; }
 .slide-dots span { display: block; width: 8px; height: 8px; border-radius: 999px; background: var(--paper-dim); transition: width .4s ease; }
 .slide-dots [aria-pressed="true"] span { width: 20px; background: var(--paper); }
+.slide-count { display: none; position: absolute; right: 12px; bottom: 12px; z-index: 2; margin: 0; padding: 4px 12px; border-radius: 999px; background: var(--scrim); color: var(--paper); font-family: Jost, sans-serif; font-size: 13px; font-weight: 500; letter-spacing: .08em; line-height: 1.6; }
 .hero-text { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 28px 64px; padding: 48px 0 0 var(--indent); }
 .hero-text h1 { font-size: clamp(30px, 4.4vw, 54px); line-height: 1.45; font-weight: 700; letter-spacing: .04em; }
 .hero-text .lead { max-width: 24em; font-size: 15px; line-height: 2.1; }
@@ -597,6 +598,8 @@ html.lb-open { overflow: hidden; }
   html.menu-open { overflow: hidden; }
 
   .hero-band { display: none; }
+  .slide-dots { display: none; }
+  .slide-count { display: block; } /* スマホは点の代わりに「3 / 10」の枚数表示 */
   .slides { height: auto; aspect-ratio: 4 / 3; } /* スマホは写真（3:2）に近い横長にして、切り取りすぎない */
   .store-cards { margin-top: 36px; }
 
