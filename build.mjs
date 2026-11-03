@@ -41,7 +41,8 @@ const isExternal = (url) => /^https?:\/\//.test(url);
 const linkAttrs = (url) => (isExternal(url) ? ' target="_blank" rel="noopener"' : '');
 const dateLabel = (d) => d.replace(/-/g, '.');
 const yen = (n) => (n == null ? '—' : `¥${Number(n).toLocaleString('en-US')}`);
-const lines = (list) => list.map(esc).join('<br>');
+// 行ごとに <br> でつなぐ。英語は <br> を隠したときに単語がくっつかないよう、前に空白を入れる
+const lines = (list, lang = 'ja') => list.map(esc).join(lang === 'en' ? ' <br>' : '<br>');
 
 async function walk(dir) {
   const out = [];
@@ -161,6 +162,9 @@ async function loadNews(site) {
     if (!n.title) problems.push('title がありません');
     if (seen.has(n.id)) problems.push('同じ id の記事がすでにあります');
     if (n.image) photo(n.image);
+    if ((n.titleEn || n.bodyEn) && n.genre !== 'announce') problems.push('英語（titleEn・bodyEn）は genre が announce（営業日などのお知らせ）の記事だけに書く');
+    if (n.bodyEn && !n.titleEn) problems.push('bodyEn を書くときは titleEn も書く');
+    if (n.bodyEn && !Array.isArray(n.bodyEn)) problems.push('bodyEn は body と同じ形（配列）で書く');
     if (problems.length) throw new Error(`お知らせ「${n.title || n.id}」: ${problems.join('、')}`);
     seen.add(n.id);
     valid.push({ ...n, hasPage: Array.isArray(n.body) && n.body.length > 0 });
@@ -242,85 +246,166 @@ function newsAll(items, site) {
 // ---------------------------------------------------------------
 // 店舗
 // ---------------------------------------------------------------
-const hoursText = (st) => `${st.opens}〜${st.closes}（L.O. ${st.lastOrder}）`;
+// 日本語と英語を1つのデータから作る（英語は「項目名En」）。英語が抜けていたら書き出しを止めて知らせる
+function pick(x, key, lang, where) {
+  if (lang === 'ja') return x[key];
+  const v = x[`${key}En`];
+  if (v == null || v === '' || (Array.isArray(v) && !v.length)) throw new Error(`${where}「${[].concat(x[key]).join('')}」の英語（${key}En）がありません（src/_data/site.json）`);
+  return v;
+}
+const altOf = (p, lang) => (lang === 'en' ? pick(p, 'alt', 'en', '写真の説明') : p.alt);
+
+const hoursText = (st, lang = 'ja') => (lang === 'en' ? `${st.opens}–${st.closes} (last order ${st.lastOrder})` : `${st.opens}〜${st.closes}（L.O. ${st.lastOrder}）`);
 const mapUrl = (st) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(st.mapQuery)}`;
 const mapEmbed = (st) => `https://www.google.com/maps?q=${encodeURIComponent(st.mapQuery)}&output=embed`;
 
-function storeCards(site) {
+function storeCards(site, lang) {
   return site.stores.map((s) => `<a class="store-card s-${s.color}" href="#${s.id}">
-      <span class="txt"><span class="nm"><span class="dot" aria-hidden="true"></span>${esc(s.name)}</span><span class="sub">${esc(s.accessShort)}・${esc(s.opens)}〜${esc(s.closes)}</span></span>
+      <span class="txt"><span class="nm"><span class="dot" aria-hidden="true"></span>${esc(pick(s, 'name', lang, '店名'))}</span><span class="sub">${esc(pick(s, 'accessShort', lang, '店舗カード'))}・<span class="nb">${esc(s.opens)}${lang === 'en' ? '–' : '〜'}${esc(s.closes)}</span></span></span>
       ${icon('right', 20, 1.8)}
     </a>`).join('\n    ');
 }
 
-function storeBlocks(site) {
+function storeBlocks(site, lang) {
+  const ui = site.ui[lang];
   return site.stores.map((s) => {
     const [main, ...rest] = s.photos;
+    const name = pick(s, 'name', lang, '店名');
     const rows = [
-      ['住所', `〒${s.zip} ${s.address}`],
-      ['行き方', s.access],
-      ['営業時間', hoursText(s)],
-      ['定休日', s.holiday],
-      ['席', s.seats],
-      ['駐車場', s.parking],
-      ['JASRAC', `許諾番号 ${s.jasrac}号`]
+      [ui.address, lang === 'en' ? pick(s, 'address', lang, '住所') : `〒${s.zip} ${s.address}`],
+      [ui.gettingHere, pick(s, 'access', lang, '行き方')],
+      [ui.hours, hoursText(s, lang)],
+      [ui.holiday, pick(s, 'holiday', lang, '定休日')],
+      [ui.seats, pick(s, 'seats', lang, '席')],
+      [ui.parking, pick(s, 'parking', lang, '駐車場')],
+      [ui.jasrac, `${ui.jasracPrefix}${s.jasrac}${ui.jasracSuffix}`]
     ];
+    const room = s.privateRoom ? `<span class="room-badge">${esc(ui.privateRoomBadge)}</span>` : '';
     return `<div class="store s-${s.color}" id="${s.id}">
-        <div class="store-head"><h3><svg aria-hidden="true" width="18" height="18" viewBox="0 0 16 16"><circle class="f-paper" cx="8" cy="8" r="7.5"/><circle class="f-store" cx="8" cy="8" r="3"/></svg>${esc(s.name)}</h3><span lang="en">${esc(s.en)}</span></div>
+        <div class="store-head"><h3><svg aria-hidden="true" width="18" height="18" viewBox="0 0 16 16"><circle class="f-paper" cx="8" cy="8" r="7.5"/><circle class="f-store" cx="8" cy="8" r="3"/></svg>${esc(name)}</h3>${room}<span class="en" lang="en">${esc(s.en)}</span></div>
         <div class="store-photos">
-          ${img(main, '(max-width: 760px) 78vw, 560px', { cls: 'main' })}
-          ${rest.map((p) => img(p, '(max-width: 760px) 78vw, 280px')).join('\n          ')}
+          ${img(main, '(max-width: 760px) 78vw, 560px', { cls: 'main', alt: altOf(main, lang) })}
+          ${rest.map((p) => img(p, '(max-width: 760px) 78vw, 280px', { alt: altOf(p, lang) })).join('\n          ')}
         </div>
         <dl class="kv">
           ${rows.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('\n          ')}
         </dl>
-        <div class="store-map"><iframe src="${esc(mapEmbed(s))}" title="${esc(s.name)}の地図" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+        <div class="store-map"><iframe src="${esc(mapEmbed(s))}" title="${esc(name + ui.mapTitle)}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
         <p class="btns">
-          <a class="btn btn-store" href="${esc(mapUrl(s))}" target="_blank" rel="noopener" data-store="${s.id}">地図を開く${icon('out')}</a>
+          <a class="btn btn-store" href="${esc(mapUrl(s))}" target="_blank" rel="noopener" data-store="${s.id}">${esc(ui.map)}${icon('out')}</a>
           <a class="btn btn-line" href="${esc(s.instagram)}" target="_blank" rel="noopener" lang="en" data-store="${s.id}">Instagram${icon('out')}</a>
         </p>
       </div>`;
   }).join('\n      ');
 }
 
+// 渋谷店の個室の案内（ABOUT の下）。写真（privateRoom.photo）があるときだけ左に写真を出す
+function privateRoomBand(site, lang) {
+  const s = site.stores.find((x) => x.privateRoom);
+  if (!s) return '';
+  const r = s.privateRoom;
+  const w = '個室の案内';
+  const pic = r.photo ? `<div class="room-photo">${img(r.photo, '(max-width: 760px) 100vw, 420px', { alt: altOf(r.photo, lang) })}</div>` : '';
+  return `<div class="room${pic ? ' has-photo' : ''}">
+    ${pic}<div class="room-text">
+      <p class="pill">${esc(pick(r, 'lead', lang, w))}</p>
+      <h3>${lines(pick(r, 'title', lang, w), lang)}</h3>
+      <p class="room-body">${esc(pick(r, 'body', lang, w))}</p>
+      <p class="room-note">${esc(pick(r, 'note', lang, w))}</p>
+      <p class="room-btn"><a class="btn btn-paper" href="#${s.id}">${esc(pick(r, 'button', lang, w))}${icon('down')}</a></p>
+    </div>
+  </div>`;
+}
+
+// 英語ページのお知らせ：announce で titleEn がある記事だけ、新しい順に3件。
+// 記事ページがあれば、記事の英語の部分（/news/id/#en）へリンクする。なければ文字だけ
+function newsEn(news, site) {
+  const items = news.filter((n) => n.genre === 'announce' && n.titleEn).slice(0, 3);
+  if (!items.length) return '';
+  const row = (n) => {
+    const inner = `<time datetime="${n.date}">${dateLabel(n.date)}</time><span class="t">${esc(n.titleEn)}</span>`;
+    return n.hasPage ? `<a class="row" href="/news/${n.id}/#en">${inner}${icon('right')}</a>` : `<div class="row">${inner}</div>`;
+  };
+  return `<section class="sec wrap sec-news" id="news" aria-labelledby="news-h">
+  <div class="indent">
+    ${eyebrow('NEWS')}<h2 id="news-h" class="mb-s">${esc(site.ui.en.news)}</h2>
+    <ul class="news news-en">
+      ${items.map((n) => `<li>${row(n)}</li>`).join('\n      ')}
+    </ul>
+  </div>
+</section>`;
+}
+
 // ---------------------------------------------------------------
-// トップの部品
+// トップ（/）と英語ページ（/en/）の部品。テンプレートは同じで、言葉だけが変わる
 // ---------------------------------------------------------------
-function homeParts(site, menu, news, today) {
+function homeParts(site, menu, news, today, lang) {
+  const en = lang === 'en';
+  const ui = site.ui[lang];
   const h = site.hero;
   // 写真は重ねておき、recoco.js が約6秒ごとにふわっと切り替える（最初の1枚だけ先に読み込む）
-  const slides = h.photos.map((p, i) => img(p, '(max-width: 760px) 100vw, 1180px', {
-    lazy: i > 0, priority: i === 0, cls: i === 0 ? 'is-on' : '', alt: i === 0 ? p.alt : '', attrs: ` data-alt="${esc(p.alt)}"${i === 0 ? '' : ' aria-hidden="true"'}`
-  })).join('\n      ');
-  const dots = h.photos.map((p, i) => `<button type="button" aria-label="写真${i + 1}を表示" aria-pressed="${i === 0}"><span></span></button>`).join('');
-  const pool = (list) => list.map((p, i) => img(p, '(max-width: 760px) 45vw, 272px', { cls: i === 0 ? 'is-on' : '', alt: i === 0 ? p.alt : '', attrs: ` data-alt="${esc(p.alt)}"${i === 0 ? '' : ' aria-hidden="true"'}` })).join('');
+  const slides = h.photos.map((p, i) => {
+    const alt = altOf(p, lang);
+    return img(p, '(max-width: 760px) 100vw, 1180px', { lazy: i > 0, priority: i === 0, cls: i === 0 ? 'is-on' : '', alt: i === 0 ? alt : '', attrs: ` data-alt="${esc(alt)}"${i === 0 ? '' : ' aria-hidden="true"'}` });
+  }).join('\n      ');
+  const dots = h.photos.map((p, i) => `<button type="button" aria-label="${esc(ui.photoLabel.replace('{n}', i + 1))}" aria-pressed="${i === 0}"><span></span></button>`).join('');
+  const pool = (list) => list.map((p, i) => {
+    const alt = altOf(p, lang);
+    return img(p, '(max-width: 760px) 45vw, 272px', { cls: i === 0 ? 'is-on' : '', alt: i === 0 ? alt : '', attrs: ` data-alt="${esc(alt)}"${i === 0 ? '' : ' aria-hidden="true"'}` });
+  }).join('');
   const words = site.marquee.flatMap((w) => [`<span lang="en">${esc(w)}</span>`, '<span>●</span>']).join('');
+  const more = (href, text, cta) => (text ? `<a class="more-link" href="${href}" data-cta="${cta}">${esc(text)}${icon('right')}</a>` : '');
+  const menuName = (name) => (en ? menuItem(menu, name).en.split(' ／ ')[0] : name);
+  const voices = en ? '' : `<section class="sec wrap" id="voice" aria-labelledby="voice-h">
+  <div class="indent">
+    <div class="sec-head">
+      <div>${eyebrow('VOICE')}<h2 id="voice-h">お客さまの声</h2></div>
+      ${more('/voice/', 'すべて見る', 'voice_more')}
+    </div>
+    <div class="voice-cards">
+      ${site.voices.items.slice(0, 2).map((v, i) => `<a class="voice-card${i ? ' sp-hide' : ''}" href="/voice/#voice-${String(i + 1).padStart(2, '0')}"><p class="q">${lines(v.headline)}</p><p class="who">${esc(v.whoShort || v.who)}</p></a>`).join('\n      ')}
+    </div>
+  </div>
+</section>`;
   return {
-    heroTitle: lines(h.title),
-    heroLead: lines(h.lead),
+    ui,
+    heroTitle: lines(pick(h, 'title', lang, 'トップの見出し'), lang),
+    heroLead: lines(pick(h, 'lead', lang, 'トップの文章'), lang),
     heroBand: h.band.map(esc).join('<span class="gap"></span>'),
     slides,
     dots,
-    storeCards: storeCards(site),
+    storeCards: storeCards(site, lang),
     marquee: words.repeat(4),
-    newsFilters: newsFilters(news, site),
-    news: newsLatest(news, site, today),
-    aboutTitle: lines(site.about.title),
+    aboutTitle: lines(pick(site.about, 'title', lang, 'ABOUT の見出し'), lang),
+    aboutText: pick(site.about, 'text', lang, 'ABOUT の文章'),
     aboutA: pool(site.about.photosA),
     aboutB: pool(site.about.photosB),
-    points: site.about.points.map((x, i) => `<li><p class="pt" lang="en">POINT ${String(i + 1).padStart(2, '0')}</p><h3>${esc(x.title)}</h3><p>${esc(x.text)}</p></li>`).join('\n      '),
-    steps: site.steps.map((x, i) => `<li><span class="num" lang="en">${i + 1}</span><h3>${esc(x.title)}</h3><p>${esc(x.text)}</p></li>`).join('\n        '),
-    chargeTable: chargeTable(site.charge),
-    menuImg: img(site.menuPreview.photo, '(max-width: 760px) calc(100vw - 40px), 600px', { cls: 'menu-photo' }),
-    menuItems: site.menuPreview.items.map((name) => `<li><span>${esc(name)}</span><span class="pr" lang="en">${yen(menuItem(menu, name).price)}</span></li>`).join('\n        '),
-    info: infoList(site.info),
-    collab: site.collabTop.items.map((c) => `<li><a href="${esc(c.href)}"><figure>${img(c, '(max-width: 760px) 45vw, 280px')}<figcaption><span class="d" lang="en">${esc(c.date)}</span><span class="n">${esc(c.name)}</span></figcaption></figure></a></li>`).join('\n      '),
-    gallery: site.galleryTop.map((g) => img(g, g.shape === 'wide' ? '(max-width: 760px) 100vw, 600px' : '(max-width: 760px) 50vw, 300px', { cls: `g-${g.shape}` })).join('\n    '),
-    voices: site.voices.items.slice(0, 2).map((v, i) => `<a class="voice-card${i ? ' sp-hide' : ''}" href="/voice/#voice-${String(i + 1).padStart(2, '0')}"><p class="q">${lines(v.headline)}</p><p class="who">${esc(v.whoShort || v.who)}</p></a>`).join('\n      '),
-    stores: storeBlocks(site),
+    points: site.about.points.map((x, i) => `<li><p class="pt" lang="en">POINT ${String(i + 1).padStart(2, '0')}</p><h3>${esc(pick(x, 'title', lang, 'ABOUT のポイント'))}</h3><p>${esc(pick(x, 'text', lang, 'ABOUT のポイント'))}</p></li>`).join('\n      '),
+    room: privateRoomBand(site, lang),
+    stepsLead: en ? site.stepsLeadEn : site.stepsLead,
+    steps: site.steps.map((x, i) => `<li><span class="num" lang="en">${i + 1}</span><h3>${esc(pick(x, 'title', lang, '楽しみ方'))}</h3><p>${esc(pick(x, 'text', lang, '楽しみ方'))}</p></li>`).join('\n        '),
+    girlAlt: en ? 'The RECOCO logo: a girl wearing headphones' : 'RECOCOのロゴ（ヘッドホンをつけた女の子）',
+    chargeNote: pick(site.charge, 'note', lang, '料金の説明'),
+    chargeTable: chargeTable(site.charge, { lang }),
+    chargeFootnote: pick(site.charge, 'footnote', lang, '料金の注記'),
+    menuTitle: pick(site.menuPreview, 'title', lang, 'メニューの見出し'),
+    menuText: pick(site.menuPreview, 'text', lang, 'メニューの文章'),
+    menuImg: img(site.menuPreview.photo, '(max-width: 760px) calc(100vw - 40px), 600px', { cls: 'menu-photo', alt: altOf(site.menuPreview.photo, lang) }),
+    menuItems: site.menuPreview.items.map((name) => `<li><span>${esc(menuName(name))}</span><span class="pr" lang="en">${yen(menuItem(menu, name).price)}</span></li>`).join('\n        '),
+    info: infoList(site.info.filter((x) => !(en && x.jaOnly)), lang),
+    galleryMore: more('/gallery/', ui.galleryMore, 'gallery_more'),
+    gallery: site.galleryTop.map((g) => img(g, g.shape === 'wide' ? '(max-width: 760px) 100vw, 600px' : '(max-width: 760px) 50vw, 300px', { cls: `g-${g.shape}`, alt: altOf(g, lang) })).join('\n    '),
+    voices,
+    accessLead: en ? site.en.accessLead : site.accessLead,
+    stores: storeBlocks(site, lang),
+    // ここから日本語のトップだけ
+    newsFilters: en ? '' : newsFilters(news, site),
+    news: en ? '' : newsLatest(news, site, today),
+    newsEn: en ? newsEn(news, site) : '',
+    collab: en ? '' : site.collabTop.items.map((c) => `<li><a href="${esc(c.href)}"><figure>${img(c, '(max-width: 760px) 45vw, 280px')}<figcaption><span class="d" lang="en">${esc(c.date)}</span><span class="n">${esc(c.name)}</span></figcaption></figure></a></li>`).join('\n      '),
     // 撮影・取材・コラボへの入口。PCはお知らせの下、スマホはページのいちばん下に出す（同じ中身を2か所に置き、CSSで出し分ける）
-    locBandPc: locBand(site, 'pc'),
-    locBandSp: locBand(site, 'sp')
+    locBandPc: en ? '' : locBand(site, 'pc'),
+    locBandSp: en ? '' : locBand(site, 'sp')
   };
 }
 
@@ -344,11 +429,13 @@ function locBand(site, where) {
 </section>`;
 }
 
-function chargeTable(charge, { en = false } = {}) {
-  const cols = charge.columns.map((c) => `<th scope="col">${esc(c)}</th>`).join('');
-  const rows = charge.rows.map((r) => `<tr><th scope="row">${esc(r.label)}${en ? `<span class="en" lang="en">${esc(r.en)}</span>` : ''}</th>${r.prices.map((p) => `<td lang="en">${yen(p)}</td>`).join('')}</tr>`).join('\n          ');
-  return `<div class="table-wrap"><table class="charge${en ? ' charge-menu' : ''}">
-          <thead><tr><th scope="col"><span class="vh">区分</span></th>${cols}</tr></thead>
+// 料金の表。lang: 'en' は英語だけ、bi: true は日本語に英語を小さく添える（メニューページ）
+function chargeTable(charge, { lang = 'ja', bi = false } = {}) {
+  const t = (x, key) => (lang === 'en' ? esc(pick(x, key, 'en', '料金')) : bi ? `${esc(x[key])}<span class="en" lang="en">${esc(pick(x, key, 'en', '料金'))}</span>` : esc(x[key]));
+  const cols = charge.columns.map((c, i) => `<th scope="col">${t({ c, cEn: (charge.columnsEn || [])[i] }, 'c')}</th>`).join('');
+  const rows = charge.rows.map((r) => `<tr><th scope="row">${t(r, 'label')}</th>${r.prices.map((p) => `<td lang="en">${yen(p)}</td>`).join('')}</tr>`).join('\n          ');
+  return `<div class="table-wrap"><table class="charge${bi ? ' charge-menu' : ''}">
+          <thead><tr><th scope="col"><span class="vh">${lang === 'en' ? 'Type' : '区分'}</span></th>${cols}</tr></thead>
           <tbody>
           ${rows}
           </tbody>
@@ -379,7 +466,7 @@ function infoIcon(name) {
   if (!INFO_ICONS[name]) throw new Error(`ご利用案内のアイコンが見つかりません: ${name}（使えるもの: ${Object.keys(INFO_ICONS).join(' / ')}）`);
   return `<svg class="ico info-ico" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${INFO_ICONS[name]}</svg>`;
 }
-const infoList = (info) => info.map((x) => `<div><dt>${infoIcon(x.icon)}${esc(x.label)}</dt><dd>${esc(x.text)}</dd></div>`).join('\n        ');
+const infoList = (info, lang = 'ja') => info.map((x) => `<div><dt>${infoIcon(x.icon)}${esc(pick(x, 'label', lang, 'ご利用案内'))}</dt><dd>${esc(pick(x, 'text', lang, 'ご利用案内'))}</dd></div>`).join('\n        ');
 
 function menuItem(menu, name) {
   for (const c of menu.categories) for (const it of c.items) if (it.name === name) return it;
@@ -389,12 +476,12 @@ function menuItem(menu, name) {
 function menuParts(menu) {
   return {
     photo: img(menu.photo, '(max-width: 760px) calc(100vw - 40px), 320px', { lazy: false, cls: 'menu-hero' }),
-    chips: menu.categories.map((c) => `<a href="#${esc(c.id)}">${esc(c.name)}${icon('down')}</a>`).join('\n    '),
+    chips: menu.categories.map((c) => `<a href="#${esc(c.id)}">${esc(c.name)}<span lang="en">${esc(c.en)}</span>${icon('down')}</a>`).join('\n    '),
     sections: menu.categories.map((c) => `<section class="menu-cat" id="${esc(c.id)}" aria-labelledby="${esc(c.id)}-h">
     <div class="menu-cat-head">
       <p class="en" lang="en">${esc(c.en)}</p>
       <h2 id="${esc(c.id)}-h">${esc(c.name)}</h2>
-      ${c.note ? `<p class="note">${esc(c.note)}</p>` : ''}
+      ${c.note ? `<p class="note">${esc(c.note)}${c.noteEn ? `<span class="en" lang="en">${esc(c.noteEn)}</span>` : ''}</p>` : ''}
       ${c.photo ? img(c.photo, '280px', { cls: 'cat-photo' }) : ''}
     </div>
     <ul class="menu-items">
@@ -555,18 +642,28 @@ function articleJsonLd(n, site, url) {
 // ---------------------------------------------------------------
 // ヘッダー・スマホのメニュー・フッター
 // ---------------------------------------------------------------
-function chromeParts(site) {
-  const navHeader = site.nav.filter((n) => !n.fabOnly).map((n) => `<a href="${esc(n.href)}">${esc(n.label)}</a>`).join('\n      ');
-  const navFab = site.nav.map((n) => `<a href="${esc(n.href)}"><span class="dot" aria-hidden="true"></span><span class="lb"><span class="ja">${esc(n.label)}</span><span class="en" lang="en">${esc(n.en)}</span></span></a>`).join('\n      ');
-  const igFab = site.stores.map((s) => `<a class="btn btn-${s.color}" href="${esc(s.instagram)}" target="_blank" rel="noopener" data-store="${s.id}">${esc(s.area)} <span lang="en">Instagram</span>${icon('out')}</a>`).join('');
+function chromeParts(site, lang, hasNewsEn = true) {
+  const en = lang === 'en';
+  // 英語ページのお知らせ（announce で titleEn がある記事）がないときは、メニューから News を外す
+  const nav = en ? site.en.nav.filter((n) => hasNewsEn || n.href !== '/en/#news') : site.nav;
+  const navHeader = nav.filter((n) => !n.fabOnly).map((n) => `<a href="${esc(n.href)}">${esc(n.label)}</a>`).join('\n      ');
+  const navFab = nav.map((n) => `<a href="${esc(n.href)}"><span class="dot" aria-hidden="true"></span><span class="lb"><span class="ja">${esc(n.label)}</span><span class="en" lang="en">${esc(n.en)}</span></span></a>`).join('\n      ');
+  const igFab = site.stores.map((s) => `<a class="btn btn-${s.color}" href="${esc(s.instagram)}" target="_blank" rel="noopener" data-store="${s.id}">${esc(pick(s, 'area', lang, '店名'))} <span lang="en">Instagram</span>${icon('out')}</a>`).join('');
   const f = site.footer;
-  const a = (url, text, cls = '') => `<a${cls ? ` class="${cls}"` : ''} href="${esc(url)}"${linkAttrs(url)}>${esc(text)}</a>`;
-  const foot = [
-    `<p>${a('/shooting/', f.contact)}／お問い合わせ：<a href="mailto:${esc(site.email)}">${esc(site.email)}</a>（${esc(f.noReserve)}）</p>`,
-    `<p>JASRAC許諾番号 ${site.stores.map((s) => `${esc(s.area)}店 ${esc(s.jasrac)}号`).join('／')}</p>`,
-    `<p><span lang="en">Instagram</span> ${site.stores.map((s) => a(s.instagram, s.area)).join('／')}／姉妹店 ${a(f.sister.url, f.sister.name)}</p>`
-  ].join('\n      ');
-  return { navHeader, navFab, igFab, foot };
+  const a = (url, text) => `<a href="${esc(url)}"${linkAttrs(url)}>${esc(text)}</a>`;
+  const mail = `<a href="mailto:${esc(site.email)}">${esc(site.email)}</a>`;
+  const foot = en
+    ? [
+      `<p>${esc(f.en.contact)}: ${mail} (${esc(f.en.noReserve)})</p>`,
+      `<p>${esc(f.en.jasrac)}: ${site.stores.map((s) => `${esc(s.areaEn)} ${esc(s.jasrac)}`).join(' / ')}</p>`,
+      `<p><span lang="en">Instagram</span> ${site.stores.map((s) => a(s.instagram, s.areaEn)).join(' / ')} / ${esc(f.en.sister)}: ${a(f.sister.url, f.en.sisterName)}</p>`
+    ]
+    : [
+      `<p>${a('/shooting/', f.contact)}／お問い合わせ：${mail}（${esc(f.noReserve)}）</p>`,
+      `<p>${esc(f.ja.jasrac)} ${site.stores.map((s) => `${esc(s.area)}店 ${esc(s.jasrac)}号`).join('／')}</p>`,
+      `<p><span lang="en">Instagram</span> ${site.stores.map((s) => a(s.instagram, s.area)).join('／')}／${esc(f.ja.sister)} ${a(f.sister.url, f.sister.name)}</p>`
+    ];
+  return { navHeader, navFab, igFab, foot: foot.join('\n      '), jpCurrent: en ? '' : ' aria-current="true"', enCurrent: en ? ' aria-current="true"' : '', footCatch: en ? f.en.catch : f.catch, tagline: en ? site.en.tagline : site.tagline, home: en ? '/en/' : '/' };
 }
 
 // ---------------------------------------------------------------
@@ -601,22 +698,32 @@ async function build() {
     eb: Object.fromEntries(['NEWS', 'ABOUT', 'HOW TO ENJOY', 'CHARGE', 'MENU', 'INFORMATION', 'COLLABORATION', 'GALLERY', 'VOICE', 'ACCESS', 'LOCATION & PRESS'].map((k) => [k.replace(/[^A-Z]/g, ''), eyebrow(k)])),
     ic: { right: icon('right'), out: icon('out'), down: icon('down'), up: icon('up', 16), mail: icon('mail', 18, 1.8), prev: icon('prev', 18), next: icon('next', 18), close: icon('close', 18) },
     build: { version: t0.toString(36), year: new Date().getFullYear() },
-    chrome: chromeParts(site),
-    home: homeParts(site, menu, news, t0),
     news: { filters: newsFilters(news, site), all: newsAll(news, site) },
-    menu: { ...menuParts(menu), lead: menu.lead, updated: menu.updated, chargeTable: chargeTable(site.charge, { en: true }) },
+    menu: { ...menuParts(menu), lead: menu.lead, leadEn: menu.leadEn, updated: menu.updated, chargeTable: chargeTable(site.charge, { bi: true }), footnoteEn: site.charge.footnoteEn },
     shooting: shootingParts(site),
     gallery: galleryParts(site),
     voices: { list: voiceParts(site), closing: lines(site.voices.closing) }
   };
 
   const sitemap = [];
+  // 日本語と英語で変わる部分（ヘッダー・メニュー・フッター・トップの本文）
+  const byLang = {
+    ja: { chrome: chromeParts(site, 'ja'), t: homeParts(site, menu, news, t0, 'ja') },
+    en: { chrome: chromeParts(site, 'en', news.some((n) => n.genre === 'announce' && n.titleEn)), t: homeParts(site, menu, news, t0, 'en') }
+  };
 
   function pageCtx(meta, urlPath, extra = {}) {
     const isTop = urlPath === '/';
+    const lang = meta.lang || 'ja';
     return {
       ...shared,
+      chrome: byLang[lang].chrome,
       page: {
+        lang,
+        locale: lang === 'en' ? 'en_US' : 'ja_JP',
+        ui: site.ui[lang],
+        t: byLang[lang].t,
+        hreflang: ['/', '/en/'].includes(urlPath) ? `<link rel="alternate" hreflang="ja" href="${site.url}/">\n<link rel="alternate" hreflang="en" href="${site.url}/en/">\n<link rel="alternate" hreflang="x-default" href="${site.url}/">` : '',
         fullTitle: meta.fullTitle || (isTop ? `${site.fullName}｜${site.catch}` : `${meta.title}｜${site.name}`),
         description: meta.description || site.description,
         url: `${site.url}${urlPath}`,
@@ -671,6 +778,9 @@ async function build() {
         updated: n.updated ? `<span class="upd">（更新 ${dateLabel(n.updated)}）</span>` : '',
         tag: genreTag(n, site),
         body: n.body.map(renderBlock).join('\n'),
+        // 営業日などのお知らせ（announce）に英語（titleEn・bodyEn）があれば、日本語の下に英語を続ける（同じページ）
+        enLink: n.titleEn ? `<a class="en-link" href="#en" lang="en">English below${icon('down', 13)}</a>` : '',
+        en: n.titleEn ? `<section class="article-en" id="en" lang="en" aria-labelledby="en-h"><p class="label">ENGLISH</p><h2 id="en-h">${esc(n.titleEn)}</h2><div class="en-body">${(n.bodyEn || []).map(renderBlock).join('\n')}</div></section>` : '',
         // 一覧は新しい順なので、配列の後ろが「前の記事（古い）」、前が「次の記事（新しい）」
         pager: [navCard(withPage[i + 1], 'prev'), navCard(withPage[i - 1], 'next')].join('')
       }

@@ -1,0 +1,22 @@
+<!-- トップ（/）と英語ページ（/en/）で共通のファーストビュー。言葉は site.json から言語ごとに入る -->
+<section class="hero wrap" id="hero" aria-label="{{page.ui.heroLabel}}">
+  <div class="hero-media">
+    <div class="hero-band" aria-hidden="true">
+      <p lang="en">{{{page.t.heroBand}}}</p>
+      <svg class="band-disc" width="44" height="44" viewBox="0 0 44 44"><circle class="f-ink" cx="22" cy="22" r="21"/><circle class="s-groove" cx="22" cy="22" r="16" fill="none" stroke-width=".8"/><circle class="s-groove" cx="22" cy="22" r="12" fill="none" stroke-width=".8"/><circle class="f-paper" cx="22" cy="22" r="7"/><path class="f-red" d="M22 15a7 7 0 0 1 7 7h-7z"/><circle class="f-ink" cx="22" cy="22" r="1.4"/></svg>
+    </div>
+    <div class="slides" data-slides>
+      {{{page.t.slides}}}
+      <div class="slide-dots" role="group" aria-label="{{page.ui.photoGroup}}">{{{page.t.dots}}}</div>
+    </div>
+  </div>
+  <div class="hero-text">
+    <h1>{{{page.t.heroTitle}}}</h1>
+    <p class="lead">{{{page.t.heroLead}}}</p>
+  </div>
+  <div class="store-cards">
+    {{{page.t.storeCards}}}
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="marquee-track" data-nobreak>{{{page.t.marquee}}}</div></div>

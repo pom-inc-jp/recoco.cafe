@@ -1,5 +1,5 @@
 {
-  "_説明": "お知らせ。書き方は README の「お知らせの書き方」。body がある記事だけ記事ページ（/news/id/）を作る。body がない記事は一覧に見出しだけを出す",
+  "_説明": "お知らせ。書き方は README の「お知らせの書き方」。body がある記事だけ記事ページ（/news/id/）を作る。body がない記事は一覧に見出しだけを出す。英語ページ（/en/）には、genre が announce で titleEn がある記事だけを出す（bodyEn に1〜2行の説明を書ける）",
   "items": [
     {
       "id": "michael-movie",
@@ -101,8 +101,8 @@
         ] }
       ]
     },
-    { "id": "2026summer", "date": "2026-07-08", "store": "recoco", "genre": "announce", "title": "特別営業期間のお知らせ 2026夏", "image": "news-summer-2026" },
-    { "id": "2026spring", "date": "2026-02-10", "store": "recoco", "genre": "announce", "title": "特別営業期間のお知らせ 2026春", "image": "shibuya-player-headphones" },
+    { "id": "2026summer", "date": "2026-07-08", "store": "recoco", "genre": "announce", "title": "特別営業期間のお知らせ 2026夏", "titleEn": "Peak period notice, summer 2026", "image": "news-summer-2026" },
+    { "id": "2026spring", "date": "2026-02-10", "store": "recoco", "genre": "announce", "title": "特別営業期間のお知らせ 2026春", "titleEn": "Peak period notice, spring 2026", "image": "shibuya-player-headphones" },
     { "id": "20260924-lee", "date": "2026-09-24", "store": "recoco", "genre": "press", "title": "『LEE』（集英社）12月号の撮影に店内をご利用いただきました" },
     { "id": "20260915-tokyu-machitano", "date": "2026-09-15", "store": "recoco", "genre": "press", "title": "東急「まちを楽しむ」でRECOCO渋谷が紹介されました" },
     { "id": "202609-nhk-doerai", "date": "2026-09", "store": "recoco", "genre": "press", "title": "NHK Eテレ「どえらい大学。」で店内の写真が紹介されました" },

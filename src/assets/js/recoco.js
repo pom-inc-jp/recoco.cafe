@@ -39,7 +39,7 @@
       fab.classList.toggle('is-open', open);
       root.classList.toggle('menu-open', open);
       btn.setAttribute('aria-expanded', String(open));
-      btn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+      btn.setAttribute('aria-label', btn.getAttribute(open ? 'data-close-label' : 'data-open-label'));
     };
     onScrollFns.push(function (y) {
       var p = Math.max(0, Math.min(1, (y - FROM) / (TO - FROM)));
@@ -255,10 +255,10 @@
     (window.dataLayer = window.dataLayer || []).push({ event: 'link_click', link_type: type, link_store: storeOf(a), link_place: placeOf(a), link_url: a.href.split('?')[0] });
   });
   document.addEventListener('click', function (e) {
-    var el = e.target.closest('[data-cta], .gnav a, .fab-nav a, .filters button, .chips a');
+    var el = e.target.closest('[data-cta], .gnav a, .fab-nav a, .lang a, .filters button, .chips a');
     if (!el) return;
     var name = el.getAttribute('data-cta') ||
-      (el.closest('.gnav') ? 'nav_header' : el.closest('.fab-nav') ? 'nav_fab' : el.closest('[data-gallery-filter]') ? 'gallery_filter' : el.closest('.filters') ? 'news_filter' : 'menu_chip');
+      (el.closest('.gnav') ? 'nav_header' : el.closest('.lang') ? 'lang_switch' : el.closest('.fab-nav') ? 'nav_fab' : el.closest('[data-gallery-filter]') ? 'gallery_filter' : el.closest('.filters') ? 'news_filter' : 'menu_chip');
     var label = (el.getAttribute('aria-label') || el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 60);
     if (name === 'fab_toggle') label = el.getAttribute('aria-expanded') === 'true' ? 'close' : 'open';
     (window.dataLayer = window.dataLayer || []).push({ event: 'click_cta', cta_name: name, cta_label: label, cta_place: placeOf(el), cta_url: (el.href || '').split('?')[0], cta_store: storeOf(el) });

@@ -20,8 +20,9 @@ Node.js 18 以上だけで動く（追加のライブラリなし）。
 | `/shooting/` | 撮影・取材・コラボのご依頼（渋谷店のみ） |
 | `/gallery/` | ギャラリー（店舗で絞り込み・拡大表示） |
 | `/voice/` | お客さまの声 |
+| `/en/` | 英語の案内（トップと同じ部品で、英語の言葉を入れたもの）。メニューは `/menu/` を日英共通で使う |
 
-英語のページは今はない。
+英語のページは `/en/` だけ。お知らせ一覧・記事・撮影・ギャラリー・お客さまの声の英語版はない。
 
 ## ファイル
 
@@ -30,7 +31,7 @@ Node.js 18 以上だけで動く（追加のライブラリなし）。
 | `src/_data/site.json` | 2店舗の情報（`stores`）・ナビ・トップの写真と文章・楽しみ方・料金・ご利用案内・ギャラリー・お客さまの声・撮影ページの文言と料金・フッター |
 | `src/_data/menu.json` | メニューと価格（カテゴリごと） |
 | `src/_data/news.json` | お知らせ |
-| `src/_partials/` | 共通部品（head・ヘッダー・フッター・スマホのレコードプレーヤー型メニュー・写真の拡大表示） |
+| `src/_partials/` | 共通部品（head・ヘッダー・フッター・スマホのレコードプレーヤー型メニュー・写真の拡大表示）。`home-hero.html`・`home-body.html` はトップと英語ページで共通の本文（言葉は site.json の `ui` と各項目から言語ごとに入る） |
 | `src/_templates/news-article.html` | お知らせ記事ページのひな形 |
 | `src/pages/` | 各ページ |
 | `src/assets/css/recoco.css` | 見た目（色は先頭の変数を使う） |
@@ -54,8 +55,17 @@ Node.js 18 以上だけで動く（追加のライブラリなし）。
 | 楽しみ方・ご利用案内 | `steps`・`info`。ご利用案内のアイコンは `icon`（build.mjs の `INFO_ICONS` の名前） |
 | トップのメニュー抜粋 | `menuPreview.items` に menu.json の品名を書く。価格は menu.json から自動で引く（品名が見つからないと書き出しが止まる） |
 | トップの写真 | `hero.photos`（約6秒ごとに切り替わる）・`about.photosA`／`photosB` |
-| ナビの並び | `nav`（`fabOnly` はスマホのメニューだけ） |
+| ナビの並び | `nav`（`fabOnly` はスマホのメニューだけ）。英語ページは `en.nav` |
+| 渋谷店の個室 | `stores` の渋谷店の `privateRoom`（トップの ABOUT の下の緑の帯と、店舗・アクセスの「個室あり」）。写真ができたら `photo` に `{ "file": "…", "alt": "…", "altEn": "…" }` を書くと写真の枠が出る。料金の金額は書かない |
 | 撮影ページ | `shooting`（並びは casse.cafe と同じ。`times`・`prices`・`minTime`・`priceNotes`・`flow`・`features`・`press`・`collabs` など）。問い合わせメールの件名と本文の項目は `mailSubject`・`mailItems` など |
+
+## 英語ページ（`/en/`）
+
+トップと同じ部品を使い、言葉だけを英語にしている。英語は、日本語の項目と同じところに `項目名En` で書く（例：`steps` の `title` と `titleEn`、`info` の `label` と `labelEn`、写真の `alt` と `altEn`、`stores` の `nameEn`・`addressEn` など）。英語が抜けていると、書き出しが止まってどこが足りないかを知らせる。
+
+- 英語ページに出さないもの：お知らせ（下の「営業日のお知らせ」を除く）・アーティストとのコラボ・撮影・取材・コラボへの入口・お客さまの声。ご利用案内で `jaOnly: true` の項目
+- 見出しやボタンなどの言葉は `ui.ja`・`ui.en`、英語ページだけの文は `en`、フッターは `footer.en`
+- メニューは `/menu/` を日英共通で使う（menu.json の `en`）
 
 ## メニューを変えるとき（`src/_data/menu.json`）
 
@@ -96,6 +106,14 @@ Node.js 18 以上だけで動く（追加のライブラリなし）。
 | title | 一覧と記事の見出し。`short` を書くと、パンくずと前後の記事のリンクではそちらを使う |
 | image | 一覧の小さな写真（photos のファイル名）。ないときは女の子のロゴの枠になる。記事のシェア画像にも使う |
 | body | 本文。書いた記事だけ記事ページができる（ない記事は一覧に見出しだけを出す）。文字だけの行は段落。`img`（`photo` に写真の名前）・`photos`（3枚並べる）・`table`（項目と内容の表）・`h2`・`ul`・`note`（ご注意の枠。`items` に箇条書き）・`credit`（小さな注記）・`buttons` が使える（build.mjs の `renderBlock` を参照） |
+
+### 営業日のお知らせを英語でも出すとき
+
+年末年始の営業や臨時休業など、営業日・営業時間のお知らせ（`genre` が `announce`）だけ、英語を添えられる。ほかの種類は英語にしない。
+
+- `titleEn`（英語の見出し）と `bodyEn`（英語の本文。`body` と同じ書き方）を書く
+- 記事ページでは、日本語の本文の下に英語の枠が続き、上に「English below」のボタンが出る（英語だけの別ページは作らない）
+- 英語ページ（`/en/`）のお知らせ欄に、新しいものから3件まで出る。記事ページがあれば英語の部分（`/news/記事ID/#en`）につながる
 
 `genre` が `announce` 以外の記事は、pom-inc.co.jp のお知らせにも自動で載る（書き出し時に `/news.json` を公開し、会社サイトが読みに来る）。
 
@@ -138,4 +156,5 @@ Node.js 18 以上だけで動く（追加のライブラリなし）。
 | news_more / news_filter | お知らせ一覧へ／カテゴリの絞り込み |
 | collab_more / gallery_more / voice_more | トップの各「見る」リンク |
 | nav_header / nav_fab / fab_toggle | 上のメニュー／スマホのレコードプレーヤー型メニュー（中のリンク・開け閉め） |
+| lang_switch | JP / EN の切り替え |
 | logo_header / logo_footer / to_top | ロゴ・「ページの上へ戻る」 |

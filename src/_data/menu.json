@@ -1,12 +1,13 @@
 {
   "_説明": "メニューページ（/menu/）の中身。渋谷・下北沢の両店舗共通。価格は税込の数字（price）。photo に assets/img/photos/ のファイル名（.webp を除く）を書くと、カテゴリの見出しの下に写真が出る",
   "updated": "2026-11",
+  "leadEn": "A table charge and one drink per person are required. All prices include tax. The menu is the same at both shops, Shibuya and Shimokitazawa.",
   "lead": "チャージ（入場料）と、1ドリンクのご注文をお願いしています。価格はすべて税込です。渋谷・下北沢の両店舗共通のメニューです。",
   "photo": { "file": "shimokita-cheesecake-latte", "alt": "チーズケーキとアイスラテ、回るレコード" },
   "categories": [
     {
       "id": "drink", "name": "ドリンク", "en": "Drink",
-      "note": "コーヒーはすべてフェアトレードの豆を使っています",
+      "note": "コーヒーはすべてフェアトレードの豆を使っています", "noteEn": "All our coffee is made with fair trade beans.",
       "items": [
         { "name": "コーヒー", "en": "Coffee ／ Hot・Ice", "price": 640 },
         { "name": "カプチーノ", "en": "Cappuccino ／ Hot", "price": 790 },

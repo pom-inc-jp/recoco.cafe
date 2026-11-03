@@ -1,34 +1,36 @@
 ---
-{ "title": "メニュー", "description": "レコードカフェ RECOCO（渋谷・下北沢）のメニューと料金。コーヒー、スペシャルドリンク、レコードに見立てたバームクーヘン「レココバーム」などのデザート、アルコール。価格はすべて税込です。" }
+{ "title": "メニュー Menu", "description": "レコードカフェ RECOCO（渋谷・下北沢）のメニューと料金。コーヒー、スペシャルドリンク、レコードに見立てたバームクーヘン「レココバーム」などのデザート、アルコール。価格はすべて税込です。Menu and prices of RECOCO, a record café in Shibuya and Shimokitazawa, Tokyo." }
 ---
 <!-- メニュー（旧メニューPDFの転送先）。中身は menu.json、料金は site.json の charge から入る -->
 <div class="menu-page" id="menu-top">
   <div class="indent menu-intro">
     <div class="txt">
       {{{eb.MENU}}}
-      <h1 class="page-title">メニュー</h1>
+      <h1 class="page-title">メニュー<span class="en" lang="en">Menu</span></h1>
       <p class="body-text wide">{{menu.lead}}</p>
+      <p class="body-text wide body-en" lang="en">{{menu.leadEn}}</p>
     </div>
     {{{menu.photo}}}
   </div>
 
   <nav class="chips indent" aria-label="メニューの種類">
-    <a href="#charge">料金{{{ic.down}}}</a>
+    <a href="#charge">料金<span lang="en">Charge</span>{{{ic.down}}}</a>
     {{{menu.chips}}}
   </nav>
 
   <section class="menu-cat" id="charge" aria-labelledby="charge-h">
     <div class="menu-cat-head">
       <p class="en" lang="en">Charge</p>
-      <h2 id="charge-h">料金 ／ 1名分</h2>
+      <h2 id="charge-h">料金 ／ 1名分<span class="en2" lang="en">Charge per person, tax included</span></h2>
     </div>
     <div class="menu-cat-body">
       {{{menu.chargeTable}}}
       <p class="foot-note">{{site.charge.footnote}}</p>
+      <p class="foot-note body-en" lang="en">{{menu.footnoteEn}}</p>
     </div>
   </section>
 
   {{{menu.sections}}}
 
-  <p class="indent menu-foot">メニューと価格は変わることがあります。最新の情報は店頭とInstagramでお知らせしています。（{{menu.updated}}現在）</p>
+  <p class="indent menu-foot">メニューと価格は変わることがあります。最新の情報は店頭とInstagramでお知らせしています。（{{menu.updated}}現在）<br><span lang="en">Menu and prices are subject to change.</span></p>
 </div>

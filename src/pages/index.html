@@ -1,28 +1,9 @@
 ---
 { "cafeJsonLd": true }
 ---
-<!-- トップ。言葉と写真は site.json（hero・about・steps・charge・info など）、店の情報は site.json の stores から入る -->
-<section class="hero wrap" id="hero" aria-label="RECOCOについて">
-  <div class="hero-media">
-    <div class="hero-band" aria-hidden="true">
-      <p lang="en">{{{home.heroBand}}}</p>
-      <svg class="band-disc" width="44" height="44" viewBox="0 0 44 44"><circle class="f-ink" cx="22" cy="22" r="21"/><circle class="s-groove" cx="22" cy="22" r="16" fill="none" stroke-width=".8"/><circle class="s-groove" cx="22" cy="22" r="12" fill="none" stroke-width=".8"/><circle class="f-paper" cx="22" cy="22" r="7"/><path class="f-red" d="M22 15a7 7 0 0 1 7 7h-7z"/><circle class="f-ink" cx="22" cy="22" r="1.4"/></svg>
-    </div>
-    <div class="slides" data-slides>
-      {{{home.slides}}}
-      <div class="slide-dots" role="group" aria-label="表示する写真">{{{home.dots}}}</div>
-    </div>
-  </div>
-  <div class="hero-text">
-    <h1>{{{home.heroTitle}}}</h1>
-    <p class="lead">{{{home.heroLead}}}</p>
-  </div>
-  <div class="store-cards">
-    {{{home.storeCards}}}
-  </div>
-</section>
-
-<div class="marquee" aria-hidden="true"><div class="marquee-track" data-nobreak>{{{home.marquee}}}</div></div>
+<!-- トップ。共通の部分は _partials/home-hero.html・home-body.html（英語ページと共通）。
+     お知らせ・撮影・取材・コラボへの入口・アーティストとのコラボは日本語のトップだけ -->
+{{> home-hero}}
 
 <section class="sec wrap sec-news" id="news" aria-labelledby="news-h">
   <div class="indent">
@@ -30,116 +11,17 @@
       <div>{{{eb.NEWS}}}<h2 id="news-h">お知らせ</h2></div>
     </div>
     <div class="filters" role="group" aria-label="カテゴリで絞り込む" data-target="news-latest">
-      {{{home.newsFilters}}}
+      {{{page.t.newsFilters}}}
     </div>
-    {{{home.news}}}
+    {{{page.t.news}}}
     <p class="empty" data-empty="news-latest" hidden>このカテゴリのお知らせはまだありません。</p>
     <p class="news-bottom"><a class="btn btn-line" href="/news/" data-cta="news_more">一覧を見る{{{ic.right}}}</a></p>
   </div>
 </section>
 
-{{{home.locBandPc}}}
+{{{page.t.locBandPc}}}
 
-<section class="sec wrap" id="about" aria-labelledby="about-h">
-  <div class="about">
-    <div class="about-text indent">
-      {{{eb.ABOUT}}}
-      <h2 id="about-h">{{{home.aboutTitle}}}</h2>
-      <p class="body-text">{{site.about.text}}</p>
-    </div>
-    <div class="about-photos">
-      <div class="fade-frame" data-fade="0">{{{home.aboutA}}}</div>
-      <div class="fade-frame low" data-fade="1">{{{home.aboutB}}}</div>
-    </div>
-  </div>
-  <ul class="points indent">
-      {{{home.points}}}
-  </ul>
-</section>
-
-<section class="sec wrap" id="guide" aria-labelledby="guide-h">
-  <div class="indent">
-    <div class="sec-head guide-head">
-      <div>{{{eb.HOWTOENJOY}}}<h2 id="guide-h">楽しみ方</h2><p class="sub">{{site.stepsLead}}</p></div>
-      <img class="guide-girl" src="/assets/img/common/recoco-girl-red.png" alt="RECOCOのロゴ（ヘッドホンをつけた女の子）" width="1031" height="1001" loading="lazy">
-    </div>
-    <ol class="steps">
-        {{{home.steps}}}
-    </ol>
-  </div>
-</section>
-
-<section class="sec wrap" id="price" aria-labelledby="price-h">
-  <div class="indent two-col">
-    <div class="col-head">
-      {{{eb.CHARGE}}}
-      <h2 id="price-h">料金</h2>
-      <p class="small-text">{{site.charge.note}}</p>
-    </div>
-    <div class="col-body">
-      {{{home.chargeTable}}}
-      <p class="foot-note">{{site.charge.footnote}}</p>
-    </div>
-  </div>
-</section>
-
-<section class="sec wrap" id="menu" aria-labelledby="menu-h">
-  <div class="menu-preview">
-    {{{home.menuImg}}}
-    <div class="txt">
-      {{{eb.MENU}}}
-      <h2 id="menu-h">{{site.menuPreview.title}}</h2>
-      <p class="small-text">{{site.menuPreview.text}}</p>
-      <ul class="price-list">
-        {{{home.menuItems}}}
-      </ul>
-      <p class="btns"><a class="btn btn-red btn-l" href="/menu/" data-cta="menu_all">メニューをすべて見る{{{ic.right}}}</a></p>
-    </div>
-  </div>
-</section>
-
-<section class="sec sec-s wrap" id="info" aria-labelledby="info-h">
-  <div class="indent">
-    {{{eb.INFORMATION}}}
-    <h2 id="info-h" class="mb">ご利用案内</h2>
-    <dl class="info">
-        {{{home.info}}}
-    </dl>
-  </div>
-</section>
-
-<section class="sec wrap" id="gallery" aria-labelledby="gallery-h">
-  <div class="indent sec-head">
-    <div>{{{eb.GALLERY}}}<h2 id="gallery-h">店内の様子</h2></div>
-    <a class="more-link" href="/gallery/" data-cta="gallery_more">もっと見る{{{ic.right}}}</a>
-  </div>
-  <div class="gallery-strip">
-    {{{home.gallery}}}
-  </div>
-</section>
-
-<section class="sec wrap" id="voice" aria-labelledby="voice-h">
-  <div class="indent">
-    <div class="sec-head">
-      <div>{{{eb.VOICE}}}<h2 id="voice-h">お客さまの声</h2></div>
-      <a class="more-link" href="/voice/" data-cta="voice_more">すべて見る{{{ic.right}}}</a>
-    </div>
-    <div class="voice-cards">
-      {{{home.voices}}}
-    </div>
-  </div>
-</section>
-
-<section class="sec wrap" id="access" aria-labelledby="access-h">
-  <div class="indent">
-    {{{eb.ACCESS}}}
-    <h2 id="access-h">店舗・アクセス</h2>
-    <p class="small-text wide access-lead">{{site.accessLead}}</p>
-    <div class="stores">
-      {{{home.stores}}}
-    </div>
-  </div>
-</section>
+{{> home-body}}
 
 <section class="sec wrap" id="collab" aria-labelledby="collab-h">
   <div class="indent sec-head">
@@ -147,8 +29,8 @@
     <a class="more-link" href="/shooting/#collab" data-cta="collab_more">コラボの実績を見る{{{ic.right}}}</a>
   </div>
   <ul class="collab-strip">
-      {{{home.collab}}}
+      {{{page.t.collab}}}
   </ul>
 </section>
 
-{{{home.locBandSp}}}
+{{{page.t.locBandSp}}}

@@ -4,6 +4,7 @@
 <title>{{page.fullTitle}}</title>
 <meta name="description" content="{{page.description}}">
 <link rel="canonical" href="{{page.url}}">
+{{{page.hreflang}}}
 {{{page.robots}}}
 <meta name="theme-color" content="{{site.themeColor}}">
 <!-- シェア時の表示 -->
@@ -13,7 +14,7 @@
 <meta property="og:description" content="{{page.description}}">
 <meta property="og:url" content="{{page.url}}">
 <meta property="og:image" content="{{page.image}}">
-<meta property="og:locale" content="ja_JP">
+<meta property="og:locale" content="{{page.locale}}">
 <meta name="twitter:card" content="summary_large_image">
 <!-- アイコン -->
 <link rel="icon" href="/favicon.ico" sizes="48x48">

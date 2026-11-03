@@ -1,8 +1,9 @@
 <header class="site-head" id="top">
   <div class="wrap head-in">
-    <a class="logo" href="/" data-cta="logo_header"><img src="/assets/img/common/logo-ink.png" alt="{{site.name}}" width="252" height="44"><span class="tagline">{{site.tagline}}</span></a>
-    <nav class="gnav" aria-label="メインメニュー">
+    <a class="logo" href="{{chrome.home}}" data-cta="logo_header"><img src="/assets/img/common/logo-ink.png" alt="{{site.name}}" width="252" height="44"><span class="tagline">{{chrome.tagline}}</span></a>
+    <nav class="gnav" aria-label="{{page.ui.navLabel}}">
       {{{chrome.navHeader}}}
     </nav>
+    {{> lang-switch}}
   </div>
 </header>

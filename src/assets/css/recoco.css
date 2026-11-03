@@ -88,6 +88,9 @@ h2.mb { margin-bottom: 32px; }
 .sp-only { display: none; }
 .page-top { padding-top: 56px; }
 .page-title { font-size: clamp(30px, 4vw, 48px); line-height: 1.4; font-weight: 700; letter-spacing: .04em; }
+.page-title .en { margin-left: .5em; font-size: .5em; font-weight: 500; letter-spacing: .08em; color: var(--red); }
+.body-en { margin-top: 8px; font-size: 14px; color: var(--sub); }
+.foot-note.body-en { font-size: 12.5px; }
 
 /* --- ボタン（丸いピル型） --- */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 22px; border-radius: 999px; border: 1px solid transparent; text-decoration: none; font-size: 14px; font-weight: 700; line-height: 1.4; transition: background .2s, color .2s; }
@@ -114,6 +117,11 @@ h2.mb { margin-bottom: 32px; }
 .gnav { display: flex; flex-wrap: wrap; gap: 0 24px; font-size: 13px; font-weight: 500; }
 .gnav a { text-decoration: none; padding: 12px 0; }
 .gnav a[aria-current] { text-decoration: underline; text-underline-offset: 8px; text-decoration-color: var(--red); text-decoration-thickness: 2px; }
+
+/* 日本語・英語の切り替え */
+.lang { display: flex; flex: none; border: var(--line); border-radius: 999px; overflow: hidden; font-family: var(--en); font-size: 13px; font-weight: 500; letter-spacing: .06em; }
+.lang a { display: flex; align-items: center; justify-content: center; min-width: 48px; min-height: 40px; text-decoration: none; }
+.lang a[aria-current] { background: var(--ink); color: var(--paper); }
 
 /* --- スマホのメニュー（レコードプレーヤー） --- */
 .fab { display: none; }
@@ -176,6 +184,12 @@ h2.mb { margin-bottom: 32px; }
 .c-campaign { background: var(--paper); color: var(--ink); border-color: var(--red); box-shadow: inset 0 0 0 1px var(--red); }
 .c-other { background: var(--paper); color: var(--ink); border-color: var(--ink); }
 .news-bottom { margin-top: 20px; }
+.mb-s { margin-bottom: 20px; }
+.news-en .row { display: flex; flex-wrap: wrap; gap: 6px 28px; padding: 20px 0; font-size: 15px; }
+.news-en time { flex: none; width: 6.5em; }
+.news-en .t { flex: 1 1 320px; line-height: 1.7; }
+.news-en a.row { text-decoration: none; align-items: center; }
+.news-en a.row .ico { flex: none; color: var(--red); }
 
 /* --- 撮影・取材・コラボへの入口 --- */
 .loc-band-wrap { padding-top: 72px; }
@@ -199,6 +213,17 @@ h2.mb { margin-bottom: 32px; }
 .points .pt { font-size: 13px; font-weight: 600; letter-spacing: .16em; color: var(--red); }
 .points h3 { margin-top: 10px; font-size: 17px; line-height: 1.6; }
 .points p:last-child { margin-top: 8px; font-size: 14px; }
+
+/* 渋谷店の個室（緑の帯。写真があるときだけ左に写真） */
+.room { margin: 72px 0 0 var(--indent); display: flex; flex-wrap: wrap; align-items: stretch; border-radius: var(--r); overflow: hidden; background: var(--green); color: var(--paper); }
+.room-photo { flex: 1 1 320px; min-height: 220px; }
+.room-photo img { width: 100%; height: 100%; object-fit: cover; }
+.room-text { flex: 2 1 420px; padding: clamp(28px, 4vw, 44px); }
+.room .pill { display: inline-flex; padding: 2px 12px; border-radius: 999px; background: var(--paper); color: var(--green); font-size: 12px; font-weight: 700; }
+.room h3 { margin-top: 14px; font-size: clamp(20px, 2.2vw, 26px); line-height: 1.55; }
+.room-body { margin-top: 12px; max-width: 34em; font-size: 14px; line-height: 2; }
+.room-note { margin-top: 10px; font-size: 13px; line-height: 1.8; color: var(--green-pale); }
+.room-btn { margin-top: 18px; }
 
 /* --- 楽しみ方 --- */
 .guide-head { margin-bottom: 40px; gap: 20px 32px; }
@@ -266,7 +291,9 @@ h2.mb { margin-bottom: 32px; }
 .store-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 0 0 16px; padding: 12px 18px; border-radius: var(--r); background: var(--store); color: var(--paper); }
 .store-head h3 { font-size: 22px; display: flex; align-items: center; gap: 10px; line-height: 1.6; }
 .store-head .f-store { fill: var(--store); }
-.store-head span { font-size: 13px; font-weight: 500; letter-spacing: .16em; }
+.store-head .en { font-size: 13px; font-weight: 500; letter-spacing: .16em; }
+.room-badge { margin-left: auto; margin-right: 4px; padding: 2px 10px; border-radius: 999px; background: var(--paper); color: var(--store); font-size: 12px; font-weight: 700; white-space: nowrap; }
+.store-head h3 + .en { margin-left: auto; }
 .store-photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .store-photos img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 8px; }
 .store-photos img.main { grid-column: span 2; border-radius: var(--r); }
@@ -302,6 +329,8 @@ h2.mb { margin-bottom: 32px; }
 .menu-intro .txt { flex: 1 1 420px; }
 .menu-hero { flex: 0 1 320px; min-width: 0; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: var(--r); }
 .chips { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 8px; }
+.chips a span { font-size: 11px; font-weight: 500; color: var(--mute); }
+.menu-cat-head h2 .en2 { display: block; font-size: 12px; font-weight: 500; color: var(--sub); }
 .chips a { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 18px; border: var(--line); border-radius: 999px; text-decoration: none; font-size: 13px; font-weight: 700; }
 .menu-cat { margin-top: 88px; padding-left: var(--indent); display: flex; flex-wrap: wrap; gap: 24px 96px; scroll-margin-top: 16px; }
 #charge { margin-top: 96px; gap: 32px 96px; }
@@ -309,6 +338,7 @@ h2.mb { margin-bottom: 32px; }
 .menu-cat-head .en { font-size: 26px; font-weight: 600; line-height: 1.2; color: var(--red); }
 .menu-cat-head h2 { margin-top: 6px; font-size: 15px; line-height: 1.6; }
 .menu-cat-head .note { margin-top: 12px; font-size: 13px; color: var(--sub); }
+.menu-cat-head .note .en { display: block; margin-top: 2px; font-size: 12px; color: var(--sub); }
 .cat-photo { margin-top: 24px; width: 100%; max-width: 280px; aspect-ratio: 1 / 1; object-fit: cover; border-radius: var(--r); }
 .menu-cat-body, .menu-items { flex: 2 1 520px; min-width: 0; }
 .menu-items { border-top: var(--line); }
@@ -350,6 +380,12 @@ a.row:hover .more-dot, a.row:focus-visible .more-dot { transform: translateX(4px
 .article .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font-size: 15px; }
 .article .meta .cat { min-width: 0; padding: 2px 12px; }
 .upd { font-size: 13px; color: var(--sub); }
+.en-link { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 14px; border: var(--line); border-radius: 999px; text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: .06em; }
+.article-en { margin-top: 56px; padding: clamp(24px, 4vw, 36px); border-radius: var(--r); background: var(--beige); font-family: var(--en); scroll-margin-top: 16px; }
+.article-en .label { font-size: 12px; font-weight: 600; letter-spacing: .24em; color: var(--red); }
+.article-en h2 { margin-top: 10px; font-size: clamp(20px, 2.4vw, 26px); line-height: 1.4; font-weight: 600; }
+.en-body { margin-top: 18px; font-size: 16px; line-height: 1.8; }
+.en-body > * + * { margin-top: 14px; }
 .article h1 { margin-top: 16px; font-size: clamp(24px, 3.4vw, 38px); line-height: 1.5; font-weight: 700; }
 .article-body { font-size: 16px; line-height: 2.1; }
 .article-body > p { margin-top: 16px; }
@@ -536,6 +572,12 @@ html.lb-open { overflow: hidden; }
   .sec-news { padding-top: 80px; }
 
   .gnav { display: none; }
+  .head-in { flex-wrap: nowrap; column-gap: 12px; padding-top: 16px; padding-bottom: 16px; }
+  .logo { flex-direction: column; align-items: flex-start; gap: 4px; min-width: 0; }
+  .logo img { width: 108px; }
+  .tagline { font-size: 10.5px; letter-spacing: .04em; }
+  .lang { font-size: 12px; }
+  .lang a { min-width: 42px; min-height: 36px; }
   .fab { display: block; position: fixed; top: 12px; right: 12px; z-index: 90; opacity: 0; visibility: hidden; transform: translateY(-14px); }
   .fab.is-open { opacity: 1 !important; visibility: visible !important; transform: none !important; }
   .fab-btn { position: relative; z-index: 2; display: block; width: 68px; height: 60px; padding: 0; border: 0; background: none; cursor: pointer; }
@@ -585,7 +627,10 @@ html.lb-open { overflow: hidden; }
   .store-photos { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 8px; padding-bottom: 6px; }
   .store-photos img, .store-photos img.main { flex: 0 0 78%; aspect-ratio: 3 / 2; scroll-snap-align: start; border-radius: 8px; }
   .store-map { display: none; }
-  .store-head h3 { font-size: 19px; }
+  .store-head { gap: 8px; padding: 10px 14px; }
+  .store-head h3 { font-size: 18px; white-space: nowrap; gap: 8px; }
+  .store-head .en { font-size: 11px; letter-spacing: .08em; white-space: nowrap; }
+  .room-badge { font-size: 11px; padding: 1px 8px; margin-right: 0; }
 
   .menu-cat { margin-top: 64px; }
 
@@ -606,7 +651,7 @@ html.lb-open { overflow: hidden; }
   .kv-price { grid-template-columns: 7.5em minmax(0, 1fr); }
   .collab-cards { grid-template-columns: minmax(0, 1fr); }
   .cta-box .btn { width: 100%; }
-  .a-table { grid-template-columns: 5.5em minmax(0, 1fr); }
+  .a-table { grid-template-columns: 7.5em minmax(0, 1fr); }
   .a-note { padding: 20px; }
   .note-paper { padding: 30px 16px 30px 44px; }
   .note-paper::before { left: 30px; }
