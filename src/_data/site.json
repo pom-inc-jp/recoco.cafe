@@ -107,9 +107,9 @@
       "addressEn": "IRIE FIRST PLAZA 1F, 3-1-10 Shibuya, Shibuya-ku, Tokyo 150-0002",
       "accessEn": "6 minutes' walk from Shibuya Station (4 minutes from Exit C1) / 11 minutes' walk from Omotesando Station",
       "accessShortEn": "4 min from Shibuya Station Exit C1",
-      "holidayEn": "Open every day except New Year holidays",
-      "seatsEn": "All seats assigned. Private room available",
-      "parkingEn": "None (large coin parking nearby)",
+      "holidayEn": "New Year holidays only",
+      "seatsEn": "All seats assigned. Private room available.",
+      "parkingEn": "None (large coin-operated car park nearby)",
       "privateRoom": {
         "_説明": "トップの ABOUT の下に出す、渋谷店の個室の案内。photo に写真（photos のファイル名と alt）を書くと左に写真の枠が出る。料金の金額は書かない",
         "lead": "渋谷店だけ",
@@ -127,7 +127,7 @@
         ],
         "bodyEn": "RECOCO Shibuya has a private room where you can enjoy records without worrying about anyone else. Come as a pair or with a group of friends.",
         "noteEn": "An extra fee applies to the private room, in addition to the regular charge.",
-        "buttonEn": "Shibuya shop access",
+        "buttonEn": "Getting to the Shibuya shop",
         "photo": null
       }
     },
@@ -176,9 +176,9 @@
       "addressEn": "ARISTO Shimokitazawa B1F, 2-9-2 Kitazawa, Setagaya-ku, Tokyo 155-0031",
       "accessEn": "2 minutes' walk from the East Exit of Shimokitazawa Station. In the basement of the building across from Village Vanguard",
       "accessShortEn": "2 min from Shimokitazawa Station East Exit",
-      "holidayEn": "Open every day except New Year holidays",
-      "seatsEn": "All seats assigned",
-      "parkingEn": "None (coin parking nearby)"
+      "holidayEn": "New Year holidays only",
+      "seatsEn": "All seats assigned.",
+      "parkingEn": "None (coin-operated car park nearby)"
     }
   ],
   "_stores": "店の情報はここだけに書く。address は表示用、region・locality・street は検索エンジン向け。営業時間は opens・closes・lastOrder から作る。color は green（渋谷）か red（下北沢）",
@@ -332,8 +332,8 @@
       {
         "title": "SONY製スタジオヘッドホン",
         "text": "プロの現場でも使われる、遮音性の高いヘッドホン。レコードの音をまっすぐ届けます。",
-        "titleEn": "SONY studio headphones",
-        "textEn": "Headphones with high sound isolation, used by professionals, for a direct record sound."
+        "titleEn": "Sony studio headphones",
+        "textEn": "Professional headphones with strong sound isolation, so you hear every detail of the record."
       },
       {
         "title": "実は、作業カフェとしても",
@@ -404,7 +404,7 @@
           1320,
           1650
         ],
-        "labelEn": "Guest"
+        "labelEn": "Standard"
       }
     ],
     "footnote": "学生の方はLINE会員料金から110円引き（学生証をご提示ください）。LINE会員は当日その場で無料登録できます。特別営業日は年末年始・春休み・夏休み・GWなどです。",
@@ -461,14 +461,14 @@
       "label": "席",
       "text": "全席指定席・混雑時は90分制（空いている時は無制限にご滞在いただけます）。席のご予約はできません。渋谷店には個室があります",
       "labelEn": "Seating",
-      "textEn": "All seats are assigned. 90-minute limit when busy (no limit when it is quiet). No reservations. The Shibuya shop has a private room"
+      "textEn": "All seats are assigned. 90-minute limit when busy (no limit when it is quiet). No reservations. The Shibuya shop has a private room."
     },
     {
       "icon": "wifi",
       "label": "設備",
       "text": "無料Wi-Fi・全席に電源あり。全席禁煙",
       "labelEn": "Facilities",
-      "textEn": "Free Wi-Fi and power outlets at every seat. Non-smoking"
+      "textEn": "Free Wi-Fi and power outlets at every seat. Non-smoking."
     },
     {
       "icon": "paw",
@@ -1306,7 +1306,7 @@
         "href": "/en/#access"
       }
     ],
-    "accessLead": "Charges, the menu and house rules are the same at both shops. The latest opening information is posted on each shop's Instagram.",
+    "accessLead": "Charges, the menu and house rules are the same at both shops. Opening updates are posted on each shop's Instagram.",
     "newsLead": "Notices about opening days and opening hours."
   }
 }

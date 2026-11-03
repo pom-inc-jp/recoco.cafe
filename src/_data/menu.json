@@ -9,12 +9,12 @@
       "id": "drink", "name": "ドリンク", "en": "Drink",
       "note": "コーヒーはすべてフェアトレードの豆を使っています", "noteEn": "All our coffee is made with fair trade beans.",
       "items": [
-        { "name": "コーヒー", "en": "Coffee ／ Hot・Ice", "price": 640 },
-        { "name": "カプチーノ", "en": "Cappuccino ／ Hot", "price": 790 },
-        { "name": "カフェラテ", "en": "Cafe latte ／ Hot・Ice", "price": 790 },
-        { "name": "抹茶ラテ", "en": "Matcha latte ／ Ice", "price": 890 },
-        { "name": "紅茶", "en": "Tea ／ Hot・Ice", "price": 640 },
-        { "name": "オレンジルイボスティー（デカフェ）", "en": "Orange Rooibos Tea ／ Hot", "price": 660 },
+        { "name": "コーヒー", "en": "Coffee (hot / iced)", "price": 640 },
+        { "name": "カプチーノ", "en": "Cappuccino (hot)", "price": 790 },
+        { "name": "カフェラテ", "en": "Caffè latte (hot / iced)", "price": 790 },
+        { "name": "抹茶ラテ", "en": "Matcha latte (iced)", "price": 890 },
+        { "name": "紅茶", "en": "Tea (hot / iced)", "price": 640 },
+        { "name": "オレンジルイボスティー（デカフェ）", "en": "Orange rooibos tea (hot)", "price": 660 },
         { "name": "オレンジジュース", "en": "Orange juice", "price": 750 },
         { "name": "コーラ", "en": "Coke", "price": 750 },
         { "name": "ジンジャーエール", "en": "Ginger ale", "price": 750 },
@@ -25,7 +25,7 @@
       "id": "special", "name": "スペシャルドリンク", "en": "Special drink",
       "photo": { "file": "shibuya-melon-soda", "alt": "ヘッドホンの横に置かれたメロンクリームソーダ" },
       "items": [
-        { "name": "メロンクリームソーダ", "en": "Melon Cream Soda", "price": 950 },
+        { "name": "メロンクリームソーダ", "en": "Melon cream soda", "price": 950 },
         { "name": "コーラフロート", "en": "Cola float", "price": 950 }
       ]
     },
@@ -35,7 +35,7 @@
       "items": [
         { "name": "レココバームクーヘン", "en": "RECOCO Baumkuchen", "price": 660 },
         { "name": "シナモンチーズケーキ", "en": "Cinnamon cheesecake", "price": 800 },
-        { "name": "アールグレイタルト", "en": "Earl Gray Tart", "price": 800 },
+        { "name": "アールグレイタルト", "en": "Earl Grey tart", "price": 800 },
         { "name": "アフォガード", "en": "Affogato", "price": 770 }
       ]
     },
@@ -44,12 +44,12 @@
       "items": [
         { "name": "ハイネケン", "en": "Heineken", "price": 990 },
         { "name": "バドワイザー", "en": "Budweiser", "price": 950 },
-        { "name": "ハイボール", "en": "Whiskey Highball", "price": 900 },
-        { "name": "コーラハイボール", "en": "Coke Highball", "price": 950 },
-        { "name": "ジンジャーハイボール", "en": "Ginger Highball", "price": 950 },
+        { "name": "ハイボール", "en": "Whisky highball", "price": 900 },
+        { "name": "コーラハイボール", "en": "Coke highball", "price": 950 },
+        { "name": "ジンジャーハイボール", "en": "Ginger highball", "price": 950 },
         { "name": "カシスオレンジ", "en": "Cassis orange", "price": 950 },
-        { "name": "カシスウーロン", "en": "Cassis Oolong", "price": 950 },
-        { "name": "カシスソーダ", "en": "Cassis Soda", "price": 950 }
+        { "name": "カシスウーロン", "en": "Cassis oolong", "price": 950 },
+        { "name": "カシスソーダ", "en": "Cassis soda", "price": 950 }
       ]
     },
     {
