@@ -49,8 +49,9 @@
       if (p === 0 && isOpen()) setOpen(false);
       if (!reduce && disc) {
         var max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-        // 回転の中心は CSS（.tt-disc の transform-origin）で決める。SVG の transform 属性と重ねると中心がずれて揺れる
-        disc.style.transform = 'rotate(' + ((y / max) * 1440 % 360).toFixed(1) + 'deg)';
+        // 回転の中心は SVG の transform 属性（rotate(角度 26 28)）だけで決める。
+        // CSS の transform や transform-origin を .tt-disc に付けると、Safari と Chrome で中心がずれる
+        disc.setAttribute('transform', 'rotate(' + ((y / max) * 1440 % 360).toFixed(1) + ' 26 28)');
       }
     });
     btn.addEventListener('click', function () { setOpen(!isOpen()); });
@@ -76,11 +77,15 @@
   if (slides) {
     var heroImgs = slides.querySelectorAll(':scope > img');
     var dots = slides.querySelectorAll('.slide-dots button');
+    var countCur = slides.querySelector('[data-slide-cur]');
+    var countTotal = slides.querySelector('[data-slide-total]');
+    if (countTotal) countTotal.textContent = String(heroImgs.length);
     var cur = 0;
     var showHero = function (i) {
       cur = (i + heroImgs.length) % heroImgs.length;
       fadeTo(heroImgs, cur);
       for (var k = 0; k < dots.length; k++) dots[k].setAttribute('aria-pressed', String(k === cur));
+      if (countCur) countCur.textContent = String(cur + 1);
     };
     Array.prototype.forEach.call(dots, function (d, i) {
       d.addEventListener('click', function () { showHero(i); tick = 0; });
