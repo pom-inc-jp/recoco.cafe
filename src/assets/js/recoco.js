@@ -85,6 +85,23 @@
     Array.prototype.forEach.call(dots, function (d, i) {
       d.addEventListener('click', function () { showHero(i); tick = 0; });
     });
+    // 指で左右にスワイプすると、次・前の写真へ（縦のスクロールはそのまま）
+    var sx = null, sy = 0, quickTimer;
+    slides.addEventListener('touchstart', function (e) {
+      if (e.touches.length !== 1) { sx = null; return; }
+      sx = e.touches[0].clientX; sy = e.touches[0].clientY;
+    }, { passive: true });
+    slides.addEventListener('touchend', function (e) {
+      if (sx === null) return;
+      var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+      sx = null;
+      if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+      slides.classList.add('is-quick');
+      clearTimeout(quickTimer);
+      quickTimer = setTimeout(function () { slides.classList.remove('is-quick'); }, 700);
+      showHero(cur + (dx < 0 ? 1 : -1));
+      tick = 0;
+    }, { passive: true });
     // 3秒ごとに1回動かす。トップの写真は2回に1回（約6秒ごと）、ABOUT の2枠は交互に
     var tick = 0;
     var fc = frames.map(function () { return 0; });

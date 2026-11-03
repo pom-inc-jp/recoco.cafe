@@ -138,6 +138,8 @@ h2.mb { margin-bottom: 32px; }
 .slides { position: relative; flex: 1; min-width: 0; height: clamp(380px, 50vw, 660px); background: var(--ink); overflow: hidden; }
 .slides > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.04); z-index: 0; will-change: opacity, transform; transition: opacity 2.4s cubic-bezier(.4, 0, .2, 1), transform 6s ease-out; }
 .slides > img.is-on { opacity: 1; transform: none; z-index: 1; }
+.slides { touch-action: pan-y; }
+.slides.is-quick > img { transition: opacity .6s ease, transform .6s ease; } /* スワイプしたときは早めに切り替える */
 .slide-dots { position: absolute; right: 16px; bottom: 16px; z-index: 2; display: flex; gap: 2px; }
 .slide-dots button { width: 28px; height: 28px; padding: 0; border: 0; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; }
 .slide-dots span { display: block; width: 8px; height: 8px; border-radius: 999px; background: var(--paper-dim); transition: width .4s ease; }
@@ -595,6 +597,7 @@ html.lb-open { overflow: hidden; }
   html.menu-open { overflow: hidden; }
 
   .hero-band { display: none; }
+  .slides { height: auto; aspect-ratio: 4 / 3; } /* スマホは写真（3:2）に近い横長にして、切り取りすぎない */
   .store-cards { margin-top: 36px; }
 
   .news li.sp-off { display: none; }
