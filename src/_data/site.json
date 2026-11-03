@@ -81,7 +81,7 @@
       "closes": "21:00",
       "lastOrder": "20:30",
       "holiday": "なし（年末年始を除く）",
-      "seats": "全席指定席・個室あり",
+      "seats": "空いていればお好きな席へ（ご案内した席以外には移れません）・個室あり",
       "parking": "ありません（近くに大きなコインパーキングがあります）",
       "jasrac": "K9408696",
       "instagram": "https://www.instagram.com/recoco.cafe/",
@@ -108,7 +108,7 @@
       "accessEn": "6 minutes' walk from Shibuya Station (4 minutes from Exit C1) / 11 minutes' walk from Omotesando Station",
       "accessShortEn": "4 min from Shibuya Station Exit C1",
       "holidayEn": "New Year holidays only",
-      "seatsEn": "All seats assigned. Private room available.",
+      "seatsEn": "Pick any free seat when it is quiet, then please stay at that seat. Private room available.",
       "parkingEn": "None (large coin-operated car park nearby)",
       "privateRoom": {
         "_説明": "トップの ABOUT の下に出す、渋谷店の個室の案内。photo に写真（photos のファイル名と alt）を書くと左に写真の枠が出る。料金の金額は書かない",
@@ -150,7 +150,7 @@
       "closes": "21:00",
       "lastOrder": "20:30",
       "holiday": "なし（年末年始を除く）",
-      "seats": "全席指定席",
+      "seats": "空いていればお好きな席へ（ご案内した席以外には移れません）",
       "parking": "ありません（近くにコインパーキングがあります）",
       "jasrac": "K9566230",
       "instagram": "https://www.instagram.com/recoco.shimokita",
@@ -177,7 +177,7 @@
       "accessEn": "2 minutes' walk from the East Exit of Shimokitazawa Station. In the basement of the building across from Village Vanguard",
       "accessShortEn": "2 min from Shimokitazawa Station East Exit",
       "holidayEn": "New Year holidays only",
-      "seatsEn": "All seats assigned.",
+      "seatsEn": "Pick any free seat when it is quiet, then please stay at that seat.",
       "parkingEn": "None (coin-operated car park nearby)"
     }
   ],
@@ -364,9 +364,9 @@
     },
     {
       "title": "指定の席へ",
-      "text": "全席指定席です。混雑時は90分制、空いている時は無制限にご滞在いただけます。",
+      "text": "お席はスタッフがご案内します。空いていればお好きな席を選べますが、ご案内した席以外には座れません。混雑時は90分制、空いている時は無制限にご滞在いただけます。",
       "titleEn": "Go to your seat",
-      "textEn": "All seats are assigned. 90-minute limit when busy; no limit when it is quiet."
+      "textEn": "Staff will show you to a seat, and you can pick any free seat when it is quiet. Please stay at that seat. 90-minute limit when busy; no limit when it is quiet."
     },
     {
       "title": "棚からレコードを選ぶ",
@@ -459,9 +459,9 @@
     {
       "icon": "seat",
       "label": "席",
-      "text": "全席指定席・混雑時は90分制（空いている時は無制限にご滞在いただけます）。席のご予約はできません。渋谷店には個室があります",
+      "text": "空いていればお好きな席を選べますが、ご案内した席以外には座れません。混雑時は90分制（空いている時は無制限にご滞在いただけます）。席のご予約はできません。渋谷店には個室があります",
       "labelEn": "Seating",
-      "textEn": "All seats are assigned. 90-minute limit when busy (no limit when it is quiet). No reservations. The Shibuya shop has a private room."
+      "textEn": "Pick any free seat when it is quiet, then please stay at that seat. 90-minute limit when busy (no limit when it is quiet). No reservations. The Shibuya shop has a private room."
     },
     {
       "icon": "wifi",
