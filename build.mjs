@@ -261,7 +261,7 @@ const mapEmbed = (st) => `https://www.google.com/maps?q=${encodeURIComponent(st.
 
 function storeCards(site, lang) {
   return site.stores.map((s) => `<a class="store-card s-${s.color}" href="#${s.id}" data-cta="store_card" data-store="${s.id}">
-      <span class="txt"><span class="nm"><span class="dot" aria-hidden="true"></span>${esc(pick(s, 'name', lang, '店名'))}</span><span class="sub">${esc(pick(s, 'accessShort', lang, '店舗カード'))}・<span class="nb">${esc(s.opens)}${lang === 'en' ? '–' : '〜'}${esc(s.closes)}</span></span></span>
+      <span class="txt"><span class="nm"><span class="dot" aria-hidden="true"></span>${esc(pick(s, 'name', lang, '店名'))}</span><span class="sub">${esc(pick(s, 'accessShort', lang, '店舗カード'))}${lang === 'en' ? ' · ' : '・'}<span class="nb">${esc(s.opens)}${lang === 'en' ? '–' : '〜'}${esc(s.closes)}</span></span></span>
       ${icon('right', 20, 1.8)}
     </a>`).join('\n    ');
 }
@@ -355,7 +355,7 @@ function homeParts(site, menu, news, today, lang) {
   }).join('');
   const words = site.marquee.flatMap((w) => [`<span lang="en">${esc(w)}</span>`, '<span>●</span>']).join('');
   const more = (href, text, cta) => (text ? `<a class="more-link" href="${href}" data-cta="${cta}">${esc(text)}${icon('right')}</a>` : '');
-  const menuName = (name) => (en ? menuItem(menu, name).en.split(' ／ ')[0] : name);
+  const menuName = (name) => (en ? menuItem(menu, name).en.replace(/\s*\(.*\)$/, '') : name);
   const voices = en ? '' : `<section class="sec wrap" id="voice" aria-labelledby="voice-h">
   <div class="indent">
     <div class="sec-head">
