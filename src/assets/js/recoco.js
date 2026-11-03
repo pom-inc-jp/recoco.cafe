@@ -55,7 +55,8 @@
       }
     });
     btn.addEventListener('click', function () { setOpen(!isOpen()); });
-    sheet.addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false); });
+    // メニューの中は、リンクを押しても、何もないところを押しても閉じる
+    sheet.addEventListener('click', function () { setOpen(false); });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && isOpen()) { setOpen(false); btn.focus(); }
     });
