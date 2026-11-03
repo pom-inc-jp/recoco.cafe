@@ -315,8 +315,6 @@ h2.mb { margin-bottom: 32px; }
 .site-foot a:hover { color: var(--mustard); }
 .foot-in { padding-top: 64px; padding-bottom: 48px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 40px 48px; }
 .foot-brand { display: flex; align-items: center; gap: 20px; }
-.foot-brand .face { width: 96px; height: 96px; border-radius: 50%; background: var(--paper); display: flex; align-items: center; justify-content: center; overflow: hidden; flex: none; }
-.foot-brand .face img { width: 84px; }
 .foot-logo { width: 132px; }
 .foot-brand p { margin-top: 10px; font-size: 14px; }
 .foot-text { font-size: 13px; line-height: 2; }

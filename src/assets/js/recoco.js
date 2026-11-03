@@ -49,7 +49,8 @@
       if (p === 0 && isOpen()) setOpen(false);
       if (!reduce && disc) {
         var max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-        disc.setAttribute('transform', 'rotate(' + ((y / max) * 1440 % 360).toFixed(1) + ' 26 28)');
+        // 回転の中心は CSS（.tt-disc の transform-origin）で決める。SVG の transform 属性と重ねると中心がずれて揺れる
+        disc.style.transform = 'rotate(' + ((y / max) * 1440 % 360).toFixed(1) + 'deg)';
       }
     });
     btn.addEventListener('click', function () { setOpen(!isOpen()); });
