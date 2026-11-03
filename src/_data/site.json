@@ -417,21 +417,21 @@
   },
   "menuPreview": {
     "title": "音楽と楽しめるメニュー",
-    "text": "看板は、レコードに見立てたチョコ味のバームクーヘン「レココバーム」。レコードと一緒に楽しめるドリンクとデザートを揃えています。",
+    "text": "看板は、レコードに見立てたチョコ味のバームクーヘン「レココバームクーヘン」。レコードと一緒に楽しめるドリンクとデザートを揃えています。",
     "photo": {
       "file": "shibuya-cake-tart",
       "alt": "タイルのテーブルに並ぶケーキとタルト",
       "altEn": "Cakes and a tart on a tiled table"
     },
     "items": [
-      "レココバーム",
+      "レココバームクーヘン",
       "シナモンチーズケーキ",
       "カフェラテ",
       "メロンクリームソーダ"
     ],
     "_items": "menu.json の品名（name）と同じ文字で書く。価格は menu.json から引く",
     "titleEn": "Drinks and desserts to go with music",
-    "textEn": "Our signature is the RECOCO Baum, a chocolate baumkuchen that looks like a record. The menu page lists every item in English."
+    "textEn": "Our signature is the RECOCO Baumkuchen, a chocolate baumkuchen that looks like a record. The menu page lists every item in English."
   },
   "_info": "icon は build.mjs の INFO_ICONS の名前（system・card・tag・seat・wifi・paw・no-record・no-phone・camera）",
   "info": [
@@ -499,7 +499,7 @@
     }
   ],
   "collabTop": {
-    "lead": "アルバムのリリースや来日公演、映画の公開にあわせて、限定ラベルの「レココバーム」やレコードの展示でお迎えしてきました。",
+    "lead": "アルバムのリリースや来日公演、映画の公開にあわせて、限定ラベルの「レココバームクーヘン」やレコードの展示でお迎えしてきました。",
     "items": [
       {
         "date": "2026.08",
@@ -688,7 +688,7 @@
           "夕方の照明と内装は、シャープさとレトロさが同居した雰囲気。ソファ席もあり、つい長居しました。",
           "アフォガードやオリジナルのバームクーヘンなどメニューも多彩。次は友人を連れて行きます。"
         ],
-        "reply": "地下でレコードを選ぶワクワク感も当店の魅力のひとつです。看板メニュー「レココバーム」は、レコードに見立てたチョコ味のバームクーヘン。ご来店の際はぜひご賞味ください。"
+        "reply": "地下でレコードを選ぶワクワク感も当店の魅力のひとつです。看板メニュー「レココバームクーヘン」は、レコードに見立てたチョコ味のバームクーヘン。ご来店の際はぜひご賞味ください。"
       },
       {
         "headline": [
@@ -1060,7 +1060,7 @@
       "取材日の候補",
       "取材の内容"
     ],
-    "collabLead": "アルバムのリリースや来日公演、映画の公開にあわせたコラボカフェ、当選者を招いた先行試聴会などを開いてきました。限定ラベルの「レココバーム」、特典の配布、ポスターやLPの展示などを組み合わせてご提案します。",
+    "collabLead": "アルバムのリリースや来日公演、映画の公開にあわせたコラボカフェ、当選者を招いた先行試聴会などを開いてきました。限定ラベルの「レココバームクーヘン」、特典の配布、ポスターやLPの展示などを組み合わせてご提案します。",
     "collabKinds": {
       "コラボ": "mustard",
       "コラボ商品": "brown",
