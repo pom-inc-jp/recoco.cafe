@@ -432,7 +432,8 @@ function locBand(site, where) {
 // 料金の表。lang: 'en' は英語だけ、bi: true は日本語に英語を小さく添える（メニューページ）
 function chargeTable(charge, { lang = 'ja', bi = false } = {}) {
   const t = (x, key) => (lang === 'en' ? esc(pick(x, key, 'en', '料金')) : bi ? `${esc(x[key])}<span class="en" lang="en">${esc(pick(x, key, 'en', '料金'))}</span>` : esc(x[key]));
-  const cols = charge.columns.map((c, i) => `<th scope="col">${t({ c, cEn: (charge.columnsEn || [])[i] }, 'c')}</th>`).join('');
+  // 見出しが2行になるときは「・」のあとで折り返す
+  const cols = charge.columns.map((c, i) => `<th scope="col">${t({ c, cEn: (charge.columnsEn || [])[i] }, 'c').replace(/・/g, '・<wbr>')}</th>`).join('');
   const rows = charge.rows.map((r) => `<tr><th scope="row">${t(r, 'label')}</th>${r.prices.map((p) => `<td lang="en">${yen(p)}</td>`).join('')}</tr>`).join('\n          ');
   return `<div class="table-wrap"><table class="charge${bi ? ' charge-menu' : ''}">
           <thead><tr><th scope="col"><span class="vh">${lang === 'en' ? 'Type' : '区分'}</span></th>${cols}</tr></thead>

@@ -244,6 +244,8 @@ h2.mb { margin-bottom: 32px; }
 .charge th, .charge td { border-bottom: var(--line); }
 .charge thead th { text-align: right; font-weight: 400; padding: 0 0 14px; }
 .charge thead th:first-child { text-align: left; }
+.charge thead th + th, .charge td { padding-left: 24px; } /* 「平日」と「土日祝・特別営業日」がくっつかないように列の間をあける */
+.charge thead th { vertical-align: bottom; }
 .charge tbody th { text-align: left; font-weight: 700; padding: 22px 0; }
 .charge td { text-align: right; padding: 22px 0; font-size: 28px; line-height: 1; }
 .charge-menu thead th { padding-bottom: 12px; }
@@ -626,6 +628,7 @@ html.lb-open { overflow: hidden; }
   .charge thead th { font-size: 11.5px; line-height: 1.4; padding-bottom: 10px; }
   .charge tbody th { width: 28%; font-size: 13px; padding: 14px 0; }
   .charge td { font-size: 19px; padding: 14px 0; white-space: nowrap; }
+  .charge thead th + th, .charge td { padding-left: 16px; }
 
   .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 14px; }
   .steps li { padding-top: 12px; }
