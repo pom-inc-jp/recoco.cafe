@@ -808,7 +808,21 @@ async function build() {
   await fs.writeFile(path.join(OUT, 'sitemap.xml'), xml);
 
   // 4) お知らせのデータ（/news.json）。pom-inc.co.jp がこれを読みにきて、会社サイトのお知らせにも載せる
-  const pub = news.map(({ hasPage, ...n }) => ({ ...n, url: `${site.url}${newsHref({ ...n, hasPage })}` }));
+  // 会社サイトは本文の基本の種類（p・img など）しか知らないので、RECOCO だけの種類を書き換えて出す
+  const portable = (b) => {
+    if (typeof b === 'string' || !b) return [b];
+    if (b.type === 'img' && b.photo) return [{ type: 'img', src: photo(b.photo).src, alt: b.alt || '', ...(b.caption ? { caption: b.caption } : {}) }];
+    if (b.type === 'photos') return b.items.map((x) => ({ type: 'img', src: photo(x.photo).src, alt: x.alt || '' }));
+    if (b.type === 'credit') return [{ type: 'p', text: b.text }];
+    if (b.type === 'note' && b.items) return [{ type: 'note', text: b.items.join('　') }];
+    return [b];
+  };
+  const pub = news.map(({ hasPage, ...n }) => ({
+    ...n,
+    ...(n.body ? { body: n.body.flatMap(portable) } : {}),
+    ...(n.image ? { imageUrl: `${site.url}${photo(n.image).src}` } : {}),
+    url: `${site.url}${newsHref({ ...n, hasPage })}`
+  }));
   await fs.writeFile(path.join(OUT, 'news.json'), JSON.stringify({ updated: new Date(t0).toISOString(), items: pub }, null, 1));
 
   // 5) RSS
