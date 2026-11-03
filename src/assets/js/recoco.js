@@ -77,15 +77,11 @@
   if (slides) {
     var heroImgs = slides.querySelectorAll(':scope > img');
     var dots = slides.querySelectorAll('.slide-dots button');
-    var countCur = slides.querySelector('[data-slide-cur]');
-    var countTotal = slides.querySelector('[data-slide-total]');
-    if (countTotal) countTotal.textContent = String(heroImgs.length);
     var cur = 0;
     var showHero = function (i) {
       cur = (i + heroImgs.length) % heroImgs.length;
       fadeTo(heroImgs, cur);
       for (var k = 0; k < dots.length; k++) dots[k].setAttribute('aria-pressed', String(k === cur));
-      if (countCur) countCur.textContent = String(cur + 1);
     };
     Array.prototype.forEach.call(dots, function (d, i) {
       d.addEventListener('click', function () { showHero(i); tick = 0; });
