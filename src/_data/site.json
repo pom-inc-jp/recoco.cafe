@@ -527,14 +527,14 @@
         "name": "ソニー 公式グッズ",
         "file": "collab-sony-goods",
         "alt": "ソニー公式グッズのTシャツとトートバッグ",
-        "href": "/shooting/#collab"
+        "href": "/news/2026-sony-official-goods/"
       },
       {
         "date": "2025.09",
         "name": "FREAK’S STORE",
         "file": "collab-freaks-store",
         "alt": "RECOCOのロゴを背中にプリントしたコラボスウェット",
-        "href": "/shooting/#collab"
+        "href": "/news/2025-freaks-store/"
       },
       {
         "date": "2025.06",
@@ -1110,6 +1110,7 @@
         "date": "2026.05",
         "kind": "展示",
         "name": "ソニー 公式グッズ",
+        "news": "2026-sony-official-goods",
         "photo": {
           "file": "collab-sony-goods",
           "alt": "ウォークマン柄のTシャツとトートバッグを身につけ、レコードの壁の前に立つ2人"
@@ -1120,18 +1121,21 @@
         "date": "2026.04〜",
         "kind": "展示・体験",
         "name": "オーディオテクニカ",
+        "news": "2026-audio-technica",
         "text": "個室にレコードプレーヤーとヘッドホンを置き、実際に試せる展示"
       },
       {
         "date": "2026.03",
         "kind": "貸切イベント",
         "name": "Niall Horan",
+        "news": "20260315-niall-horan",
         "text": "新曲「Dinner Party」の先行試聴会。当選したファンを招き、地下フロアのテーブルを貸切に"
       },
       {
         "date": "2025.09",
         "kind": "コラボ商品",
         "name": "FREAK’S STORE",
+        "news": "2025-freaks-store",
         "photo": {
           "file": "collab-freaks-store",
           "alt": "RECOCOのロゴを背中にプリントしたコラボスウェット"

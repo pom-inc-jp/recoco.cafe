@@ -570,6 +570,41 @@
       "body": [
         "フジテレビ「めざましテレビ」の2024年のトレンド予測のコーナーで、RECOCOをご紹介いただきました。"
       ]
+    },
+    {
+      "id": "2026-sony-official-goods",
+      "date": "2026-05",
+      "store": "recoco",
+      "genre": "collab",
+      "title": "ソニー公式グッズの展示を行いました",
+      "image": "collab-sony-goods",
+      "body": [
+        {"type": "img", "photo": "collab-sony-goods", "alt": "ウォークマン柄のTシャツとトートバッグを身につけ、レコードの壁の前に立つ2人"},
+        "ウォークマンなどをデザインしたソニーの公式グッズ（Tシャツやトートバッグ）の発売前サンプルを、RECOCOの店内で展示しました。",
+        "期間中はPOPを置き、ステッカーの配布も行いました。"
+      ]
+    },
+    {
+      "id": "2026-audio-technica",
+      "date": "2026-04",
+      "store": "recoco",
+      "genre": "collab",
+      "title": "オーディオテクニカのレコードプレーヤーとヘッドホンを試せる展示を行っています",
+      "body": [
+        "2026年4月から、RECOCO渋谷の個室にオーディオテクニカのレコードプレーヤーとヘッドホンを置き、実際に試せる展示を行っています。"
+      ]
+    },
+    {
+      "id": "2025-freaks-store",
+      "date": "2025-09",
+      "store": "recoco",
+      "genre": "collab",
+      "title": "FREAK’S STORE とのコラボスウェットを発売しました",
+      "image": "collab-freaks-store",
+      "body": [
+        {"type": "img", "photo": "collab-freaks-store", "alt": "RECOCOのロゴを背中にプリントしたコラボスウェット"},
+        "FREAK’S STORE とのコラボで、RECOCOの女の子のロゴと「Shibuya & Shimokitazawa Retro Music」を背中にプリントしたスウェットを発売しました。"
+      ]
     }
   ]
 }
