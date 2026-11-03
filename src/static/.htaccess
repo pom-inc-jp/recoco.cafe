@@ -33,6 +33,8 @@ RewriteRule ^archives/news/?$ https://recoco.cafe/news/ [R=301,L]
 RewriteRule ^archives/gallery(/.*)?$ https://recoco.cafe/gallery/ [R=301,L]
 RewriteRule ^archives/voice(/.*)?$ https://recoco.cafe/voice/ [R=301,L]
 # そのほかの旧ページ
+# 固定ページ「ブログページ」（/%e3%83%96…）→ お知らせ一覧
+RewriteRule ^ブログページ/?$ https://recoco.cafe/news/ [R=301,L]
 RewriteRule ^archives/ https://recoco.cafe/ [R=301,L]
 RewriteRule ^(category|tag|author)/ https://recoco.cafe/ [R=301,L]
 RewriteRule ^(feed|comments/feed)/?$ https://recoco.cafe/feed.xml [R=301,L]
