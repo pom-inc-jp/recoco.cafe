@@ -138,7 +138,7 @@ Node.js 18 以上だけで動く（追加のライブラリなし）。
 
 ## 計測（Googleタグマネージャー → GA4）
 
-`site.json` の `gtmId` にコンテナ ID を書くと、タグが入る（空のあいだは入らない）。サイトは `dataLayer` に次の2種類を送る（`src/assets/js/recoco.js`）。
+`site.json` の `gtmId`（GTM-5FQ27XG8。旧サイトの Site Kit と同じコンテナ）のタグを全ページに入れている（空にすると入らない）。サイトは `dataLayer` に次の2種類を送る（`src/assets/js/recoco.js`）。
 
 | イベント | いつ | 項目 |
 |---|---|---|
