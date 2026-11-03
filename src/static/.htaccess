@@ -25,6 +25,10 @@ RewriteRule ^wp-content/uploads/.+\.pdf$ https://recoco.cafe/menu/ [R=301,L,NC]
 # --- 旧WordPressサイトのURLからの転送 ---
 # お知らせの記事：/archives/news/記事名 → /news/記事名/（記事ページがないものはお知らせ一覧へ）
 # 旧サイトの記事名と news.json の id をそろえている（michael-movie・olivia-rodrigox-recoco2026・laufeyx-recoco2026）
+# 旧サイトの記事名に「_」があったものは、新しい id（「-」）へ
+RewriteRule ^archives/news/bensonboone_recocovol1/?$ https://recoco.cafe/news/benson-boone-recocovol1/ [R=301,L]
+RewriteRule ^archives/news/shimokita_prepoen/?$ https://recoco.cafe/news/shimokita-preopen/ [R=301,L]
+RewriteRule ^archives/news/sundae_films_dreaminwild/?$ https://recoco.cafe/news/sundae-films-dreaminwild/ [R=301,L]
 RewriteCond %{DOCUMENT_ROOT}/news/$1/index.html -f
 RewriteRule ^archives/news/([A-Za-z0-9-]+)/?$ https://recoco.cafe/news/$1/ [R=301,L]
 RewriteRule ^archives/news/([^/]+)/?$ https://recoco.cafe/news/ [R=301,L]

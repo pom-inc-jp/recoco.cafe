@@ -541,21 +541,21 @@
         "name": "Ava Max",
         "file": "collab-ava-max",
         "alt": "Ava Maxのコラボ",
-        "href": "/shooting/#collab"
+        "href": "/news/ava-max-x-recoco/"
       },
       {
         "date": "2025.06",
         "name": "Benson Boone",
         "file": "collab-benson",
         "alt": "Benson Booneのコラボ",
-        "href": "/shooting/#collab"
+        "href": "/news/benson-boone-recocovol1/"
       },
       {
         "date": "2025.04",
         "name": "Gracie Abrams",
         "file": "collab-gracie-2",
         "alt": "Gracie Abramsのコラボバームクーヘンとレコード",
-        "href": "/shooting/#collab"
+        "href": "/news/gracie-abrams-x-recoco/"
       }
     ]
   },
@@ -1140,6 +1140,7 @@
         "date": "2025.06〜09",
         "kind": "コラボ",
         "name": "Ava Max『Don’t Click Play』",
+        "news": "ava-max-x-recoco",
         "photo": {
           "file": "collab-ava-max",
           "alt": "Ava Maxのコラボ"
@@ -1150,6 +1151,7 @@
         "date": "2025.06",
         "kind": "コラボ",
         "name": "Benson Boone『American Heart』",
+        "news": "benson-boone-recocovol1",
         "photo": {
           "file": "collab-benson",
           "alt": "Benson Booneのコラボ"
@@ -1160,6 +1162,7 @@
         "date": "2025.04",
         "kind": "コラボ",
         "name": "Gracie Abrams",
+        "news": "gracie-abrams-x-recoco",
         "photo": {
           "file": "collab-gracie-1",
           "alt": "アルバムとコラボバームクーヘン"
