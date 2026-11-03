@@ -729,6 +729,7 @@ async function build() {
         url: `${site.url}${urlPath}`,
         ogType: meta.ogType || (isTop ? 'website' : 'article'),
         robots: meta.noindex ? '<meta name="robots" content="noindex">' : '',
+        canonical: meta.noindex ? '' : `<link rel="canonical" href="${site.url}${urlPath}">`,
         jsonld: meta.jsonld || '',
         image: meta.image || `${site.url}/assets/img/common/ogp.jpg`,
         fonts: meta.handwriting ? 'family=Jost:wght@400;500;600&family=Klee+One:wght@600&family=Zen+Kaku+Gothic+New:wght@400;500;700' : 'family=Jost:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700',
