@@ -319,8 +319,13 @@ html[lang="en"] .store-head .en { display: none; } /* 英語ページでは見�
 .foot-brand { display: flex; align-items: center; gap: 20px; }
 .foot-logo { width: 132px; }
 .foot-brand p { margin-top: 10px; font-size: 14px; }
-.foot-text { font-size: 13px; line-height: 2; }
-.foot-text .copy { margin-top: 8px; }
+.foot-text { font-size: 13px; line-height: 1.8; }
+.foot-list { display: grid; gap: 10px; }
+.foot-list > div { display: grid; grid-template-columns: 7.5em 1fr; gap: 0 16px; }
+.foot-list dt { color: var(--paper-dim); font-size: 12px; padding-top: 1px; }
+.foot-list dd { margin: 0; }
+.foot-list .note { display: block; font-size: 12px; color: var(--paper-dim); }
+.foot-text .copy { margin-top: 20px; font-size: 12px; color: var(--paper-dim); }
 .foot-bar { height: 8px; background: var(--red); }
 
 /* --- メニューページ --- */

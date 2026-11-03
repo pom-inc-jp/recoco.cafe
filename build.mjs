@@ -652,18 +652,22 @@ function chromeParts(site, lang, hasNewsEn = true) {
   const f = site.footer;
   const a = (url, text) => `<a href="${esc(url)}"${linkAttrs(url)}>${esc(text)}</a>`;
   const mail = `<a href="mailto:${esc(site.email)}">${esc(site.email)}</a>`;
+  // フッターは「見出し：中身」の行にそろえる（JASRAC は店舗・アクセスにだけ出す）
+  const row = (dt, dd) => `<div><dt>${dt}</dt><dd>${dd}</dd></div>`;
+  const igLinks = site.stores.map((s) => a(s.instagram, en ? s.areaEn : s.area)).join(en ? ' / ' : '・');
   const foot = en
     ? [
-      `<p>${esc(f.en.contact)}: ${mail} (${esc(f.en.noReserve)})</p>`,
-      `<p>${esc(f.en.jasrac)}: ${site.stores.map((s) => `${esc(s.areaEn)} ${esc(s.jasrac)}`).join(' / ')}</p>`,
-      `<p><span lang="en">Instagram</span> ${site.stores.map((s) => a(s.instagram, s.areaEn)).join(' / ')} / ${esc(f.en.sister)}: ${a(f.sister.url, f.en.sisterName)}</p>`
+      row(esc(f.en.contact), `${mail}<span class="note">${esc(f.en.noReserve)}</span>`),
+      row('<span lang="en">Instagram</span>', igLinks),
+      row(esc(f.en.sister), a(f.sister.url, f.en.sisterName))
     ]
     : [
-      `<p>${a('/shooting/', f.contact)}／お問い合わせ：${mail}（${esc(f.noReserve)}）</p>`,
-      `<p>${esc(f.ja.jasrac)} ${site.stores.map((s) => `${esc(s.area)}店 ${esc(s.jasrac)}号`).join('／')}</p>`,
-      `<p><span lang="en">Instagram</span> ${site.stores.map((s) => a(s.instagram, s.area)).join('／')}／${esc(f.ja.sister)} ${a(f.sister.url, f.sister.name)}</p>`
+      row(esc(f.ja.contact), `${mail}<span class="note">${esc(f.noReserve)}</span>`),
+      row(esc(f.ja.request), a('/shooting/', f.contact)),
+      row('<span lang="en">Instagram</span>', igLinks),
+      row(esc(f.ja.sister), a(f.sister.url, f.sister.name))
     ];
-  return { navHeader, navFab, igFab, foot: foot.join('\n      '), jpCurrent: en ? '' : ' aria-current="true"', enCurrent: en ? ' aria-current="true"' : '', footCatch: en ? f.en.catch : f.catch, tagline: en ? site.en.tagline : site.tagline, home: en ? '/en/' : '/' };
+  return { navHeader, navFab, igFab, foot: `<dl class="foot-list">${foot.join('')}</dl>`, jpCurrent: en ? '' : ' aria-current="true"', enCurrent: en ? ' aria-current="true"' : '', footCatch: en ? f.en.catch : f.catch, tagline: en ? site.en.tagline : site.tagline, home: en ? '/en/' : '/' };
 }
 
 // ---------------------------------------------------------------
