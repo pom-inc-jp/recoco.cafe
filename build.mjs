@@ -498,8 +498,11 @@ function mailto(email, subject, items) {
   return `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(items.map((x) => `${x}：\n`).join(''))}`;
 }
 
-function shootingParts(site) {
+function shootingParts(site, news) {
   const sh = site.shooting;
+  // コラボのカードに news（お知らせの id）を書くと、その記事ページへのリンクになる。記事ページがない id は書き出しを止める
+  const articleIds = new Set(news.filter((n) => n.hasPage).map((n) => n.id));
+  for (const c of sh.collabs) if (c.news && !articleIds.has(c.news)) throw new Error(`撮影ページのコラボ「${c.name}」の news（${c.news}）に当たる記事ページがありません`);
   const first = sh.gallery[0];
   const viewer = `<div class="viewer" data-viewer>
       <figure>
@@ -528,14 +531,18 @@ function shootingParts(site) {
   const unknownKinds = sh.press.filter((p) => !sh.pressKinds.some(([k]) => k === p.kind));
   if (unknownKinds.length) throw new Error(`取材の実績「${unknownKinds[0].name}」の kind は ${sh.pressKinds.map((k) => k[0]).join(' / ')} のどれか`);
   const ph = '<div class="collab-ph"><img src="/assets/img/common/recoco-girl-red.png" alt="" width="1031" height="1001" loading="lazy"></div>';
-  const collabs = sh.collabs.map((c) => `<li>
-        ${c.photo ? img(c.photo, '(max-width: 760px) 100vw, 300px') : ph}
+  const collabs = sh.collabs.map((c) => {
+    const inner = `${c.photo ? img(c.photo, '(max-width: 760px) 100vw, 300px') : ph}
         <div class="b">
           <p class="m"><span class="d" lang="en">${esc(c.date)}</span><span class="kind k-${sh.collabKinds[c.kind] || 'other'}">${esc(c.kind)}</span></p>
           <p class="n">${esc(c.name)}</p>
-          <p class="x">${esc(c.text)}</p>
-        </div>
-      </li>`).join('\n      ');
+          <p class="x">${esc(c.text)}</p>${c.news ? `
+          <p class="more"><span class="lb"><span class="en" lang="en">READ</span><span class="ja">詳しく見る</span></span><span class="more-dot" aria-hidden="true">${icon('right')}</span></p>` : ''}
+        </div>`;
+    return c.news
+      ? `<li class="has-link"><a href="/news/${esc(c.news)}/" data-cta="collab_card">${inner}</a></li>`
+      : `<li>${inner}</li>`;
+  }).join('\n      ');
   return {
     floors: sh.floors.map((f) => `<figure class="floor">${img(f.photo, '(max-width: 760px) 100vw, 600px')}<figcaption><span class="fl" lang="en">${esc(f.floor)}</span><span class="t">${esc(f.title)}</span><span class="x">${esc(f.text)}</span></figcaption></figure>`).join('\n    '),
     viewer,
@@ -704,7 +711,7 @@ async function build() {
     build: { version: t0.toString(36), year: new Date().getFullYear() },
     news: { filters: newsFilters(news, site), all: newsAll(news, site) },
     menu: { ...menuParts(menu), lead: menu.lead, leadEn: menu.leadEn, updated: menu.updated, chargeTable: chargeTable(site.charge, { bi: true }), footnoteEn: site.charge.footnoteEn },
-    shooting: shootingParts(site),
+    shooting: shootingParts(site, news),
     gallery: galleryParts(site),
     voices: { list: voiceParts(site), closing: lines(site.voices.closing) }
   };

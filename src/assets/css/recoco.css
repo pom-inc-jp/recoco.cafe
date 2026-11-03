@@ -541,7 +541,7 @@ html.lb-open { overflow: hidden; }
 .press-group .n { flex: 1; min-width: 0; font-weight: 700; }
 .collab-cards { margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
 .collab-cards li { background: var(--card); border-radius: var(--r); overflow: hidden; }
-.collab-cards li > img, .collab-ph { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.collab-cards li > img, .collab-cards li > a > img, .collab-ph { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
 .collab-ph { background: var(--beige); display: flex; align-items: center; justify-content: center; }
 .collab-ph img { width: 46%; }
 .collab-cards .b { padding: 20px 24px 24px; }
@@ -554,6 +554,15 @@ html.lb-open { overflow: hidden; }
 .k-green { background: var(--green); }
 .collab-cards .n { margin-top: 10px; font-size: 17px; font-weight: 700; line-height: 1.6; }
 .collab-cards .x { margin-top: 6px; font-size: 14px; line-height: 1.8; }
+/* 記事があるカードは、カード全体が記事へのリンク（お知らせ一覧と同じ「READ 詳しく見る」） */
+.collab-cards li.has-link > a { display: flex; flex-direction: column; height: 100%; color: inherit; text-decoration: none; }
+.collab-cards li.has-link .b { flex: 1; display: flex; flex-direction: column; }
+.collab-cards .more { margin-top: auto; padding-top: 16px; display: flex; align-items: center; justify-content: flex-end; gap: 10px; }
+.collab-cards .more .lb { display: inline-flex; flex-direction: column; line-height: 1.2; text-align: right; }
+.collab-cards .more .en { font-size: 11px; font-weight: 600; letter-spacing: .2em; color: var(--red); }
+.collab-cards .more .ja { font-size: 12px; font-weight: 700; }
+.collab-cards li.has-link > a:hover .more-dot, .collab-cards li.has-link > a:focus-visible .more-dot { transform: translateX(4px); background: var(--red); }
+.collab-cards li.has-link > a:hover img { opacity: .9; }
 .sister { margin-top: 96px; }
 .sister-box { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; padding: 28px clamp(20px, 4vw, 40px); border: var(--line); border-radius: var(--r); background: var(--card); }
 .sister-box .txt { flex: 1 1 360px; }
@@ -627,8 +636,10 @@ html.lb-open { overflow: hidden; }
   .info > div, .shoot .info > div { padding: 12px 0; }
   .info dt { font-size: 13.5px; }
 
-  .collab-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-  .collab-strip li:nth-child(n+3) { display: none; }
+  /* スマホは横にスクロールして全部見られるようにする（縦に長くしない） */
+  .collab-strip { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; margin-right: -20px; padding-right: 20px; scrollbar-width: none; }
+  .collab-strip::-webkit-scrollbar { display: none; }
+  .collab-strip li { flex: 0 0 42%; scroll-snap-align: start; }
   .gallery-strip img:nth-child(3) { display: none; }
   .voice-cards { grid-template-columns: 1fr; }
   .voice-card { padding: 24px; }
