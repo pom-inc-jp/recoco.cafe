@@ -1,0 +1,18 @@
+---
+{ "title": "お客さまの声", "description": "レコードカフェ RECOCO にご来店いただいたお客さまの声と、スタッフからのお返事をご紹介します。", "handwriting": true }
+---
+<!-- お客さまの声。中身は site.json の voices。手書き風の文字（Klee One）はこのページだけ読み込む -->
+<div class="wrap page-top" id="voice-top">
+  <div class="indent">
+    {{{eb.VOICE}}}
+    <h1 class="page-title">お客さまの声</h1>
+    <p class="body-text wide">{{site.voices.lead}}</p>
+  </div>
+
+  {{{voices.list}}}
+
+  <div class="closing">
+    <p>{{{voices.closing}}}</p>
+    <a class="btn btn-paper btn-l" href="/#access">店舗・アクセスを見る{{{ic.right}}}</a>
+  </div>
+</div>

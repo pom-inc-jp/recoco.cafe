@@ -1,0 +1,14 @@
+<div class="article-wrap">
+  <p class="crumb"><a href="/news/">お知らせ</a><span aria-hidden="true">／</span><span class="here">{{article.crumb}}</span></p>
+  <article class="article">
+    <div class="meta"><time datetime="{{article.date}}" lang="en">{{article.dateLabel}}</time>{{{article.updated}}}{{{article.tag}}}{{{article.enLink}}}</div>
+    <h1>{{article.title}}</h1>
+    <div class="article-body">
+{{{article.body}}}
+    </div>
+    {{{article.en}}}
+  </article>
+  <nav class="pager" aria-label="前後の記事">
+    {{{article.pager}}}<a class="pn pn-list" href="/news/">お知らせ一覧へ{{{ic.right}}}</a>
+  </nav>
+</div>

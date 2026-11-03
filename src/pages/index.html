@@ -1,0 +1,36 @@
+---
+{ "cafeJsonLd": true }
+---
+<!-- トップ。共通の部分は _partials/home-hero.html・home-body.html（英語ページと共通）。
+     お知らせ・撮影・取材・コラボへの入口・アーティストとのコラボは日本語のトップだけ -->
+{{> home-hero}}
+
+<section class="sec wrap sec-news" id="news" aria-labelledby="news-h">
+  <div class="indent">
+    <div class="sec-head">
+      <div>{{{eb.NEWS}}}<h2 id="news-h">お知らせ</h2></div>
+    </div>
+    <div class="filters" role="group" aria-label="カテゴリで絞り込む" data-target="news-latest">
+      {{{page.t.newsFilters}}}
+    </div>
+    {{{page.t.news}}}
+    <p class="empty" data-empty="news-latest" hidden>このカテゴリのお知らせはまだありません。</p>
+    <p class="news-bottom"><a class="btn btn-line" href="/news/" data-cta="news_more">一覧を見る{{{ic.right}}}</a></p>
+  </div>
+</section>
+
+{{{page.t.locBandPc}}}
+
+{{> home-body}}
+
+<section class="sec wrap" id="collab" aria-labelledby="collab-h">
+  <div class="indent sec-head">
+    <div>{{{eb.COLLABORATION}}}<h2 id="collab-h">アーティストとのコラボ</h2><p class="sub wide">{{site.collabTop.lead}}</p></div>
+    <a class="more-link" href="/shooting/#collab" data-cta="collab_more">コラボの実績を見る{{{ic.right}}}</a>
+  </div>
+  <ul class="collab-strip">
+      {{{page.t.collab}}}
+  </ul>
+</section>
+
+{{{page.t.locBandSp}}}

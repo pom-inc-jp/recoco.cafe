@@ -1,0 +1,115 @@
+---
+{ "title": "撮影・取材・コラボのご依頼", "description": "レコードカフェ RECOCO渋谷は、営業時間外の店内を雑誌やアパレルのルック、映像の撮影にお貸ししています。テレビ・雑誌・WEBメディアの取材や、アーティストとのコラボ・貸切イベントのご相談も受け付けています。" }
+---
+<!-- 撮影・取材・コラボのご依頼（渋谷店のみ）。「撮影」は施設利用料をいただく商用撮影（場所の貸し出し）。
+     言葉・料金・実績は site.json の shooting から入る -->
+<div class="wrap page-top shoot" id="shoot-top">
+  <div class="indent">
+    {{{eb.LOCATIONPRESS}}}
+    <h1 class="page-title shoot-title">{{site.shooting.title}}</h1>
+    <p class="body-text wide2">{{site.shooting.lead}}</p>
+    <nav class="btns shoot-toc" aria-label="ページ内の項目">
+      <a class="btn btn-red btn-l" href="#location" data-cta="shoot_anchor">撮影のご依頼{{{ic.down}}}</a>
+      <a class="btn btn-ink btn-l" href="#press" data-cta="press_anchor">取材のご依頼{{{ic.down}}}</a>
+      <a class="btn btn-line btn-l" href="#collab" data-cta="collab_anchor">コラボ・貸切のご相談{{{ic.down}}}</a>
+    </nav>
+  </div>
+
+  <section class="shoot-sec" id="location" aria-labelledby="loc-h">
+    <div class="indent">
+      <p class="eyebrow-plain" lang="en">LOCATION RENTAL</p>
+      <h2 id="loc-h" class="part">撮影（商用撮影）</h2>
+      <p class="body-text wide2">{{site.shooting.shootLead}}</p>
+    </div>
+    <div class="floors">
+    {{{shooting.floors}}}
+    </div>
+
+    <div class="viewer-wrap">
+      <h3 class="indent">店内の写真</h3>
+      {{{shooting.viewer}}}
+    </div>
+
+    <div class="indent">
+      <h3 class="h3-gap">撮影の実績</h3>
+      <p class="sub-text">{{site.shooting.worksLead}}</p>
+      <div class="works-grid">
+      {{{shooting.works}}}
+      </div>
+
+      <div class="two">
+        <div>
+          <h3>撮影できる時間</h3>
+          <ul class="times">{{{shooting.times}}}</ul>
+          <p class="t-consult">{{site.shooting.timesConsult}}</p>
+          <p class="alert">{{site.shooting.timesAlert}}</p>
+          <p class="mute-note">{{site.shooting.timesNote}}</p>
+        </div>
+        <div>
+          <h3>料金の目安</h3>
+          <dl class="kv kv-price">
+          {{{shooting.prices}}}
+          </dl>
+          <p class="min-time">{{site.shooting.minTime}}</p>
+          <p class="mute-note">{{site.shooting.priceNote}}</p>
+          <ol class="price-notes">{{{shooting.priceNotes}}}</ol>
+        </div>
+      </div>
+
+      <h3 class="h3-gap2">ご予約までの流れ</h3>
+      <ol class="flow">
+      {{{shooting.flow}}}
+      </ol>
+      <p class="mute-note">{{site.shooting.flowNote}}</p>
+
+      <h3 class="h3-gap2">設備とご協力できること</h3>
+      <dl class="info">
+      {{{shooting.features}}}
+      </dl>
+
+      <div class="cta-box cta-red">
+        <div><p class="t">{{site.shooting.mailTitle}}</p><p>{{site.shooting.mailLead}}{{site.shooting.mailNote}}</p></div>
+        <a class="btn btn-paper btn-xl" href="{{shooting.mailHref}}" data-cta="shoot_mail">{{{ic.mail}}}メールで相談する</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="shoot-sec indent" id="press" aria-labelledby="press-h">
+    <p class="eyebrow-plain" lang="en">PRESS</p>
+    <h2 id="press-h" class="part">{{site.shooting.pressTitle}}</h2>
+    <p class="body-text wide2">{{site.shooting.pressLead}}</p>
+    <h3 class="h3-gap3">{{site.shooting.pressTopicsTitle}}</h3>
+    <ul class="topics">
+      {{{shooting.pressTopics}}}
+    </ul>
+    <h3 class="h3-gap3">取材・掲載の実績</h3>
+    <div class="press-grid">
+      {{{shooting.pressGroups}}}
+    </div>
+    <div class="cta-box cta-ink">
+      <div><p class="t">{{site.shooting.pressMailTitle}}</p><p>{{site.shooting.pressMailLead}}</p></div>
+      <a class="btn btn-paper btn-xl" href="{{shooting.pressMailHref}}" data-cta="press_mail">{{{ic.mail}}}メールで依頼する</a>
+    </div>
+  </section>
+
+  <section class="shoot-sec indent" id="collab" aria-labelledby="collab-h">
+    <p class="eyebrow-plain" lang="en">COLLABORATION &amp; EVENT</p>
+    <h2 id="collab-h" class="part">コラボ・貸切イベント</h2>
+    <p class="body-text wide2">{{site.shooting.collabLead}}</p>
+    <ul class="collab-cards">
+      {{{shooting.collabs}}}
+    </ul>
+    <div class="cta-box cta-line">
+      <div><p class="t">{{site.shooting.collabMailTitle}}</p><p>{{site.shooting.collabMailLead}}</p></div>
+      <a class="btn btn-ink btn-xl" href="{{shooting.collabMailHref}}" data-cta="collab_mail">{{{ic.mail}}}メールで相談する</a>
+    </div>
+  </section>
+
+  <aside class="indent sister" aria-labelledby="sister-h">
+    <div class="sister-box">
+      <div class="txt"><p class="eyebrow-plain" lang="en">SISTER SHOP</p><h2 id="sister-h">{{site.shooting.sister.title}}</h2><p>{{site.shooting.sister.text}}</p></div>
+      <a class="btn btn-ink btn-l" href="{{site.shooting.sister.url}}" target="_blank" rel="noopener" data-cta="sister_shooting">{{site.shooting.sister.label}}{{{ic.out}}}</a>
+    </div>
+  </aside>
+</div>
+{{> lightbox}}

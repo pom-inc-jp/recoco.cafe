@@ -1,0 +1,93 @@
+<!-- トップ（/）と英語ページ（/en/）で共通の本文（ABOUT・個室 → 楽しみ方 → 料金 → メニュー → ご利用案内 → 店内の様子 → お客さまの声（日本語だけ） → 店舗・アクセス）。
+     セクションを足す・並べ替えるときは、このファイルを直す。言葉は site.json から言語ごとに入る -->
+<section class="sec wrap" id="about" aria-labelledby="about-h">
+  <div class="about">
+    <div class="about-text indent">
+      {{{eb.ABOUT}}}
+      <h2 id="about-h">{{{page.t.aboutTitle}}}</h2>
+      <p class="body-text">{{page.t.aboutText}}</p>
+    </div>
+    <div class="about-photos">
+      <div class="fade-frame" data-fade="0">{{{page.t.aboutA}}}</div>
+      <div class="fade-frame low" data-fade="1">{{{page.t.aboutB}}}</div>
+    </div>
+  </div>
+  <ul class="points indent">
+      {{{page.t.points}}}
+  </ul>
+  {{{page.t.room}}}
+</section>
+
+<section class="sec wrap" id="guide" aria-labelledby="guide-h">
+  <div class="indent">
+    <div class="sec-head guide-head">
+      <div>{{{eb.HOWTOENJOY}}}<h2 id="guide-h">{{page.ui.guide}}</h2><p class="sub">{{page.t.stepsLead}}</p></div>
+      <img class="guide-girl" src="/assets/img/common/recoco-girl-red.png" alt="{{page.t.girlAlt}}" width="1031" height="1001" loading="lazy">
+    </div>
+    <ol class="steps">
+        {{{page.t.steps}}}
+    </ol>
+  </div>
+</section>
+
+<section class="sec wrap" id="price" aria-labelledby="price-h">
+  <div class="indent two-col">
+    <div class="col-head">
+      {{{eb.CHARGE}}}
+      <h2 id="price-h">{{page.ui.price}}</h2>
+      <p class="small-text">{{page.t.chargeNote}}</p>
+    </div>
+    <div class="col-body">
+      {{{page.t.chargeTable}}}
+      <p class="foot-note">{{page.t.chargeFootnote}}</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap" id="menu" aria-labelledby="menu-h">
+  <div class="menu-preview">
+    {{{page.t.menuImg}}}
+    <div class="txt">
+      {{{eb.MENU}}}
+      <h2 id="menu-h">{{page.t.menuTitle}}</h2>
+      <p class="small-text">{{page.t.menuText}}</p>
+      <ul class="price-list">
+        {{{page.t.menuItems}}}
+      </ul>
+      <p class="btns"><a class="btn btn-red btn-l" href="/menu/" data-cta="menu_all">{{page.ui.menuButton}}{{{ic.right}}}</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-s wrap" id="info" aria-labelledby="info-h">
+  <div class="indent">
+    {{{eb.INFORMATION}}}
+    <h2 id="info-h" class="mb">{{page.ui.info}}</h2>
+    <dl class="info">
+        {{{page.t.info}}}
+    </dl>
+  </div>
+</section>
+
+<section class="sec wrap" id="gallery" aria-labelledby="gallery-h">
+  <div class="indent sec-head">
+    <div>{{{eb.GALLERY}}}<h2 id="gallery-h">{{page.ui.gallery}}</h2></div>
+    {{{page.t.galleryMore}}}
+  </div>
+  <div class="gallery-strip">
+    {{{page.t.gallery}}}
+  </div>
+</section>
+
+{{{page.t.voices}}}
+
+<section class="sec wrap" id="access" aria-labelledby="access-h">
+  <div class="indent">
+    {{{eb.ACCESS}}}
+    <h2 id="access-h">{{page.ui.access}}</h2>
+    <p class="small-text wide access-lead">{{page.t.accessLead}}</p>
+    <div class="stores">
+      {{{page.t.stores}}}
+    </div>
+  </div>
+</section>

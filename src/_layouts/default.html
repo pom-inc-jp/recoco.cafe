@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="{{page.lang}}">
+<head>
+{{> head}}
+</head>
+<body{{{page.bodyClass}}}>
+{{{gtm.body}}}
+<a class="skip" href="#main">{{page.ui.skip}}</a>
+{{> header}}
+<main id="main">
+{{{content}}}
+</main>
+<p class="to-top"><a class="btn btn-line" href="#top" data-cta="to_top"><span class="up">{{{ic.up}}}</span>{{page.ui.toTop}}</a></p>
+{{> footer}}
+{{> fab}}
+<script src="/assets/js/recoco.js?v={{build.version}}" defer></script>
+</body>
+</html>

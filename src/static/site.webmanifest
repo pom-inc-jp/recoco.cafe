@@ -1,0 +1,11 @@
+{
+  "name": "レコードカフェ RECOCO",
+  "short_name": "RECOCO",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#A7242A",
+  "background_color": "#F3ECE0",
+  "display": "browser"
+}

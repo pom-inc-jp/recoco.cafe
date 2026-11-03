@@ -1,0 +1,19 @@
+---
+{ "title": "ギャラリー", "description": "レコードカフェ RECOCO の店内写真。白と緑の明るい渋谷店、赤と木の温かい下北沢店の雰囲気をご紹介します。" }
+---
+<!-- 写真は site.json の gallery。store（shibuya / shimokita）で絞り込める -->
+<div class="wrap page-top" id="gallery-top">
+  <div class="indent">
+    {{{eb.GALLERY}}}
+    <h1 class="page-title">ギャラリー</h1>
+    <p class="body-text wide">{{site.gallery.lead}}</p>
+    <div class="filters filters-page" role="group" aria-label="店舗で絞り込む" data-gallery-filter>
+      {{{gallery.filters}}}
+    </div>
+  </div>
+  <ul class="gal-grid" data-gallery>
+    {{{gallery.items}}}
+  </ul>
+  <p class="center"><a class="btn btn-line btn-l" href="https://www.instagram.com/recoco.cafe/" target="_blank" rel="noopener">Instagramでもっと見る{{{ic.out}}}</a></p>
+</div>
+{{> lightbox}}
