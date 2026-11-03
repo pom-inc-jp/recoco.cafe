@@ -10,7 +10,7 @@
 #     ・どの店でも：名前が _movie_app で終わるフォルダ（recoco_movie_app/ など）、movie/、movie_app/、
 #       mp4 が入っているフォルダすべて、.well-known/
 #     ・RECOCO だけ：wp-content/uploads/（旧サイトの画像。中のPDFは .htaccess で /menu/ へ転送）、
-#       Search Console などの確認ファイル
+#       Search Console などの確認ファイル、.user.ini（Xserver の PHP 設定。動画アプリが使うことがある）
 #
 # 安全のための切り替え
 #   リポジトリの変数（Settings → Secrets and variables → Actions → Variables）
@@ -47,4 +47,5 @@ jobs:
         /wp-content/uploads/
         /google*.html
         /BingSiteAuth.xml
+        /.user.ini
     secrets: inherit
