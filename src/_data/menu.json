@@ -33,7 +33,7 @@
       "id": "dessert", "name": "デザート", "en": "Dessert",
       "photo": { "file": "shimokita-cheesecake", "alt": "チーズケーキのプレート" },
       "items": [
-        { "name": "レココバーム", "en": "RECOCO Baum", "price": 660 },
+        { "name": "レココバームクーヘン", "en": "RECOCO Baumkuchen", "price": 660 },
         { "name": "シナモンチーズケーキ", "en": "Cinnamon cheesecake", "price": 800 },
         { "name": "アールグレイタルト", "en": "Earl Gray Tart", "price": 800 },
         { "name": "アフォガード", "en": "Affogato", "price": 770 }
