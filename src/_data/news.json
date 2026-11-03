@@ -1,0 +1,116 @@
+{
+  "_説明": "お知らせ。書き方は README の「お知らせの書き方」。body がある記事だけ記事ページ（/news/id/）を作る。body がない記事は一覧に見出しだけを出す",
+  "items": [
+    {
+      "id": "michael-movie",
+      "date": "2026-08-13",
+      "store": "recoco",
+      "genre": "collab",
+      "title": "映画『マイケル』× RECOCO コラボ",
+      "image": "collab-michael-main",
+      "body": [
+        { "type": "img", "photo": "collab-michael-main", "alt": "マイケル・ジャクソンのレコードとコラボバームクーヘン" },
+        "全国上映中の映画『マイケル』公開と大ヒットを記念して、RECOCO渋谷・RECOCO下北沢でのコラボが決定しました。キング・オブ・ポップ、マイケル・ジャクソンの半生を描いた話題作です。",
+        { "type": "table", "rows": [["対象店舗", "RECOCO渋谷、RECOCO下北沢"], ["期間", "2026年8月14日（金）〜8月31日（月）"], ["メニュー", "映画『マイケル』コラボバームクーヘン"]] },
+        { "type": "photos", "items": [
+          { "photo": "collab-michael-1", "alt": "コラボバームクーヘンと限定ステッカー" },
+          { "photo": "collab-michael-2", "alt": "赤いレコードとコラボバームクーヘン" },
+          { "photo": "collab-michael-3", "alt": "マイケル・ジャクソンのレコードに囲まれたバームクーヘン" }
+        ] },
+        { "type": "h2", "text": "期間中の特典" },
+        { "type": "ul", "items": [
+          "コラボバームクーヘン1つのご注文につき、限定ステッカーを1枚プレゼント（数量限定）",
+          "ご来店のお客さま全員に、映画『マイケル』オリジナルフライヤーを配布",
+          "マイケル・ジャクソン関連のレコードを増やしてご用意",
+          "映画『マイケル』のポスターを店内に掲示"
+        ] },
+        { "type": "note", "items": [
+          "数に限りがあるため、期間中でも早めに終了することがあります",
+          "コラボバームクーヘンのお持ち帰りはできません",
+          "混雑緩和のため、整理券を配布する場合があります",
+          "フライヤーはなくなり次第終了です",
+          "レコードの数に限りがあるため、時間内にすべての方にお聴きいただけない場合があります"
+        ] },
+        { "type": "credit", "text": "映画『マイケル』大ヒット全国上映中／提供：株式会社キノフィルムズ／株式会社ソニー・ミュージックレーベルズ" }
+      ]
+    },
+    {
+      "id": "olivia-rodrigox-recoco2026",
+      "date": "2026-06-09",
+      "store": "recoco",
+      "genre": "collab",
+      "title": "Olivia Rodrigo × RECOCO コラボ 3rdアルバムリリース記念スペシャルウィーク",
+      "short": "Olivia Rodrigo × RECOCO コラボ",
+      "image": "collab-olivia-main",
+      "body": [
+        { "type": "img", "photo": "collab-olivia-main", "alt": "オリヴィア・ロドリゴのレコードとコラボバームクーヘン" },
+        "オリヴィア・ロドリゴの3rdアルバム『恋に落ちた女の子にしては、なんだかずいぶん悲しそうだね』（原題：you seem pretty sad for a girl so in love）のリリースを記念して、RECOCO渋谷とのスペシャルコラボを、リリース当日から10日間の期間限定で開催します。",
+        "各テーブルのレコードプレーヤーでアルバムの楽曲を自由に試聴できるほか、オリヴィア・ロドリゴのロゴをプリントしたレココ特製バームクーヘンがコラボメニューとして登場します。特別なデコレーションの店内で、最新作をお楽しみください。",
+        { "type": "table", "rows": [["対象店舗", "RECOCO渋谷"], ["期間", "2026年6月12日（金）〜6月21日（日）"], ["営業時間", "11:00〜21:00（L.O. 20:30）"]] },
+        { "type": "photos", "items": [
+          { "photo": "collab-olivia-1", "alt": "限定ラベルのバームクーヘンと証明写真風ステッカー" },
+          { "photo": "collab-olivia-2", "alt": "レコードの上に置かれたコラボバームクーヘン" },
+          { "photo": "collab-olivia-main", "alt": "アルバムとレコードとバームクーヘン" }
+        ] },
+        { "type": "h2", "text": "コラボメニューと特典" },
+        { "type": "ul", "items": [
+          "オリヴィア・ロドリゴのロゴ入りコラボバームクーヘン",
+          "コラボバームクーヘンをご注文の方に、証明写真風ステッカーを2枚プレゼント（先着・数量限定）",
+          "アルバムの楽曲を各席のレコードプレーヤーで試聴"
+        ] },
+        { "type": "note", "items": [
+          "数に限りがあるため、期間中でも早めに終了することがあります",
+          "コラボバームクーヘンのお持ち帰りはできません",
+          "混雑緩和のため、入口で整理券を配布する場合があります",
+          "特典はおひとり様1点までです",
+          "レコードの数に限りがあるため、時間内にすべての方にお聴きいただけない場合があります",
+          "本イベントにオリヴィア・ロドリゴ本人の出演はありません"
+        ] }
+      ]
+    },
+    {
+      "id": "laufeyx-recoco2026",
+      "date": "2026-05-26",
+      "store": "recoco",
+      "genre": "collab",
+      "title": "Laufey × RECOCO コラボ 国内盤CD発売＆来日公演記念スペシャルウィーク",
+      "short": "Laufey × RECOCO コラボ",
+      "image": "collab-laufey-main",
+      "body": [
+        { "type": "img", "photo": "collab-laufey-main", "alt": "Laufeyのレコードとコラボバームクーヘン" },
+        "ジャズやクラシック、ボサノヴァをルーツに持つ、アイスランド出身のシンガー・ソングライター Laufey（レイヴェイ）。最新アルバムのデラックス盤『A Matter of Time: The Final Hour』の国内盤CD発売と、6月5日（金）の来日公演を記念して、RECOCO渋谷・下北沢とのスペシャル・コラボレーションを開催します。",
+        "アナログレコードを大切な表現のひとつにしているLaufey。期間中は各テーブルのレコードプレーヤーで『A Matter of Time: The Final Hour』を自由に試聴できるほか、限定コラボメニューも登場します。Laufeyの世界観を、耳と目の両方でお楽しみください。",
+        { "type": "table", "rows": [["対象店舗", "RECOCO渋谷、RECOCO下北沢"], ["期間", "2026年5月27日（水）〜6月7日（日）"], ["営業時間", "11:00〜21:00（L.O. 20:30）"]] },
+        { "type": "photos", "items": [
+          { "photo": "collab-laufey-1", "alt": "LPに囲まれたコラボバームクーヘン" },
+          { "photo": "collab-laufey-2", "alt": "Laufeyのレコードとバームクーヘン" },
+          { "photo": "collab-laufey-3", "alt": "白いレコードとコラボバームクーヘン" }
+        ] },
+        { "type": "h2", "text": "コラボメニューと特典" },
+        { "type": "ul", "items": [
+          "「Laufey」ラベルのRECOCOコラボバームクーヘン",
+          "コラボバームクーヘンをご注文の方に、『A Matter of Time: The Final Hour』ジャケット写真ステッカーをプレゼント（数量限定）",
+          "アルバムの楽曲を各席のレコードプレーヤーで試聴"
+        ] },
+        { "type": "note", "items": [
+          "数に限りがあるため、期間中でも早めに終了することがあります",
+          "コラボバームクーヘンのお持ち帰りはできません",
+          "混雑緩和のため、入口で整理券を配布する場合があります",
+          "特典はおひとり様1点までです",
+          "レコードの数に限りがあるため、時間内にすべての方にお聴きいただけない場合があります"
+        ] }
+      ]
+    },
+    { "id": "2026summer", "date": "2026-07-08", "store": "recoco", "genre": "announce", "title": "特別営業期間のお知らせ 2026夏", "image": "news-summer-2026" },
+    { "id": "2026spring", "date": "2026-02-10", "store": "recoco", "genre": "announce", "title": "特別営業期間のお知らせ 2026春", "image": "shibuya-player-headphones" },
+    { "id": "20260924-lee", "date": "2026-09-24", "store": "recoco", "genre": "press", "title": "『LEE』（集英社）12月号の撮影に店内をご利用いただきました" },
+    { "id": "20260915-tokyu-machitano", "date": "2026-09-15", "store": "recoco", "genre": "press", "title": "東急「まちを楽しむ」でRECOCO渋谷が紹介されました" },
+    { "id": "202609-nhk-doerai", "date": "2026-09", "store": "recoco", "genre": "press", "title": "NHK Eテレ「どえらい大学。」で店内の写真が紹介されました" },
+    { "id": "20260727-baila", "date": "2026-07-27", "store": "recoco", "genre": "press", "title": "『BAILA』（集英社）の撮影に店内をご利用いただきました" },
+    { "id": "20260715-shiritaikun", "date": "2026-07-15", "store": "recoco", "genre": "press", "title": "SHIRITAIKUN（日本出版貿易）でRECOCOが紹介されました" },
+    { "id": "20260629-fudge", "date": "2026-06-29", "store": "recoco", "genre": "press", "title": "『FUDGE』の撮影に店内をご利用いただきました" },
+    { "id": "20260326-non-no", "date": "2026-03-26", "store": "recoco", "genre": "press", "title": "『non-no』（集英社）7・8月合併号の撮影に店内をご利用いただきました" },
+    { "id": "20260315-niall-horan", "date": "2026-03-15", "store": "recoco", "genre": "campaign", "title": "Niall Horan 新曲「Dinner Party」の先行試聴会を開催しました" },
+    { "id": "202601-tokyo-cafe-catalog", "date": "2026-01", "store": "recoco", "genre": "press", "title": "『東京カフェカタログ』（朝日新聞出版）に掲載されました" }
+  ]
+}

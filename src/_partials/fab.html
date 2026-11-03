@@ -1,0 +1,31 @@
+<!-- スマホのときだけ出る、右上の追従メニュー（レコードプレーヤーの形）。
+     少しスクロールすると現れ、スクロールに合わせてレコードが回る（動きは recoco.js） -->
+<div class="fab" data-fab>
+  <button class="fab-btn" type="button" data-cta="fab_toggle" aria-expanded="false" aria-controls="fab-menu" aria-label="メニューを開く">
+    <svg class="tt" aria-hidden="true" width="68" height="60" viewBox="0 0 68 60">
+      <rect class="tt-body" x="1" y="1" width="66" height="58" rx="7"/>
+      <rect class="tt-rim" x="5" y="5" width="58" height="50" rx="4" fill="none" stroke-width="1"/>
+      <g class="tt-disc">
+        <circle class="tt-mat" cx="26" cy="28" r="20"/>
+        <circle class="tt-vinyl" cx="26" cy="28" r="19"/>
+        <circle class="tt-groove" cx="26" cy="28" r="15" fill="none" stroke-width=".7"/>
+        <circle class="tt-groove" cx="26" cy="28" r="11.5" fill="none" stroke-width=".7"/>
+        <circle class="tt-label" cx="26" cy="28" r="6.5"/>
+        <path class="tt-shine" d="M26 21.5a6.5 6.5 0 0 1 6.5 6.5H26z"/>
+        <circle class="tt-hole" cx="26" cy="28" r="1.3"/>
+      </g>
+      <circle class="tt-pivot" cx="55" cy="12" r="3.2"/>
+      <path class="tt-arm" d="M55 12 L55 30 L44 38" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect class="tt-head" x="41" y="36" width="5" height="4" rx="1" transform="rotate(-36 43.5 38)"/>
+      <text class="tt-text" x="55" y="52" text-anchor="middle" font-family="Jost, sans-serif" font-size="7" font-weight="600" letter-spacing=".8">MENU</text>
+    </svg>
+  </button>
+  <div class="fab-sheet" id="fab-menu" hidden>
+    <p class="fab-title" lang="en">MENU</p>
+    <nav class="fab-nav" aria-label="メニュー">
+      {{{chrome.navFab}}}
+    </nav>
+    <p class="fab-ig">{{{chrome.igFab}}}</p>
+    <img class="fab-girl" src="/assets/img/common/recoco-girl-red.png" alt="" width="1031" height="1001" loading="lazy">
+  </div>
+</div>

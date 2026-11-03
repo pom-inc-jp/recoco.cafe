@@ -1,0 +1,31 @@
+<meta charset="UTF-8">
+{{{gtm.head}}}
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{page.fullTitle}}</title>
+<meta name="description" content="{{page.description}}">
+<link rel="canonical" href="{{page.url}}">
+{{{page.robots}}}
+<meta name="theme-color" content="{{site.themeColor}}">
+<!-- シェア時の表示 -->
+<meta property="og:type" content="{{page.ogType}}">
+<meta property="og:site_name" content="{{site.fullName}}">
+<meta property="og:title" content="{{page.fullTitle}}">
+<meta property="og:description" content="{{page.description}}">
+<meta property="og:url" content="{{page.url}}">
+<meta property="og:image" content="{{page.image}}">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<!-- アイコン -->
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="alternate" type="application/rss+xml" title="{{site.name}} お知らせ" href="/feed.xml">
+{{{page.jsonld}}}
+<!-- 文字（読み込みを待たずに表示し、読み込み後に切り替わる） -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?{{{page.fonts}}}&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?{{{page.fonts}}}&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?{{{page.fonts}}}&display=swap"></noscript>
+<link rel="stylesheet" href="/assets/css/recoco.css?v={{build.version}}">

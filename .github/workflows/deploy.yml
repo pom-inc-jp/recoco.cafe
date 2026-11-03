@@ -1,0 +1,50 @@
+# =================================================================
+# recoco.cafe の書き出しと公開
+#
+# 中身は店舗サイト共通のワークフロー（pom-inc-jp/site-tools の deploy-static.yml）。
+# ここでは、いつ動かすかと、RECOCO だけの設定（残すファイル・切り替えの変数）だけを書く。
+#
+# - main に変更が入ると書き出し、Xserver の公開フォルダへ反映する
+# - 毎日1回も書き出し直す（お知らせの「NEW」を日付で外すため）
+# - 公開フォルダにある次のものは消さない・上書きしない
+#     ・どの店でも：名前が _movie_app で終わるフォルダ（recoco_movie_app/ など）、movie/、movie_app/、
+#       mp4 が入っているフォルダすべて、.well-known/
+#     ・RECOCO だけ：wp-content/uploads/（旧サイトの画像。中のPDFは .htaccess で /menu/ へ転送）、
+#       Search Console などの確認ファイル
+#
+# 安全のための切り替え
+#   リポジトリの変数（Settings → Secrets and variables → Actions → Variables）
+#   RECOCO_LIVE が true になるまでは、反映せず「試し（dry-run）」だけを行い、
+#   残すフォルダと消えるファイルの一覧を実行結果のページに表示する。
+#   手動実行（Actions → 公開 → Run workflow）で mode を deploy にすると、その1回だけ反映する。
+# =================================================================
+name: 公開
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '20 18 * * *'   # 毎日 3:20（日本時間）
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'dry-run＝一覧を見るだけ／deploy＝反映する'
+        type: choice
+        options: [dry-run, deploy]
+        default: dry-run
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    uses: pom-inc-jp/site-tools/.github/workflows/deploy-static.yml@v1
+    with:
+      live: ${{ vars.RECOCO_LIVE == 'true' }}
+      mode: ${{ github.event_name == 'workflow_dispatch' && inputs.mode || 'auto' }}
+      keep: |
+        /wp-content/uploads/
+        /google*.html
+        /BingSiteAuth.xml
+    secrets: inherit

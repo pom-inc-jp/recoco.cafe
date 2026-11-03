@@ -1,0 +1,77 @@
+# =================================================================
+# recoco.cafe（Xserver / Apache）
+#
+# ※ 公開フォルダにある recoco_movie_app/ などの動画用フォルダ（店内iPad用）には触れない。
+#    下の転送ルールはどれも、これらのフォルダのURLに当てはまらないように書いている
+# ※ 転送は上から順に調べ、最初に当てはまったものだけを使う
+# =================================================================
+
+DirectoryIndex index.html index.php
+
+RewriteEngine On
+
+# --- https と www なしに統一 ---
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^(.*)$ https://recoco.cafe/$1 [R=301,L]
+
+# --- 見つからないページ ---
+ErrorDocument 404 /404.html
+
+# --- メニューのPDF（印刷物のQRコードが指しているもの）→ メニューページ ---
+# 旧サイトの uploads にあるPDFは、名前に関係なくすべて /menu/ へ。外さないこと
+RewriteRule ^wp-content/uploads/.+\.pdf$ https://recoco.cafe/menu/ [R=301,L,NC]
+
+# --- 旧WordPressサイトのURLからの転送 ---
+# お知らせの記事：/archives/news/記事名 → /news/記事名/（記事ページがないものはお知らせ一覧へ）
+# 旧サイトの記事名と news.json の id をそろえている（michael-movie・olivia-rodrigox-recoco2026・laufeyx-recoco2026）
+RewriteCond %{DOCUMENT_ROOT}/news/$1/index.html -f
+RewriteRule ^archives/news/([A-Za-z0-9-]+)/?$ https://recoco.cafe/news/$1/ [R=301,L]
+RewriteRule ^archives/news/([^/]+)/?$ https://recoco.cafe/news/ [R=301,L]
+RewriteRule ^archives/news/?$ https://recoco.cafe/news/ [R=301,L]
+# ギャラリー・お客さまの声
+RewriteRule ^archives/gallery(/.*)?$ https://recoco.cafe/gallery/ [R=301,L]
+RewriteRule ^archives/voice(/.*)?$ https://recoco.cafe/voice/ [R=301,L]
+# そのほかの旧ページ
+RewriteRule ^archives/ https://recoco.cafe/ [R=301,L]
+RewriteRule ^(category|tag|author)/ https://recoco.cafe/ [R=301,L]
+RewriteRule ^(feed|comments/feed)/?$ https://recoco.cafe/feed.xml [R=301,L]
+RewriteRule ^wp-sitemap.*\.xml$ https://recoco.cafe/sitemap.xml [R=301,L]
+# ?p=123 のような旧サイトの記事URL
+RewriteCond %{QUERY_STRING} (^|&)(p|page_id)=\d+ [NC]
+RewriteRule ^$ https://recoco.cafe/? [R=301,L]
+
+# WordPress の管理画面・ログインへのアクセスは404にする。残している uploads の中のPHPも動かさない
+RedirectMatch 404 ^/(wp-admin|wp-login\.php|xmlrpc\.php|wp-includes)(/.*)?$
+RedirectMatch 404 ^/wp-content/.*\.php$
+
+# --- 公開しないファイル ---
+RedirectMatch 404 /\.(git|github)(/.*)?$
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+
+# --- キャッシュ（CSS/JSは書き出しごとに ?v= が変わるので長めでよい） ---
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 month"
+</IfModule>
+
+# --- 圧縮 ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml application/xml application/rss+xml
+</IfModule>
+
+# --- セキュリティ関連のヘッダー ---
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+</IfModule>

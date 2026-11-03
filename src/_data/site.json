@@ -1,0 +1,381 @@
+{
+  "name": "RECOCO",
+  "fullName": "レコードカフェ RECOCO（レココ）",
+  "url": "https://recoco.cafe",
+  "catch": "レコードが聴けるカフェ＠渋谷・下北沢",
+  "tagline": "レコードが聴けるカフェ",
+  "description": "渋谷と下北沢のレコードカフェ RECOCO（レココ）。各席にレコードプレーヤーとヘッドホンがあり、棚から選んだレコードを席でゆっくり聴けます。渋谷駅C1出口から徒歩4分、下北沢駅東口から徒歩2分。",
+  "themeColor": "#A7242A",
+  "gtmId": "",
+  "_gtmId": "Googleタグマネージャーのコンテナ ID（GTM-XXXXXXX）。空のあいだはタグを出さない",
+  "email": "contact@recoco.cafe",
+  "_nav": "上のメニューとスマホのメニューの並び順。fabOnly はスマホのメニューだけに出す",
+  "nav": [
+    { "label": "お知らせ", "en": "NEWS", "href": "/news/" },
+    { "label": "楽しみ方", "en": "HOW TO ENJOY", "href": "/#guide" },
+    { "label": "料金", "en": "CHARGE", "href": "/#price" },
+    { "label": "メニュー", "en": "MENU", "href": "/menu/" },
+    { "label": "ギャラリー", "en": "GALLERY", "href": "/gallery/" },
+    { "label": "お客さまの声", "en": "VOICE", "href": "/voice/" },
+    { "label": "店舗・アクセス", "en": "ACCESS", "href": "/#access" },
+    { "label": "撮影・取材・コラボのご依頼", "en": "LOCATION & PRESS", "href": "/shooting/", "fabOnly": true }
+  ],
+  "genres": {
+    "announce": "お知らせ",
+    "press": "メディア掲載",
+    "collab": "コラボ",
+    "campaign": "イベント",
+    "other": "その他"
+  },
+  "newDays": 14,
+
+  "stores": [
+    {
+      "id": "shibuya",
+      "name": "RECOCO 渋谷",
+      "shortName": "RECOCO渋谷",
+      "area": "渋谷",
+      "en": "SHIBUYA",
+      "color": "green",
+      "zip": "150-0002",
+      "address": "東京都渋谷区渋谷3-1-10 IRIE FIRST PLAZA 1階",
+      "region": "東京都",
+      "locality": "渋谷区",
+      "street": "渋谷3-1-10 IRIE FIRST PLAZA 1階",
+      "mapQuery": "RECOCO 渋谷区渋谷3-1-10",
+      "access": "渋谷駅から徒歩6分（C1出口から徒歩4分）／表参道駅から徒歩11分",
+      "accessShort": "渋谷駅C1出口から徒歩4分",
+      "opens": "11:00",
+      "closes": "21:00",
+      "lastOrder": "20:30",
+      "holiday": "なし（年末年始を除く）",
+      "seats": "全席指定席・個室あり",
+      "parking": "ありません（近くに大きなコインパーキングがあります）",
+      "jasrac": "K9408696",
+      "instagram": "https://www.instagram.com/recoco.cafe/",
+      "photos": [
+        { "file": "shibuya-interior", "alt": "自然光が入る、緑の椅子が並ぶ渋谷店の店内" },
+        { "file": "shibuya-building", "alt": "RECOCO渋谷が入る石造りのビルの外観" },
+        { "file": "shibuya-records-wall", "alt": "壁一面のレコードジャケット" }
+      ]
+    },
+    {
+      "id": "shimokita",
+      "name": "RECOCO 下北沢",
+      "shortName": "RECOCO下北沢",
+      "area": "下北沢",
+      "en": "SHIMOKITAZAWA",
+      "color": "red",
+      "zip": "155-0031",
+      "address": "東京都世田谷区北沢2-9-2 ARISTO下北沢 地下1階",
+      "region": "東京都",
+      "locality": "世田谷区",
+      "street": "北沢2-9-2 ARISTO下北沢 地下1階",
+      "mapQuery": "RECOCO 下北沢 北沢2-9-2",
+      "access": "下北沢駅東口から徒歩2分。オオゼキの2軒隣、ヴィレッジヴァンガード向かいのビルの地下です",
+      "accessShort": "下北沢駅東口から徒歩2分",
+      "opens": "11:00",
+      "closes": "21:00",
+      "lastOrder": "20:30",
+      "holiday": "なし（年末年始を除く）",
+      "seats": "全席指定席",
+      "parking": "ありません（近くにコインパーキングがあります）",
+      "jasrac": "K9566230",
+      "instagram": "https://www.instagram.com/recoco.shimokita",
+      "photos": [
+        { "file": "shimokita-interior", "alt": "赤い照明と木の家具の下北沢店の店内" },
+        { "file": "shimokita-sign", "alt": "赤い壁にランプが灯る下北沢店の看板" },
+        { "file": "shimokita-records-shelf", "alt": "木の棚に飾られたレコードジャケット" }
+      ]
+    }
+  ],
+  "_stores": "店の情報はここだけに書く。address は表示用、region・locality・street は検索エンジン向け。営業時間は opens・closes・lastOrder から作る。color は green（渋谷）か red（下北沢）",
+  "locBand": {
+    "title": "撮影・取材・コラボのご依頼",
+    "text": "RECOCO渋谷は、雑誌やアパレルの撮影に店内をお貸ししています。取材や、アーティストとのコラボ・貸切イベントもご相談ください。"
+  },
+  "accessLead": "料金・メニュー・ご利用のルールは2店舗共通です。最新の営業情報は各店のInstagramでお知らせしています。",
+
+  "hero": {
+    "title": ["アナログレコードを", "聴きながら、", "大切な人と過ごす時間。"],
+    "lead": ["各席にレコードプレーヤーとヘッドホン。", "棚から選んだ1枚を、席でゆっくり聴けるカフェです。", "渋谷と下北沢に2店舗あります。"],
+    "band": ["ANALOG RECORD CAFE", "SHIBUYA ／ SHIMOKITAZAWA"],
+    "photos": [
+      { "file": "shibuya-player-headphones", "alt": "ヘッドホンとレコードプレーヤー、奥に並ぶレコード" },
+      { "file": "shibuya-records-wall", "alt": "壁一面に並んだレコードジャケット" },
+      { "file": "shibuya-interior", "alt": "自然光が入る、緑の椅子が並ぶ店内" },
+      { "file": "shibuya-melon-soda", "alt": "ヘッドホンの横に置かれたメロンクリームソーダ" },
+      { "file": "shibuya-cake-tart", "alt": "タイルのテーブルに並ぶケーキとタルト" },
+      { "file": "shibuya-antique-shelf", "alt": "ランプが灯るアンティークの棚" },
+      { "file": "shibuya-exterior", "alt": "渋谷店の外観" },
+      { "file": "shimokita-interior", "alt": "赤い照明と木の家具が並ぶ下北沢店の店内" },
+      { "file": "shimokita-records-shelf", "alt": "下北沢店の木の棚に飾られたレコードジャケット" },
+      { "file": "shimokita-logo-lamp", "alt": "ランプに照らされた下北沢店のロゴ" }
+    ]
+  },
+  "marquee": ["RECORD", "COFFEE", "DESSERT", "SHIBUYA", "SHIMOKITAZAWA", "TOKYO"],
+
+  "about": {
+    "title": ["レコードを初めて", "さわる方でも楽しめるカフェ"],
+    "text": "スマホで気軽に音楽が聴ける時代だからこそ、ジャケットのアートワークや、針を落とすアナログならではの手ざわりを楽しんでほしい。RECOCOは、実際にレコードを手に取る「体験」を大切にしています。レコードにふれたことがない方も大歓迎です。",
+    "photosA": [
+      { "file": "shibuya-player-headphones", "alt": "ヘッドホンとレコードプレーヤー、奥にレコード棚" },
+      { "file": "shibuya-tile-table", "alt": "レコードジャケットとプレーヤー" },
+      { "file": "shibuya-melon-soda", "alt": "メロンクリームソーダとヘッドホン" },
+      { "file": "shibuya-records-wall", "alt": "壁一面のレコードジャケット" }
+    ],
+    "photosB": [
+      { "file": "shimokita-cheesecake-latte", "alt": "チーズケーキとアイスラテ、回るレコード" },
+      { "file": "shimokita-spinning-record", "alt": "回るレコード（下北沢）" },
+      { "file": "shimokita-records-shelf", "alt": "木の棚に飾られたレコードジャケット（下北沢）" },
+      { "file": "shimokita-cheesecake", "alt": "チーズケーキのプレート（下北沢）" }
+    ],
+    "points": [
+      { "title": "各席にレコードプレーヤー", "text": "邦楽も洋楽も、往年の名盤から今のJ-POPまで。棚から選んで、自分の席で再生できます。" },
+      { "title": "SONY製スタジオヘッドホン", "text": "プロの現場でも使われる、遮音性の高いヘッドホン。レコードの音をまっすぐ届けます。" },
+      { "title": "実は、作業カフェとしても", "text": "全席に電源と無料Wi-Fi。混雑時は90分制（空いている時は無制限）なので、作業や勉強には平日がおすすめです。" }
+    ]
+  },
+
+  "stepsLead": "レコードにさわるのが初めてでも大丈夫。5つのステップで楽しめます。",
+  "steps": [
+    { "title": "チャージとドリンクを注文", "text": "お支払いはキャッシュレスのみです。" },
+    { "title": "扱い方の動画を見る", "text": "ご注文のあと、レコードの扱い方を短い動画でご確認ください。" },
+    { "title": "指定の席へ", "text": "全席指定席です。混雑時は90分制、空いている時は無制限にご滞在いただけます。" },
+    { "title": "棚からレコードを選ぶ", "text": "ジャケットを眺めながら、気になる1枚を。" },
+    { "title": "席のプレーヤーで聴く", "text": "会話は小さな声で。フラッシュ撮影はお控えください。" }
+  ],
+
+  "charge": {
+    "note": "チャージ（入場料）と、1ドリンクのご注文をお願いしています。表示は1名分・税込です。",
+    "columns": ["平日", "土日祝・特別営業日"],
+    "rows": [
+      { "label": "LINE会員", "en": "LINE MEMBER", "prices": [1100, 1430] },
+      { "label": "一般", "en": "GUEST", "prices": [1320, 1650] }
+    ],
+    "footnote": "学生の方はLINE会員料金から110円引き（学生証をご提示ください）。LINE会員は当日その場で無料登録できます。特別営業日は年末年始・春休み・夏休み・GWなどです。"
+  },
+
+  "menuPreview": {
+    "title": "音楽と楽しめるメニュー",
+    "text": "看板は、レコードに見立てたチョコ味のバームクーヘン「レココバーム」。レコードと一緒に楽しめるドリンクとデザートを揃えています。",
+    "photo": { "file": "shibuya-cake-tart", "alt": "タイルのテーブルに並ぶケーキとタルト" },
+    "items": ["レココバーム", "シナモンチーズケーキ", "カフェラテ", "メロンクリームソーダ"],
+    "_items": "menu.json の品名（name）と同じ文字で書く。価格は menu.json から引く"
+  },
+
+  "_info": "icon は build.mjs の INFO_ICONS の名前（system・card・tag・seat・wifi・paw・no-record・no-phone・camera）",
+  "info": [
+    { "icon": "system", "label": "システム", "text": "チャージ（入場料）＋1ドリンク制" },
+    { "icon": "card", "label": "お支払い", "text": "完全キャッシュレス（クレジットカード／PayPay／交通系IC／QUICPay／iD）" },
+    { "icon": "tag", "label": "割引", "text": "LINE会員割引・学生割引あり（LINE会員は当日無料で登録できます）" },
+    { "icon": "seat", "label": "席", "text": "全席指定席・混雑時は90分制（空いている時は無制限にご滞在いただけます）。席のご予約はできません。渋谷店には個室があります" },
+    { "icon": "wifi", "label": "設備", "text": "無料Wi-Fi・全席に電源あり。全席禁煙" },
+    { "icon": "paw", "label": "ペット", "text": "ご一緒の入店はご遠慮いただいています" },
+    { "icon": "no-record", "label": "レコードの持ち込み", "text": "防犯上の理由から、お断りしています" },
+    { "icon": "no-phone", "label": "お電話", "text": "固定電話はありません。お問い合わせはメールでお願いします" },
+    { "icon": "camera", "label": "撮影・取材", "text": "ドラマ・YouTubeなどの撮影もご相談ください（メールかInstagramのDMで）" }
+  ],
+
+  "collabTop": {
+    "lead": "アルバムのリリースや来日公演、映画の公開にあわせて、限定ラベルの「レココバーム」やレコードの展示でお迎えしてきました。",
+    "items": [
+      { "date": "2026.08", "name": "映画『マイケル』", "file": "collab-michael-main", "alt": "映画『マイケル』のコラボバームクーヘンとレコード", "href": "/news/michael-movie/" },
+      { "date": "2026.06", "name": "Olivia Rodrigo", "file": "collab-olivia-main", "alt": "Olivia Rodrigoのコラボバームクーヘンとレコード", "href": "/news/olivia-rodrigox-recoco2026/" },
+      { "date": "2026.05", "name": "Laufey", "file": "collab-laufey-main", "alt": "Laufeyのコラボバームクーヘンとレコード", "href": "/news/laufeyx-recoco2026/" },
+      { "date": "2025.04", "name": "Gracie Abrams", "file": "collab-gracie-2", "alt": "Gracie Abramsのコラボバームクーヘンとレコード", "href": "/shooting/#collab" }
+    ]
+  },
+
+  "galleryTop": [
+    { "file": "shibuya-tables", "alt": "白いタイルのテーブルにケーキとタルト", "shape": "tall" },
+    { "file": "shibuya-records-wall", "alt": "壁一面に並んだレコードジャケット（渋谷）", "shape": "wide" },
+    { "file": "shimokita-glass-shelf", "alt": "グラスとレコードが並ぶ木の棚（下北沢）", "shape": "tall" }
+  ],
+
+  "gallery": {
+    "lead": "店内の一部を写真でご紹介します。白と緑の明るい渋谷店、赤と木の温かい下北沢店。それぞれの雰囲気をどうぞ。",
+    "photos": [
+      { "file": "shibuya-tables", "alt": "白いタイルのテーブルにケーキとタルト", "store": "shibuya" },
+      { "file": "shibuya-player-headphones", "alt": "ヘッドホンとレコードプレーヤー", "store": "shibuya" },
+      { "file": "shibuya-interior", "alt": "自然光が入る緑の椅子の店内", "store": "shibuya" },
+      { "file": "shibuya-records-wall", "alt": "壁一面のレコードジャケット", "store": "shibuya" },
+      { "file": "shibuya-building", "alt": "石造りのビルの外観", "store": "shibuya" },
+      { "file": "shibuya-melon-soda", "alt": "メロンクリームソーダとヘッドホン", "store": "shibuya" },
+      { "file": "shibuya-orange-record", "alt": "オレンジのレコードとヘッドホン", "store": "shibuya" },
+      { "file": "shibuya-tile-table", "alt": "レコードジャケットとプレーヤー", "store": "shibuya" },
+      { "file": "shibuya-basement", "alt": "あたたかい照明の地下フロア", "store": "shibuya" },
+      { "file": "shimokita-glass-shelf", "alt": "グラスとレコードが並ぶ棚", "store": "shimokita" },
+      { "file": "shimokita-records-shelf", "alt": "木の棚に飾られたレコードジャケット", "store": "shimokita" },
+      { "file": "shimokita-sign", "alt": "赤い壁に灯るランプとロゴ", "store": "shimokita" },
+      { "file": "shimokita-cheesecake", "alt": "チーズケーキのプレート", "store": "shimokita" },
+      { "file": "shimokita-interior", "alt": "赤い照明と木の家具の店内", "store": "shimokita" },
+      { "file": "shimokita-cheesecake-latte", "alt": "チーズケーキとアイスラテ、レコードプレーヤー", "store": "shimokita" },
+      { "file": "shimokita-spinning-record", "alt": "回るレコード", "store": "shimokita" }
+    ]
+  },
+
+  "voices": {
+    "lead": "実際にご来店いただいた方の声と、スタッフからのお返事をご紹介します。",
+    "closing": ["ひとりでも、大切な人とでも。", "レコードにふれに来てください。"],
+    "items": [
+      {
+        "headline": ["周りを気にすることなく、", "没頭して音楽を楽しめました。"],
+        "who": "akazuさん（会社員・20代男性）",
+        "whoShort": "akazuさん（会社員・20代）",
+        "photo": { "file": "shibuya-player-headphones", "alt": "各席のレコードプレーヤーとヘッドホン" },
+        "points": [
+          "初めてのレコード体験。各席にプレーヤーがあり、店内の邦楽・洋楽から好きな1枚を選んで再生できました。",
+          "昔の曲から流行りのJ-POPまで選曲が幅広く、初心者でも迷わない工夫がされていました。",
+          "夕方の照明と内装は、シャープさとレトロさが同居した雰囲気。ソファ席もあり、つい長居しました。",
+          "アフォガードやオリジナルのバームクーヘンなどメニューも多彩。次は友人を連れて行きます。"
+        ],
+        "reply": "地下でレコードを選ぶワクワク感も当店の魅力のひとつです。看板メニュー「レココバーム」は、レコードに見立てたチョコ味のバームクーヘン。ご来店の際はぜひご賞味ください。"
+      },
+      {
+        "headline": ["地下にいくと、", "レコードがたくさん。"],
+        "who": "Y.Mさん（大学生・10代女性）",
+        "whoShort": "Y.Mさん（大学生・10代）",
+        "photo": { "file": "shibuya-records-wall", "alt": "渋谷店の壁一面に並んだレコード" },
+        "points": [
+          "韓国で話題のレコードカフェと聞いて、Instagramを見て来店しました。",
+          "落ち着いたレトロな雰囲気で、各席にレコードプレーヤーがあります。",
+          "地下にはレコードがたくさん並んでいて、自分で選んで聴けました。",
+          "レコードを模したバームクーヘンが可愛い。次はInstagramで見た裏メニューが気になります。"
+        ],
+        "reply": "当店では「THE FIRST TAKE」やプロの現場でも使われているSONY製のスタジオヘッドホンを採用しています。遮音性が高く、アナログレコードの音をダイレクトに届けられるので、ぜひ体感してください。ご来店ありがとうございました。"
+      }
+    ]
+  },
+
+  "footer": {
+    "catch": "レコードで、素敵な音楽体験を。",
+    "contact": "撮影・取材・コラボのご依頼",
+    "noReserve": "席のご予約は受け付けていません",
+    "sister": { "name": "カセットテープカフェ CASSE", "url": "https://casse.cafe/" }
+  },
+
+  "shooting": {
+    "_説明": "撮影・取材・コラボのご依頼ページ（/shooting/）。渋谷店のみ。「撮影」は施設利用料をいただく商用撮影（場所の貸し出し）。料金は「〜から」の目安だけを載せ、条件ごとの金額はメールで案内する。撮影や制作を請け負う書き方はしない。項目の並びは casse.cafe の shooting と同じ",
+    "title": "撮影・取材・コラボのご依頼",
+    "lead": "RECOCO渋谷では、雑誌やアパレルのルック、映像の撮影に店内をお貸ししています。テレビ・雑誌・WEBメディアの取材や、アーティスト・作品とのコラボ、貸切の試聴イベントもご相談ください。",
+    "shootLead": "施設利用料をいただいて、営業時間外の店内をお貸ししています。ガラス張りで明るい路面の1階と、アンティークでレトロな地下。ひとつの店で、ちがうテイストの撮影ができます。",
+    "floors": [
+      { "floor": "1F", "title": "路面・ガラス張りで開放的", "text": "自然光の入る白とグリーンの空間。レコードの壁を背景にした撮影も。", "photo": { "file": "shibuya-interior", "alt": "自然光が入るガラス張りの1階" } },
+      { "floor": "B1F", "title": "地下・アンティークレトロ", "text": "あたたかい照明と木の家具、ぎっしり並んだレコード。個室もあります。", "photo": { "file": "shibuya-basement", "alt": "あたたかい照明とレコード棚の地下フロア" } }
+    ],
+    "gallery": [
+      { "file": "shibuya-interior", "alt": "1階：自然光が入る、緑の椅子が並ぶフロア" },
+      { "file": "shibuya-exterior", "alt": "外観：角に建つ石造りのビル" },
+      { "file": "shibuya-records-wall", "alt": "1階：壁一面のレコードジャケット" },
+      { "file": "shibuya-player-headphones", "alt": "1階：各席のレコードプレーヤーとヘッドホン" },
+      { "file": "shibuya-cake-tart", "alt": "1階：白いタイルのテーブル" },
+      { "file": "shibuya-basement", "alt": "地下：あたたかい照明のフロア" },
+      { "file": "shibuya-orange-record", "alt": "地下：ランプが灯るアンティークの棚" },
+      { "file": "shibuya-antique-shelf", "alt": "ランプが灯るアンティークの棚" },
+      { "file": "shibuya-building", "alt": "外観：石造りのビル" }
+    ],
+    "worksLead": "ファッション誌やアパレルブランドの撮影に、これまで数多くご利用いただいています。",
+    "works": [
+      { "label": "雑誌", "en": "MAGAZINE", "color": "red", "items": ["non-no", "BAILA", "LEE", "CanCam", "美的", "FUDGE", "クウネル", "美人百花", "NYLON.JP"] },
+      { "label": "アパレル・広告", "en": "APPAREL & AD", "color": "green", "items": ["PRADA", "UNIQLO", "PUMA", "ALPEN", "Dr.Martens", "Dickies"] }
+    ],
+    "times": ["8:00〜10:30", "21:30〜"],
+    "timesConsult": "上記以外の時間もご相談いただけます。",
+    "timesAlert": "朝の撮影は、10:30までに撤収を終えてください。",
+    "timesNote": "営業時間中や、23時以降に始まる撮影もお受けしています。その場合は営業補償費や深夜料金がかかります。土日祝、夏休み・冬休みの期間は営業補償費が高くなります。",
+    "prices": [
+      { "label": "スチール撮影", "unit": "1時間", "value": "25,000" },
+      { "label": "ムービー撮影", "unit": "1時間", "value": "30,000" }
+    ],
+    "minTime": "最低利用時間：2時間　※1",
+    "priceNote": "施設利用料の目安です（税抜）。料金は撮影の内容によって変わるため、メールでご相談いただいたうえでお見積書をお出しします。土日祝の料金もお見積りの際にご案内します。",
+    "priceNotes": [
+      "最低利用時間（2時間）は、誌面紹介やSNS紹介でのクレジット表記などにより、ご相談に応じられる場合があります。",
+      "誌面紹介やSNS紹介でのクレジット表記などによる宣伝協力割引は、撮影の内容に合わせてご案内します。"
+    ],
+    "flow": [
+      { "title": "ご相談", "sub": "メールでお送りください" },
+      { "title": "お見積り", "sub": "お見積書をお送りします" },
+      { "title": "仮予約", "sub": "2営業日のあいだ有効" },
+      { "title": "本予約", "sub": "ご入金の確認をもって確定（初回は事前のお振込み）" }
+    ],
+    "flowNote": "仮予約は2営業日を過ぎると取り消しになります。本予約は、ご入金を確認した時点で確定します。初回のご利用は、撮影日より前にお振込みをお願いしています。適格請求書（インボイス）に対応した請求書をお出しします。",
+    "features": [
+      { "icon": "seat", "label": "座席数", "text": "40席（1階と地下の2フロア、個室あり）" },
+      { "icon": "kitchen", "label": "キッチン設備", "text": "ご利用いただけます" },
+      { "icon": "layout", "label": "レイアウト変更", "text": "できます（撮影後は元の配置に戻してください）" },
+      { "icon": "cup", "label": "お水・食器", "text": "お水やコップなどの食器は無料でお使いいただけます。料理や飲みものの用意（消えもの）は有料で承ります" },
+      { "icon": "parking", "label": "駐車場", "text": "店の近くに大型のコインパーキングがあります。路肩にバンを停められます" },
+      { "icon": "invoice", "label": "お支払い", "text": "適格請求書（インボイス）に対応した請求書をお出しします。初回のみ、事前のお振込み（ご入金の確認）をもって本予約となります" },
+      { "icon": "nofire", "label": "禁煙・火気", "text": "店内は禁煙で、火気は使えません" },
+      { "icon": "paw", "label": "ペット", "text": "ペットの入店はできません" }
+    ],
+    "mailTitle": "撮影のお問い合わせ",
+    "mailLead": "会社名・媒体名、撮影の内容、日時の候補、人数、機材や車両をお知らせください。",
+    "mailNote": "返信まで数日いただくことがあります。",
+    "mailSubject": "【撮影のご相談】RECOCO渋谷",
+    "mailItems": ["会社名・媒体名", "ご担当者名", "撮影内容（スチール／ムービー）", "撮影日の候補・時間", "人数", "機材・車両", "クレジット掲載の可否"],
+
+    "pressTitle": "取材（テレビ・雑誌・WEBメディア）",
+    "pressLead": "レコードカフェとしての取材、メニューや店内の紹介記事などの取材をお受けしています。写真素材のご提供のみでも対応できます。",
+    "pressTopicsTitle": "これまでの取材テーマ（一例）",
+    "pressTopics": [
+      { "topic": "レコードを聴きながら過ごせるカフェとして、街歩きの中で紹介", "media": "テレビの散歩番組" },
+      { "topic": "若い世代に広がるアナログレコードの楽しみ方", "media": "テレビのバラエティ番組" },
+      { "topic": "週末に行きたい、話題の体験型カフェ", "media": "朝の情報番組" },
+      { "topic": "東京で訪れたいカフェの特集", "media": "カフェガイド誌" },
+      { "topic": "店内の雰囲気とカフェメニューの紹介", "media": "新幹線の車内誌" },
+      { "topic": "渋谷に新しくできたレコードカフェ", "media": "地域のニュースサイト" }
+    ],
+    "pressKinds":[["テレビ", "TV"], ["雑誌", "MAGAZINE"], ["WEBメディア", "WEB"], ["新聞", "NEWSPAPER"]],
+    "press": [
+      { "date": "2026.09", "name": "東急「まちを楽しむ」", "kind": "WEBメディア" },
+      { "date": "2026.07", "name": "SHIRITAIKUN", "kind": "WEBメディア" },
+      { "date": "2026", "name": "『トランヴェール』（JR東日本 新幹線車内誌）", "kind": "雑誌" },
+      { "date": "2025.10", "name": "「じゅん散歩」（テレビ朝日）", "kind": "テレビ" },
+      { "date": "2025.02", "name": "「スクール革命！」（日本テレビ）", "kind": "テレビ" },
+      { "date": "2025.01", "name": "北海道テレビ", "kind": "テレビ" },
+      { "date": "2026.09", "name": "NHK Eテレ「どえらい大学。」（写真提供）", "kind": "テレビ" },
+      { "date": "2024.01", "name": "TBS「王様のブランチ」", "kind": "テレビ" },
+      { "date": "2026.01", "name": "『東京カフェカタログ』（朝日新聞出版）", "kind": "雑誌" },
+      { "date": "2025.02", "name": "『JUNON』（主婦と生活社）", "kind": "雑誌" },
+      { "date": "2023.12", "name": "『るるぶ』（JTBパブリッシング）", "kind": "雑誌" },
+      { "date": "2025.04", "name": "朝日新聞", "kind": "新聞" },
+      { "date": "2023.10", "name": "読売新聞", "kind": "新聞" },
+      { "date": "2024.08", "name": "シブヤ経済新聞", "kind": "WEBメディア" },
+      { "date": "2024.08", "name": "Time Out Tokyo（タイムアウト東京）", "kind": "WEBメディア" }
+    ],
+    "pressMailTitle": "取材のお問い合わせ",
+    "pressMailLead": "媒体名・番組名、掲載や放送の予定日、取材日の候補をお知らせください。",
+    "pressMailSubject": "【取材のご依頼】RECOCO渋谷",
+    "pressMailItems": ["媒体名・番組名", "ご担当者名", "掲載・放送の予定日", "取材日の候補", "取材の内容"],
+
+    "collabLead": "アルバムのリリースや来日公演、映画の公開にあわせたコラボカフェ、当選者を招いた先行試聴会などを開いてきました。限定ラベルの「レココバーム」、特典の配布、ポスターやLPの展示などを組み合わせてご提案します。",
+    "collabKinds": { "コラボ": "mustard", "コラボ商品": "brown", "貸切イベント": "ink", "リスニングパーティー": "ink", "展示": "green", "展示・体験": "green" },
+    "_collabKinds": "コラボの種類ごとのタグの色（mustard・brown・ink・green）。ここにない種類はこげ茶の薄い色になる",
+    "collabs": [
+      { "date": "2026.08", "kind": "コラボ", "name": "映画『マイケル』", "photo": { "file": "collab-michael-2", "alt": "赤いレコードとコラボバームクーヘン" }, "text": "限定ラベルのバームクーヘン、ステッカー特典、フライヤー配布。洋楽の棚をマイケル・ジャクソンのレコードで展開" },
+      { "date": "2026.06", "kind": "コラボ", "name": "Olivia Rodrigo", "photo": { "file": "collab-olivia-main", "alt": "オリヴィア・ロドリゴのレコードに囲まれたコラボバームクーヘン" }, "text": "3rdアルバムのリリースにあわせたコラボカフェ。限定ラベルのバームクーヘンとステッカー特典、LPの試聴" },
+      { "date": "2026.05", "kind": "コラボ", "name": "Laufey", "photo": { "file": "collab-laufey-1", "alt": "LPに囲まれたコラボバームクーヘン" }, "text": "国内盤CDの発売と来日公演にあわせたスペシャルウィーク。ポスターとLPの展示" },
+      { "date": "2026.05", "kind": "展示", "name": "ソニー 公式グッズ", "photo": { "file": "collab-sony-goods", "alt": "ウォークマン柄のTシャツとトートバッグを身につけ、レコードの壁の前に立つ2人" }, "text": "ウォークマンなどをデザインしたTシャツやトートバッグの発売前サンプルを展示。POPの設置とステッカーの配布も行いました" },
+      { "date": "2026.04〜", "kind": "展示・体験", "name": "オーディオテクニカ", "text": "個室にレコードプレーヤーとヘッドホンを置き、実際に試せる展示" },
+      { "date": "2026.03", "kind": "貸切イベント", "name": "Niall Horan", "text": "新曲「Dinner Party」の先行試聴会。当選したファンを招き、地下フロアのテーブルを貸切に" },
+      { "date": "2025.09", "kind": "コラボ商品", "name": "FREAK’S STORE", "photo": { "file": "collab-freaks-store", "alt": "RECOCOのロゴを背中にプリントしたコラボスウェット" }, "text": "RECOCOの女の子ロゴと「Shibuya & Shimokitazawa Retro Music」を背中にプリントしたコラボスウェットを発売" },
+      { "date": "2025.06〜09", "kind": "コラボ", "name": "Ava Max『Don’t Click Play』", "photo": { "file": "collab-ava-max", "alt": "Ava Maxのコラボ" }, "text": "個室を特別仕様にジャック。オリジナルメニュー、レコードコースターのノベルティ" },
+      { "date": "2025.06", "kind": "コラボ", "name": "Benson Boone『American Heart』", "photo": { "file": "collab-benson", "alt": "Benson Booneのコラボ" }, "text": "1日限定のコラボカフェ。アルバムの試聴、オリジナルメニュー、レコードコースター" },
+      { "date": "2025.04", "kind": "コラボ", "name": "Gracie Abrams", "photo": { "file": "collab-gracie-1", "alt": "アルバムとコラボバームクーヘン" }, "text": "来日公演の翌日にコラボカフェ。ポスター掲示、レコード試聴、限定ノベルティ" }
+    ],
+    "collabMailTitle": "コラボ・貸切のご相談",
+    "collabMailLead": "アーティスト名・作品名、希望の期間、内容（コラボメニュー・試聴会・貸切など）と人数をお知らせください。",
+    "collabMailSubject": "【コラボ・貸切のご相談】RECOCO",
+    "collabMailItems": ["会社名", "ご担当者名", "アーティスト名・作品名", "希望の期間", "内容（コラボメニュー／試聴会／貸切）", "人数"],
+
+    "sister": {
+      "title": "姉妹店のカセットテープカフェ CASSE でも撮影いただけます",
+      "text": "ガラス張りの明るい店内と青いスタジアムベンチが特徴です。料金や流れはRECOCOと同じです。",
+      "label": "CASSEの撮影・取材ページ",
+      "url": "https://casse.cafe/shooting/"
+    }
+  }
+}

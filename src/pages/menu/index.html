@@ -1,0 +1,34 @@
+---
+{ "title": "メニュー", "description": "レコードカフェ RECOCO（渋谷・下北沢）のメニューと料金。コーヒー、スペシャルドリンク、レコードに見立てたバームクーヘン「レココバーム」などのデザート、アルコール。価格はすべて税込です。" }
+---
+<!-- メニュー（旧メニューPDFの転送先）。中身は menu.json、料金は site.json の charge から入る -->
+<div class="menu-page" id="menu-top">
+  <div class="indent menu-intro">
+    <div class="txt">
+      {{{eb.MENU}}}
+      <h1 class="page-title">メニュー</h1>
+      <p class="body-text wide">{{menu.lead}}</p>
+    </div>
+    {{{menu.photo}}}
+  </div>
+
+  <nav class="chips indent" aria-label="メニューの種類">
+    <a href="#charge">料金{{{ic.down}}}</a>
+    {{{menu.chips}}}
+  </nav>
+
+  <section class="menu-cat" id="charge" aria-labelledby="charge-h">
+    <div class="menu-cat-head">
+      <p class="en" lang="en">Charge</p>
+      <h2 id="charge-h">料金 ／ 1名分</h2>
+    </div>
+    <div class="menu-cat-body">
+      {{{menu.chargeTable}}}
+      <p class="foot-note">{{site.charge.footnote}}</p>
+    </div>
+  </section>
+
+  {{{menu.sections}}}
+
+  <p class="indent menu-foot">メニューと価格は変わることがあります。最新の情報は店頭とInstagramでお知らせしています。（{{menu.updated}}現在）</p>
+</div>
