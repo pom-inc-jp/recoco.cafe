@@ -163,4 +163,4 @@ Node.js 18 以上だけで動く（追加のライブラリなし）。
 | collab_more / gallery_more / voice_more | トップの各「見る」リンク |
 | nav_header / nav_fab / fab_toggle | 上のメニュー／スマホのレコードプレーヤー型メニュー（中のリンク・開け閉め） |
 | lang_switch | JP / EN の切り替え |
-| logo_header / logo_footer / to_top / to_top_fab | ロゴ・「ページの上へ戻る」・右下の上へ戻る丸ボタン |
+| logo_header / logo_footer / to_top_fab | ロゴ・右下の「上へ戻る」丸ボタン |
