@@ -13,6 +13,8 @@
 <p class="to-top"><a class="btn btn-line" href="#top" data-cta="to_top"><span class="up">{{{ic.up}}}</span>{{page.ui.toTop}}</a></p>
 {{> footer}}
 {{> fab}}
+<!-- スクロールが止まって3秒たつと、右下に出る「上へ戻る」丸ボタン（ファーストビューと、スクロール・操作の最中は出さない。動きは recoco.js） -->
+<a class="top-fab" href="#top" data-top-fab data-cta="to_top_fab" aria-label="{{page.ui.toTop}}" tabindex="-1">{{{ic.up}}}</a>
 <script src="/assets/js/recoco.js?v={{build.version}}" defer></script>
 </body>
 </html>

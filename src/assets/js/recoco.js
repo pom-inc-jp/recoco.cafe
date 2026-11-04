@@ -26,6 +26,28 @@
   }, { passive: true });
   window.addEventListener('resize', function () { window.requestAnimationFrame(runScroll); });
 
+  // --- 0) 右下の「上へ戻る」丸ボタン ---
+  // スクロールや画面の操作が止まって3秒たったら出す。ファーストビュー（1画面目）では出さない
+  var topFab = document.querySelector('[data-top-fab]');
+  if (topFab) {
+    var topTimer;
+    var hideTop = function () {
+      topFab.classList.remove('is-on');
+      topFab.setAttribute('tabindex', '-1');
+      clearTimeout(topTimer);
+      topTimer = setTimeout(function () {
+        if (window.scrollY > window.innerHeight) { topFab.classList.add('is-on'); topFab.removeAttribute('tabindex'); }
+      }, 3000);
+    };
+    ['scroll', 'touchstart', 'pointerdown', 'wheel', 'keydown'].forEach(function (ev) {
+      window.addEventListener(ev, function (e) {
+        if (e.target && e.target.closest && e.target.closest('[data-top-fab]')) return; // ボタン自体を押したときは消さない
+        hideTop();
+      }, { passive: true });
+    });
+    topFab.addEventListener('click', function () { topFab.classList.remove('is-on'); });
+  }
+
   // --- 1) レコードプレーヤーのメニュー ---
   var fab = document.querySelector('[data-fab]');
   if (fab) {
