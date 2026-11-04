@@ -27,7 +27,7 @@
   window.addEventListener('resize', function () { window.requestAnimationFrame(runScroll); });
 
   // --- 0) 右下の「上へ戻る」丸ボタン ---
-  // スクロールや画面の操作が止まって3秒たったら出す。ファーストビュー（1画面目）では出さない
+  // スクロールや画面の操作が止まって2秒たったら出す。ファーストビュー（1画面目）では出さない
   var topFab = document.querySelector('[data-top-fab]');
   if (topFab) {
     var topTimer;
@@ -37,7 +37,7 @@
       clearTimeout(topTimer);
       topTimer = setTimeout(function () {
         if (window.scrollY > window.innerHeight) { topFab.classList.add('is-on'); topFab.removeAttribute('tabindex'); }
-      }, 3000);
+      }, 2000);
     };
     ['scroll', 'touchstart', 'pointerdown', 'wheel', 'keydown'].forEach(function (ev) {
       window.addEventListener(ev, function (e) {
