@@ -47,7 +47,8 @@
 
 /* --- 基本 --- */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 16px; }
+html { scroll-behavior: smooth; scroll-padding-top: 16px; background: linear-gradient(var(--paper) 50%, var(--red) 50%); }
+/* ↑ スマホでページの上下をはみ出してスクロールしたときに見える色。上はクリーム、下はフッターのいちばん下の赤い帯と同じ色にして、フッターの下に余白があるように見えないようにする */
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--ja); font-size: 16px; line-height: 1.9; letter-spacing: .03em; -webkit-font-smoothing: antialiased; word-break: keep-all; overflow-wrap: anywhere; line-break: strict; }
 /* 中身が短いページでも、フッターを画面のいちばん下に置く（フッターの下に余白を作らない） */
 body { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; }
