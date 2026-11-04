@@ -132,7 +132,7 @@ h2.mb { margin-bottom: 32px; }
 .fab { display: none; }
 .tt-body { fill: var(--wood); } .tt-rim { stroke: var(--wood-rim); } .tt-mat { fill: var(--mat); } .tt-vinyl { fill: var(--tt-vinyl, var(--vinyl)); }
 /* メニューを閉じるたびに、ラベルの色が変わる（暖色系。盤は黒か黒めのグレー。色は先頭の変数から） */
-.fab[data-disc="1"] { --tt-vinyl: var(--vinyl-groove); --tt-groove: var(--vinyl); --tt-label: var(--paper); --tt-hole: var(--ink); }
+.fab[data-disc="1"] { --tt-vinyl: var(--vinyl-groove); --tt-groove: var(--vinyl); --tt-label: var(--green); } /* 白いラベルだと回っているのがわからないので、和の緑に */
 .fab[data-disc="2"] { --tt-label: var(--brown); }
 .fab[data-disc="3"] { --tt-vinyl: var(--vinyl-groove); --tt-groove: var(--vinyl); --tt-label: var(--wood-rim); }
 .fab[data-disc="4"] { --tt-label: var(--arm-base); --tt-hole: var(--ink); }
