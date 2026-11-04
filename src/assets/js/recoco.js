@@ -32,9 +32,21 @@
     var btn = fab.querySelector('.fab-btn');
     var sheet = fab.querySelector('.fab-sheet');
     var disc = fab.querySelector('.tt-disc');
+    var arm = fab.querySelector('.tt-armg');
+    var ARM_MAX = 21; // アームの最大の角度。これ以上回すと針がラベルにかかる
+    // レコードの色（閉じるたびに次の色へ。前回の色は覚えておく）
+    var DISCS = 5, discNo = 0;
+    try { discNo = (parseInt(localStorage.getItem('recoco-disc'), 10) || 0) % DISCS; } catch (e) {}
+    fab.setAttribute('data-disc', String(discNo));
+    var nextDisc = function () {
+      discNo = (discNo + 1) % DISCS;
+      fab.setAttribute('data-disc', String(discNo));
+      try { localStorage.setItem('recoco-disc', String(discNo)); } catch (e) {}
+    };
     var FROM = 120, TO = 280; // この範囲のスクロールで、ふわっと現れる
     var isOpen = function () { return !sheet.hidden; };
     var setOpen = function (open) {
+      if (!open && isOpen()) nextDisc(); // 閉じるときに、次の色のレコードに替える
       sheet.hidden = !open;
       fab.classList.toggle('is-open', open);
       root.classList.toggle('menu-open', open);
@@ -52,6 +64,7 @@
         // 回転の中心は SVG の transform 属性（rotate(角度 26 28)）だけで決める。
         // CSS の transform や transform-origin を .tt-disc に付けると、Safari と Chrome で中心がずれる
         disc.setAttribute('transform', 'rotate(' + ((y / max) * 1440 % 360).toFixed(1) + ' 26 28)');
+        if (arm) arm.setAttribute('transform', 'rotate(' + (Math.min(1, y / max) * ARM_MAX).toFixed(1) + ' 55 12)');
       }
     });
     btn.addEventListener('click', function () { setOpen(!isOpen()); });
