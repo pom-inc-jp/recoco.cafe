@@ -322,8 +322,6 @@ html[lang="en"] .store-head .en { display: none; } /* 英語ページでは見�
 .btn-store:hover { background: var(--ink); color: var(--paper); }
 
 /* --- ページの上へ・フッター --- */
-.to-top { max-width: 1240px; margin: 96px auto 0; padding: 0 20px; text-align: center; }
-.to-top .up { color: var(--red); display: inline-flex; }
 .site-foot { margin-top: 72px; background: var(--ink); color: var(--paper); }
 .site-foot a { color: var(--paper); text-decoration: none; }
 .site-foot a:hover { color: var(--mustard); }
