@@ -262,8 +262,8 @@ const mapEmbed = (st) => `https://www.google.com/maps?q=${encodeURIComponent(st.
 function storeCards(site, lang) {
   return site.stores.map((s) => `<a class="store-card s-${s.color}" href="#${s.id}" data-cta="store_card" data-store="${s.id}">
       <span class="txt"><span class="nm"><span class="dot" aria-hidden="true"></span>${esc(pick(s, 'name', lang, '店名'))}</span><span class="sub">${esc(pick(s, 'accessShort', lang, '店舗カード'))}${lang === 'en' ? ' · ' : '・'}<span class="nb">${esc(s.opens)}${lang === 'en' ? '–' : '〜'}${esc(s.closes)}</span></span></span>
-      ${icon('right', 20, 1.8)}
-    </a>`).join('\n    ');
+      ${icon('down', 20, 1.8)}
+    </a>`).join('\n    '); // 同じページの店舗・アクセスへ下がるので、下向きの矢印
 }
 
 function storeBlocks(site, lang) {

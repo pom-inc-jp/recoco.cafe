@@ -163,7 +163,7 @@ h2.mb { margin-bottom: 32px; }
 .store-card .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--store); }
 .store-card .sub { font-size: 13px; }
 .store-card .ico { color: var(--store); transition: transform .2s; }
-.store-card:hover .ico { transform: translateX(4px); }
+.store-card:hover .ico { transform: translateY(3px); }
 .s-green { --store: var(--green); }
 .s-red { --store: var(--red); }
 
