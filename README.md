@@ -1,13 +1,13 @@
 # recoco.cafe
 
-レコードカフェ RECOCO（渋谷・下北沢）のサイト。WordPress をやめて、静的サイトとして書き出す。しくみは姉妹店の casse.cafe（と retopo.cafe・pom-inc.co.jp）と同じ。
+レコードカフェ RECOCO（渋谷・下北沢）のサイト。2026年11月に WordPress から静的サイトに切り替えて公開中。しくみは姉妹店の casse.cafe（と retopo.cafe・pom-inc.co.jp）と同じ。
 
 ```
 node build.mjs           # dist/ に書き出す
 node build.mjs --serve   # 書き出して http://localhost:8080 で確認
 ```
 
-Node.js 18 以上だけで動く（追加のライブラリなし）。
+Node.js 18 以上だけで動く（npm install 不要）。
 
 ## ページ
 
@@ -39,7 +39,7 @@ Node.js 18 以上だけで動く（追加のライブラリなし）。
 | `src/assets/img/photos/` | 写真（WebP）。`名前.webp` と、小さく出すとき用の `名前-400.webp` |
 | `src/assets/img/common/` | ロゴ（PNG。加工しない）・シェア用の画像 `ogp.jpg` |
 | `src/static/` | `.htaccess`・ファビコン・robots.txt など（dist/ 直下にコピー） |
-| `lib/` | 日本語を文節で改行させる部品（BudouX）。casse.cafe と同じもの |
+| `lib/` | 日本語を文節で改行させる部品（`phrase.mjs` と BudouX）。casse.cafe と同じもの。BudouX は同梱の外部ライブラリなので書き換えない |
 
 ## 店の情報を変えるとき（`src/_data/site.json`）
 
@@ -117,6 +117,13 @@ Node.js 18 以上だけで動く（追加のライブラリなし）。
 
 `genre` が `announce` 以外の記事は、pom-inc.co.jp のお知らせにも自動で載る（書き出し時に `/news.json` を公開し、会社サイトが読みに来る）。`/news.json` の本文は、会社サイトが読める基本の種類（p・img・note など）に書き換えて出す（photos は img を並べ、credit は p に）。本文のない記事は、会社サイトの一覧から RECOCO のお知らせ一覧へ直接リンクされる。
 
+## 改行の位置（文節）
+
+書き出しのとき `lib/phrase.mjs` が日本語を文節に区切り、切れ目に `<wbr>` を入れる（CSS は `word-break: keep-all`）。HTML に `<wbr>` を手で書かない。
+
+- トップの流れる文字のように1行のまま見せる部分は、要素に `data-nobreak` を付ける（付け忘れると何行にも崩れる）
+- 切りたくない語句は `<span class="nb">…</span>` で囲む
+
 ## 旧サイトからの転送（`src/static/.htaccess`）
 
 - `/wp-content/uploads/` の中のPDF → `/menu/`（印刷物のQRコード対策。外さない）
@@ -131,10 +138,11 @@ Node.js 18 以上だけで動く（追加のライブラリなし）。
 
 `.github/workflows/deploy.yml`。中身は店舗サイト共通のワークフロー（[pom-inc-jp/site-tools](https://github.com/pom-inc-jp/site-tools) の `deploy-static.yml@v1`）で、ここには動かすタイミングと、RECOCOだけの設定（残すファイル・切り替えの変数）だけを書いている。`main` に変更が入ると書き出し、Xserver の公開フォルダへ rsync で反映する。
 
-- 公開先は GitHub の環境 `production` の Secrets（`XSERVER_HOST`・`XSERVER_USER`・`XSERVER_PATH`・`XSERVER_SSH_KEY`）
-- 変数 `RECOCO_LIVE` が `true` になるまでは「試し（dry-run）」だけで、消えるファイルの一覧を実行結果に出す
-- 消さないもの：`recoco_movie_app/` など `_movie_app` で終わるフォルダ、mp4 が入っているフォルダ、`.well-known/`、`wp-content/uploads/`、検索エンジンの確認ファイル（`google*.html`・`BingSiteAuth.xml`）
-- 切り替えたあとは、pom-inc.co.jp の `newsSources` に recoco.cafe を足し、Search Console でサイトマップ（`https://recoco.cafe/sitemap.xml`）を送信する
+- 公開先の接続情報は組織（pom-inc-jp）の Secrets を使う（site-tools の README）。このリポジトリの環境 `production` に同じ名前の Secrets があると、そちらが優先される
+- 変数 `RECOCO_LIVE` が `true` のときは、`main` に入るたび、と毎日 3:20（日本時間）に反映する。`true` でないあいだは「試し（dry-run）」だけで、消えるファイルの一覧を実行結果に出す。そのあいだに反映するときは、Actions → 公開 → Run workflow で mode を `deploy` にする（その1回だけ反映）
+- 2026年11月時点では、本番に反映済みだが `RECOCO_LIVE` はまだ `true` にしておらず、マージのたびに手動で反映している（STATUS.md）
+- 消さないもの：`recoco_movie_app/` など `_movie_app` で終わるフォルダ、`movie/`・`movie_app/`、mp4 が入っているフォルダ、`.well-known/`、`wp-content/uploads/`、検索エンジンの確認ファイル（`google*.html`・`BingSiteAuth.xml`）、`.user.ini`（Xserver の PHP 設定。動画アプリが使うことがある）
+- pom-inc.co.jp の `newsSources` に recoco.cafe を追加済み。Search Console でのサイトマップ（`https://recoco.cafe/sitemap.xml`）の送信は STATUS.md で管理
 
 ## 計測（Googleタグマネージャー → GA4）
 
