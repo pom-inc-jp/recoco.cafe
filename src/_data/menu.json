@@ -6,8 +6,8 @@
   "photo": { "file": "shimokita-cheesecake-latte", "alt": "チーズケーキとアイスラテ、回るレコード" },
   "categories": [
     {
-      "id": "drink", "name": "ドリンク", "en": "Drink",
-      "note": "コーヒーはすべてフェアトレードの豆を使っています", "noteEn": "All our coffee is made with fair trade beans.",
+      "id": "drink", "name": "ドリンク", "en": "Drinks",
+      "note": "コーヒーはすべてフェアトレードの豆を使っています", "noteEn": "All our coffee is made with fair-trade beans.",
       "items": [
         { "name": "コーヒー", "en": "Coffee (hot / iced)", "price": 640 },
         { "name": "カプチーノ", "en": "Cappuccino (hot)", "price": 790 },
@@ -22,7 +22,7 @@
       ]
     },
     {
-      "id": "special", "name": "スペシャルドリンク", "en": "Special drink",
+      "id": "special", "name": "スペシャルドリンク", "en": "Special drinks",
       "photo": { "file": "shibuya-melon-soda", "alt": "ヘッドホンの横に置かれたメロンクリームソーダ" },
       "items": [
         { "name": "メロンクリームソーダ", "en": "Melon cream soda", "price": 950 },
@@ -30,7 +30,7 @@
       ]
     },
     {
-      "id": "dessert", "name": "デザート", "en": "Dessert",
+      "id": "dessert", "name": "デザート", "en": "Desserts",
       "photo": { "file": "shimokita-cheesecake", "alt": "チーズケーキのプレート" },
       "items": [
         { "name": "レココバームクーヘン", "en": "RECOCO Baumkuchen", "price": 660 },
