@@ -40,6 +40,9 @@ const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '
 const isExternal = (url) => /^https?:\/\//.test(url);
 const linkAttrs = (url) => (isExternal(url) ? ' target="_blank" rel="noopener"' : '');
 const dateLabel = (d) => d.replace(/-/g, '.');
+// コラボのカードの日付は、リンク先のお知らせの日付（投稿日）を使う。お知らせがないカードだけ site.json の date
+const collabDate = (news, id, fallback) => { const n = id && news.find((x) => x.id === id); return n ? dateLabel(n.date) : fallback || ''; };
+const newsIdOf = (href) => (/^\/news\/([^/]+)\/$/.exec(href || '') || [])[1];
 const yen = (n) => (n == null ? '—' : `¥${Number(n).toLocaleString('en-US')}`);
 // 行ごとに <br> でつなぐ。英語は <br> を隠したときに単語がくっつかないよう、前に空白を入れる
 const lines = (list, lang = 'ja') => list.map(esc).join(lang === 'en' ? ' <br>' : '<br>');
@@ -401,7 +404,7 @@ function homeParts(site, menu, news, today, lang) {
     newsFilters: en ? '' : newsFilters(news, site),
     news: en ? '' : newsLatest(news, site, today),
     newsEn: en ? newsEn(news, site) : '',
-    collab: en ? '' : site.collabTop.items.map((c) => `<li><a href="${esc(c.href)}" data-cta="collab_item"><figure>${img(c, '(max-width: 760px) 45vw, 280px')}<figcaption><span class="d" lang="en">${esc(c.date)}</span><span class="n">${esc(c.name)}</span></figcaption></figure></a></li>`).join('\n      '),
+    collab: en ? '' : site.collabTop.items.map((c) => `<li><a href="${esc(c.href)}" data-cta="collab_item"><figure>${img(c, '(max-width: 760px) 45vw, 280px')}<figcaption><span class="d" lang="en">${esc(collabDate(news, newsIdOf(c.href), c.date))}</span><span class="n">${esc(c.name)}</span></figcaption></figure></a></li>`).join('\n      '),
     // 撮影・取材・コラボへの入口。PCはお知らせの下、スマホはページのいちばん下に出す（同じ中身を2か所に置き、CSSで出し分ける）
     locBandPc: en ? '' : locBand(site, 'pc'),
     locBandSp: en ? '' : locBand(site, 'sp')
@@ -534,7 +537,7 @@ function shootingParts(site, news) {
   const collabs = sh.collabs.map((c) => {
     const inner = `${c.photo ? img(c.photo, '(max-width: 760px) 100vw, 300px') : ph}
         <div class="b">
-          <p class="m"><span class="d" lang="en">${esc(c.date)}</span><span class="kind k-${sh.collabKinds[c.kind] || 'other'}">${esc(c.kind)}</span></p>
+          <p class="m"><span class="d" lang="en">${esc(collabDate(news, c.news, c.date))}</span><span class="kind k-${sh.collabKinds[c.kind] || 'other'}">${esc(c.kind)}</span></p>
           <p class="n">${esc(c.name)}</p>
           <p class="x">${esc(c.text)}</p>${c.news ? `
           <p class="more"><span class="more-dot" aria-hidden="true">${icon('right')}</span></p>` : ''}

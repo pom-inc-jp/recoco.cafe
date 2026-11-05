@@ -498,56 +498,48 @@
     "lead": "アルバムのリリースや来日公演、映画の公開にあわせて、限定ラベルの「レココバームクーヘン」やレコードの展示でお迎えしてきました。",
     "items": [
       {
-        "date": "2026.08",
         "name": "映画『マイケル』",
         "file": "collab-michael-main",
         "alt": "映画『マイケル』のコラボバームクーヘンとレコード",
         "href": "/news/michael-movie/"
       },
       {
-        "date": "2026.06",
         "name": "Olivia Rodrigo",
         "file": "collab-olivia-main",
         "alt": "Olivia Rodrigoのコラボバームクーヘンとレコード",
         "href": "/news/olivia-rodrigox-recoco2026/"
       },
       {
-        "date": "2026.05",
         "name": "Laufey",
         "file": "collab-laufey-main",
         "alt": "Laufeyのコラボバームクーヘンとレコード",
         "href": "/news/laufeyx-recoco2026/"
       },
       {
-        "date": "2026.05",
         "name": "ソニー 公式グッズ",
         "file": "collab-sony-goods",
         "alt": "ソニー公式グッズのTシャツとトートバッグ",
         "href": "/news/2026-sony-official-goods/"
       },
       {
-        "date": "2025.09",
         "name": "FREAK’S STORE",
         "file": "collab-freaks-store",
         "alt": "RECOCOのロゴを背中にプリントしたコラボスウェット",
         "href": "/news/2025-freaks-store/"
       },
       {
-        "date": "2025.06",
         "name": "Ava Max",
         "file": "collab-ava-max",
         "alt": "Ava Maxのコラボ",
         "href": "/news/ava-max-x-recoco/"
       },
       {
-        "date": "2025.06",
         "name": "Benson Boone",
         "file": "collab-benson",
         "alt": "Benson Booneのコラボ",
         "href": "/news/benson-boone-recocovol1/"
       },
       {
-        "date": "2025.04",
         "name": "Gracie Abrams",
         "file": "collab-gracie-2",
         "alt": "Gracie Abramsのコラボバームクーヘンとレコード",
@@ -1070,7 +1062,6 @@
     "_collabKinds": "コラボの種類ごとのタグの色（mustard・brown・ink・green）。ここにない種類はこげ茶の薄い色になる",
     "collabs": [
       {
-        "date": "2026.08",
         "kind": "コラボ",
         "name": "映画『マイケル』",
         "news": "michael-movie",
@@ -1081,7 +1072,6 @@
         "text": "限定ラベルのバームクーヘン、ステッカー特典、フライヤー配布。洋楽の棚をマイケル・ジャクソンのレコードで展開"
       },
       {
-        "date": "2026.06",
         "kind": "コラボ",
         "name": "Olivia Rodrigo",
         "news": "olivia-rodrigox-recoco2026",
@@ -1092,7 +1082,6 @@
         "text": "3rdアルバムのリリースにあわせたコラボカフェ。限定ラベルのバームクーヘンとステッカー特典、LPの試聴"
       },
       {
-        "date": "2026.05",
         "kind": "コラボ",
         "name": "Laufey",
         "news": "laufeyx-recoco2026",
@@ -1103,7 +1092,6 @@
         "text": "国内盤CDの発売と来日公演にあわせたスペシャルウィーク。ポスターとLPの展示"
       },
       {
-        "date": "2026.05",
         "kind": "展示",
         "name": "ソニー 公式グッズ",
         "news": "2026-sony-official-goods",
@@ -1114,21 +1102,18 @@
         "text": "ウォークマンなどをデザインしたTシャツやトートバッグの発売前サンプルを展示。POPの設置とステッカーの配布も行いました"
       },
       {
-        "date": "2026.04〜",
         "kind": "展示・体験",
         "name": "オーディオテクニカ",
         "news": "2026-audio-technica",
         "text": "個室にレコードプレーヤーとヘッドホンを置き、実際に試せる展示"
       },
       {
-        "date": "2026.03",
         "kind": "貸切イベント",
         "name": "Niall Horan",
         "news": "20260315-niall-horan",
         "text": "新曲「Dinner Party」の先行試聴会。当選したファンを招き、地下フロアのテーブルを貸切に"
       },
       {
-        "date": "2025.09",
         "kind": "コラボ商品",
         "name": "FREAK’S STORE",
         "news": "2025-freaks-store",
@@ -1139,7 +1124,6 @@
         "text": "RECOCOの女の子ロゴと「Shibuya & Shimokitazawa Retro Music」を背中にプリントしたコラボスウェットを発売"
       },
       {
-        "date": "2025.06〜09",
         "kind": "コラボ",
         "name": "Ava Max『Don’t Click Play』",
         "news": "ava-max-x-recoco",
@@ -1150,7 +1134,6 @@
         "text": "個室を特別仕様にジャック。オリジナルメニュー、レコードコースターのノベルティ"
       },
       {
-        "date": "2025.06",
         "kind": "コラボ",
         "name": "Benson Boone『American Heart』",
         "news": "benson-boone-recocovol1",
@@ -1161,7 +1144,6 @@
         "text": "1日限定のコラボカフェ。アルバムの試聴、オリジナルメニュー、レコードコースター"
       },
       {
-        "date": "2025.04",
         "kind": "コラボ",
         "name": "Gracie Abrams",
         "news": "gracie-abrams-x-recoco",

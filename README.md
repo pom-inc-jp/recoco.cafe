@@ -57,7 +57,7 @@ Node.js 18 以上だけで動く（npm install 不要）。
 | トップの写真 | `hero.photos`（約6秒ごとに切り替わる）・`about.photosA`／`photosB` |
 | ナビの並び | `nav`（`fabOnly` はスマホのメニューだけ）。英語ページは `en.nav` |
 | 渋谷店の個室 | `stores` の渋谷店の `privateRoom`（トップの ABOUT の下の緑の帯と、店舗・アクセスの「個室あり」）。写真ができたら `photo` に `{ "file": "…", "alt": "…", "altEn": "…" }` を書くと写真の枠が出る。料金の金額は書かない |
-| 撮影ページ | `shooting`（並びは casse.cafe と同じ。`times`・`prices`・`minTime`・`priceNotes`・`flow`・`features`・`press`・`collabs` など）。問い合わせメールの件名と本文の項目は `mailSubject`・`mailItems` など | コラボ実績のカードに `news`（お知らせの id）を書くと、カードがその記事へのリンクになる（記事ページがない id だと書き出しが止まる）
+| 撮影ページ | `shooting`（並びは casse.cafe と同じ。`times`・`prices`・`minTime`・`priceNotes`・`flow`・`features`・`press`・`collabs` など）。問い合わせメールの件名と本文の項目は `mailSubject`・`mailItems` など | コラボ実績のカード（トップの `collabTop` も）は、`news`（トップは `href`）に書いたお知らせの記事へのリンクになり、日付はそのお知らせの `date`（投稿日）から自動で入る。記事ページがない id だと書き出しが止まる。お知らせがないカードだけ `date` を書く
 
 ## 英語ページ（`/en/`）
 
