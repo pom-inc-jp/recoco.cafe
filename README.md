@@ -50,7 +50,7 @@ Node.js 18 以上だけで動く（npm install 不要）。
 | 営業時間 | `stores` の各店の `opens`・`closes`・`lastOrder` |
 | 住所 | `stores` の `zip`・`address`（表示）と `region`・`locality`・`street`（検索エンジン向け）。地図は `mapQuery` |
 | 行き方 | `stores` の `access`（店舗・アクセス）と `accessShort`（トップの店舗カード） |
-| 定休日・席・駐車場・JASRAC・Instagram | `stores` の `holiday`・`seats`・`parking`・`jasrac`・`instagram` |
+| 定休日・駐車場・JASRAC・Instagram | `stores` の `holiday`・`parking`・`jasrac`・`instagram` |
 | 料金 | `charge.rows` の `prices`。注記は `charge.footnote` |
 | 楽しみ方・ご利用案内 | `steps`・`info`。ご利用案内のアイコンは `icon`（build.mjs の `INFO_ICONS` の名前） |
 | トップのメニュー抜粋 | `menuPreview.items` に menu.json の品名を書く。価格は menu.json から自動で引く（品名が見つからないと書き出しが止まる） |

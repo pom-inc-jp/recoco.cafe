@@ -81,7 +81,6 @@
       "closes": "21:00",
       "lastOrder": "20:30",
       "holiday": "なし（年末年始を除く）",
-      "seats": "空いていればお好きな席へ（ご案内した席以外には移れません）・個室あり",
       "parking": "ありません（近くに大きなコインパーキングがあります）",
       "jasrac": "K9408696",
       "instagram": "https://www.instagram.com/recoco.cafe/",
@@ -108,7 +107,6 @@
       "accessEn": "6 minutes' walk from Shibuya Station (4 minutes from Exit C1) / 11 minutes' walk from Omotesando Station",
       "accessShortEn": "4 min from Shibuya Station Exit C1",
       "holidayEn": "New Year holidays only",
-      "seatsEn": "Pick any free seat when it is quiet, then please stay at that seat. Private room available.",
       "parkingEn": "None (large coin-operated car park nearby)",
       "privateRoom": {
         "_説明": "トップの ABOUT の下に出す、渋谷店の個室の案内。photo に写真（photos のファイル名と alt）を書くと左に写真の枠が出る。料金の金額は書かない",
@@ -150,7 +148,6 @@
       "closes": "21:00",
       "lastOrder": "20:30",
       "holiday": "なし（年末年始を除く）",
-      "seats": "空いていればお好きな席へ（ご案内した席以外には移れません）",
       "parking": "ありません（近くにコインパーキングがあります）",
       "jasrac": "K9566230",
       "instagram": "https://www.instagram.com/recoco.shimokita",
@@ -177,7 +174,6 @@
       "accessEn": "2 minutes' walk from the East Exit of Shimokitazawa Station. In the basement of the building across from Village Vanguard",
       "accessShortEn": "2 min from Shimokitazawa Station East Exit",
       "holidayEn": "New Year holidays only",
-      "seatsEn": "Pick any free seat when it is quiet, then please stay at that seat.",
       "parkingEn": "None (coin-operated car park nearby)"
     }
   ],
@@ -1212,7 +1208,6 @@
       "gettingHere": "行き方",
       "hours": "営業時間",
       "holiday": "定休日",
-      "seats": "席",
       "parking": "駐車場",
       "jasrac": "JASRAC",
       "jasracPrefix": "許諾番号 ",
@@ -1248,7 +1243,6 @@
       "gettingHere": "Getting here",
       "hours": "Hours",
       "holiday": "Closed",
-      "seats": "Seating",
       "parking": "Parking",
       "jasrac": "JASRAC",
       "jasracPrefix": "License ",
