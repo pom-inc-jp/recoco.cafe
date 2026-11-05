@@ -276,7 +276,6 @@ function storeBlocks(site, lang) {
       [ui.gettingHere, pick(s, 'access', lang, '行き方')],
       [ui.hours, hoursText(s, lang)],
       [ui.holiday, pick(s, 'holiday', lang, '定休日')],
-      [ui.seats, pick(s, 'seats', lang, '席')],
       [ui.parking, pick(s, 'parking', lang, '駐車場')],
       [ui.jasrac, `${ui.jasracPrefix}${s.jasrac}${ui.jasracSuffix}`]
     ];
