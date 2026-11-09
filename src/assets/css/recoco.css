@@ -301,6 +301,11 @@ h2.mb { margin-bottom: 32px; }
 .access-lead { margin: -16px 0 32px; }
 .stores { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 72px 56px; }
 .store { min-width: 0; }
+/* 2店舗を横に並べたとき、見出し・写真・表・地図・ボタンの段をそろえる（表の行数が違っても地図の上辺がそろう） */
+@supports (grid-template-rows: subgrid) {
+  .store { display: grid; grid-template-rows: subgrid; grid-row: span 5; row-gap: 0; align-content: start; }
+  .store > * { align-self: start; }
+}
 .store-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 0 0 16px; padding: 12px 18px; border-radius: var(--r); background: var(--store); color: var(--paper); }
 .store-head h3 { font-size: 22px; display: flex; align-items: center; gap: 10px; line-height: 1.6; }
 .store-head .f-store { fill: var(--store); }
