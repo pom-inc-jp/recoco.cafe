@@ -660,8 +660,9 @@ function chromeParts(site, lang, hasNewsEn = true) {
   const navFab = nav.map((n) => `<a href="${esc(n.href)}"><span class="dot" aria-hidden="true"></span><span class="lb"><span class="ja">${esc(n.label)}</span><span class="en" lang="en">${esc(n.en)}</span></span></a>`).join('\n      ');
   const igFab = site.stores.map((s) => `<a class="btn btn-${s.color}" href="${esc(s.instagram)}" target="_blank" rel="noopener" data-store="${s.id}">${esc(pick(s, 'area', lang, '店名'))} <span lang="en">Instagram</span>${icon('out')}</a>`).join('');
   const f = site.footer;
-  const a = (url, text) => `<a href="${esc(url)}"${linkAttrs(url)}>${esc(text)}</a>`;
-  const mail = `<a href="mailto:${esc(site.email)}">${esc(site.email)}</a>`;
+  // 下線を付けないので、文字だけのリンクには線の矢印を添える（サイト内は →、外のサイトとメールは ↗）
+  const a = (url, text) => `<a href="${esc(url)}"${linkAttrs(url)}>${esc(text)}${icon(isExternal(url) ? 'out' : 'right', 12)}</a>`;
+  const mail = `<a href="mailto:${esc(site.email)}">${esc(site.email)}${icon('out', 12)}</a>`;
   // フッターは「見出し：中身」の行にそろえる（JASRAC は店舗・アクセスにだけ出す）
   const row = (dt, dd) => `<div><dt>${dt}</dt><dd>${dd}</dd></div>`;
   const igLinks = site.stores.map((s) => a(s.instagram, en ? s.areaEn : s.area)).join(en ? ' / ' : '・');
@@ -710,7 +711,7 @@ async function build() {
     site,
     gtm,
     eb: Object.fromEntries(['NEWS', 'ABOUT', 'HOW TO ENJOY', 'CHARGE', 'MENU', 'INFORMATION', 'COLLABORATION', 'GALLERY', 'VOICE', 'ACCESS', 'LOCATION & PRESS'].map((k) => [k.replace(/[^A-Z]/g, ''), eyebrow(k)])),
-    ic: { right: icon('right'), out: icon('out'), down: icon('down'), up: icon('up', 16), mail: icon('mail', 18, 1.8), prev: icon('prev', 18), next: icon('next', 18), close: icon('close', 18) },
+    ic: { right: icon('right'), left: icon('left', 12), out: icon('out'), down: icon('down'), up: icon('up', 16), mail: icon('mail', 18, 1.8), prev: icon('prev', 18), next: icon('next', 18), close: icon('close', 18) },
     build: { version: t0.toString(36), year: new Date().getFullYear() },
     news: { filters: newsFilters(news, site), all: newsAll(news, site) },
     menu: { ...menuParts(menu), lead: menu.lead, leadEn: menu.leadEn, updated: menu.updated, chargeTable: chargeTable(site.charge, { bi: true }), footnoteEn: site.charge.footnoteEn },
