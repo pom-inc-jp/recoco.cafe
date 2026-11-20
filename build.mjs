@@ -194,7 +194,10 @@ function renderBlock(b) {
     case 'ol': return `<ol>${b.items.map((i) => `<li>${inline(i)}</li>`).join('')}</ol>`;
     case 'img': {
       const pic = b.photo ? img({ file: b.photo, alt: b.alt }, '(max-width: 820px) 100vw, 780px') : `<img src="${esc(b.src)}" alt="${esc(b.alt || '')}" loading="lazy">`;
-      return `<figure class="a-img">${pic}${b.caption ? `<figcaption>${esc(b.caption)}</figcaption>` : ''}</figure>`;
+      // width（PC）・widthSp（スマホ）に数字（px）を書くと、その幅で画像の形のまま出す（4:3 に切り抜かない）。画像の解像度はそのまま
+      const px = (v) => (Number.isFinite(v) && v > 0 ? `${Math.round(v)}px` : '');
+      const vars = [['--w', px(b.width)], ['--w-sp', px(b.widthSp)]].filter(([, v]) => v).map(([k, v]) => `${k}:${v}`).join(';');
+      return `<figure class="a-img${vars ? ' fig-w" style="' + vars : ''}">${pic}${b.caption ? `<figcaption>${esc(b.caption)}</figcaption>` : ''}</figure>`;
     }
     case 'photos': return `<div class="a-photos">${b.items.map((x) => img({ file: x.photo, alt: x.alt }, '(max-width: 820px) 33vw, 260px')).join('')}</div>`;
     case 'table': return `<dl class="a-table">${b.rows.map((r) => `<dt>${esc(r[0])}</dt><dd>${inline(r[1])}</dd>`).join('')}</dl>`;
