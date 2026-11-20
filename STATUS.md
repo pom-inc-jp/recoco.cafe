@@ -12,7 +12,7 @@
 | 公開のしくみ | site-tools の共通ワークフロー（`deploy-static.yml@v1`）。接続情報は組織の Secrets |
 | 残すもの | `recoco_movie_app/` など `_movie_app` で終わるフォルダ、`movie/`・`movie_app/`、mp4 の入ったフォルダ、`.well-known/`、`wp-content/uploads/`、`google*.html`・`BingSiteAuth.xml`、`.user.ini` |
 | ページ | トップ・`/menu/`（日英）・`/news/`・`/shooting/`・`/gallery/`・`/voice/`・`/en/` |
-| お知らせ | 49件（最新は 2026-11-20「RECOCO渋谷 年末年始休業のお知らせ」。日英、営業カレンダーの画像は `src/assets/img/news/`。休業明け以降も残す）。`/news.json` を公開し、announce 以外を pom-inc.co.jp が取り込む（`newsSources` 追加済み） |
+| お知らせ | 49件（最新は 2026-11-20「RECOCO渋谷 年末年始休業のお知らせ」。日英、営業カレンダーの画像は `src/assets/img/news/2026winter-shibuya-calendar.webp`（受け取った画像の黒い縁だけを切ったもの。表示はPC 330px・スマホ 260px）。休業明け以降も残す）。`/news.json` を公開し、announce 以外を pom-inc.co.jp が取り込む（`newsSources` 追加済み） |
 | 計測 | GTM `GTM-5FQ27XG8`（旧サイトの Site Kit と同じコンテナ）。`link_click`・`click_cta` を dataLayer に送る |
 
 ## やりかけ・次にやること
@@ -30,6 +30,8 @@
 - 英語ページには営業日のお知らせ以外のお知らせ・コラボ・撮影・お客さまの声を出さない
 - 本番に関わる変更は、プルリクエストを出して管理者の承認後にマージする
 - 店舗・アクセスの店舗ごとの表に「席」の行は出さない（席の案内は「楽しみ方」と「ご利用案内」に書く。渋谷店の個室は店名の帯の「個室あり」で示す）
+
+- 2026-11-20：お知らせの画像は、`img` に `width`（PC）・`widthSp`（スマホ）を書くと 4:3 に切り抜かずにその幅で出せる（セルフォトと同じ。年末年始の営業カレンダーは PC 330px・スマホ 260px）。受け取った画像は縮小・圧縮しない。差し替えるときはファイル名を変える
 
 - コラボのカード（トップ・撮影ページ）の日付は、リンク先のお知らせの投稿日（`date`）から自動で入れる。site.json に日付を二重に書かない
 - 店舗・アクセスの2店舗は subgrid で段をそろえ、表の行数が違っても地図とボタンの上辺がそろうようにする
