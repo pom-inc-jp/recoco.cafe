@@ -420,6 +420,9 @@ a.row:hover .more-dot, a.row:focus-visible .more-dot { transform: translateX(4px
 .a-img { margin-top: 36px; }
 .a-img img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--r); }
 .a-img figcaption { margin-top: 8px; font-size: 13px; color: var(--sub); }
+/* 表示幅を指定した画像（news.json の img に width・widthSp を書いたとき。--w＝PC、--w-sp＝スマホ。片方だけなら両方に使う）。4:3 に切り抜かず、画像の形のまま出す */
+.a-img.fig-w img { width: var(--w, var(--w-sp)); aspect-ratio: auto; object-fit: fill; }
+@media (max-width: 760px) { .a-img.fig-w img { width: var(--w-sp, var(--w)); } }
 .a-table { margin-top: 40px; display: grid; grid-template-columns: 7em minmax(0, 1fr); font-size: 15px; line-height: 1.9; border-bottom: var(--line); }
 .a-table dt { padding: 16px 0; border-top: var(--line); font-weight: 700; }
 .a-table dd { padding: 16px 0; border-top: var(--line); }
