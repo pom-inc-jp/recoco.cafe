@@ -2,29 +2,6 @@
   "_説明": "お知らせ。書き方は README の「お知らせの書き方」。body がある記事だけ記事ページ（/news/id/）を作る。body がない記事は一覧に見出しだけを出す。英語ページ（/en/）には、genre が announce で titleEn がある記事だけを出す（bodyEn に1〜2行の説明を書ける）",
   "items": [
     {
-      "id": "2026winter-shibuya",
-      "date": "2026-11-20",
-      "store": "recoco",
-      "genre": "announce",
-      "title": "RECOCO渋谷 年末年始休業のお知らせ",
-      "titleEn": "RECOCO Shibuya: New Year Holiday Closure",
-      "body": [
-        "誠に勝手ながら、RECOCO渋谷は下記の期間を年末年始休業とさせていただきます。",
-        { "type": "h2", "text": "年末年始休業日" },
-        "2026年12月29日（火）〜2027年1月3日（日）",
-        "※2027年1月4日（月）から通常営業",
-        "何卒ご理解のほど、よろしくお願いいたします。",
-        { "type": "img", "src": "/assets/img/news/2026winter-shibuya-calendar-wide.webp", "alt": "RECOCO渋谷の2026年12月〜2027年1月の営業カレンダー。12月29日〜1月3日は休業、そのほかの日は11時〜21時営業" }
-      ],
-      "bodyEn": [
-        "RECOCO Shibuya will be closed for the New Year holidays on the following dates.",
-        { "type": "h3", "text": "Closure Dates" },
-        "December 29, 2026 (Tue) – January 3, 2027 (Sun)",
-        "We will reopen on Monday, January 4, 2027, with regular business hours.",
-        "Thank you for your understanding, and we look forward to seeing you in the new year!"
-      ]
-    },
-    {
       "id": "michael-movie",
       "date": "2026-08-13",
       "store": "recoco",

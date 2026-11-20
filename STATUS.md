@@ -12,7 +12,7 @@
 | 公開のしくみ | site-tools の共通ワークフロー（`deploy-static.yml@v1`）。接続情報は組織の Secrets |
 | 残すもの | `recoco_movie_app/` など `_movie_app` で終わるフォルダ、`movie/`・`movie_app/`、mp4 の入ったフォルダ、`.well-known/`、`wp-content/uploads/`、`google*.html`・`BingSiteAuth.xml`、`.user.ini` |
 | ページ | トップ・`/menu/`（日英）・`/news/`・`/shooting/`・`/gallery/`・`/voice/`・`/en/` |
-| お知らせ | 49件（最新は 2026-11-20「RECOCO渋谷 年末年始休業のお知らせ」。日英、営業カレンダーの画像は `src/assets/img/news/`。休業明け以降も残す）。`/news.json` を公開し、announce 以外を pom-inc.co.jp が取り込む（`newsSources` 追加済み） |
+| お知らせ | 48件。`/news.json` を公開し、announce 以外を pom-inc.co.jp が取り込む（`newsSources` 追加済み） |
 | 計測 | GTM `GTM-5FQ27XG8`（旧サイトの Site Kit と同じコンテナ）。`link_click`・`click_cta` を dataLayer に送る |
 
 ## やりかけ・次にやること
