@@ -12,7 +12,7 @@
 | 公開のしくみ | site-tools の共通ワークフロー（`deploy-static.yml@v1`）。接続情報は組織の Secrets |
 | 残すもの | `recoco_movie_app/` など `_movie_app` で終わるフォルダ、`movie/`・`movie_app/`、mp4 の入ったフォルダ、`.well-known/`、`wp-content/uploads/`、`google*.html`・`BingSiteAuth.xml`、`.user.ini` |
 | ページ | トップ・`/menu/`（日英）・`/news/`・`/shooting/`・`/gallery/`・`/voice/`・`/en/` |
-| お知らせ | 50件（最新は 2026-11-21「RECOCO下北沢 年末年始休業のお知らせ」（カレンダーは `src/assets/img/news/20261121-shimokita-calendar.webp`、受け取った画像の左端の白い線だけを切ったもの。PC 330px・スマホ 260px）と 2026-11-26「RECOCO渋谷 年末年始休業のお知らせ」（カレンダーは `src/assets/img/news/20261126-shibuya-calendar.webp`、受け取ったスクリーンショットの端の黒い縁だけを切ったもの。PC 330px・スマホ 260px）。どちらも日英、休業明け以降も残す。11-20 に出した渋谷の同じお知らせ（12/1 の短縮営業の一文入り）は依頼者の指示で削除した）。`/news.json` を公開し、announce 以外を pom-inc.co.jp が取り込む（`newsSources` 追加済み） |
+| お知らせ | 51件（2026-11-26「RECOCO渋谷 12月1日（火）短縮営業のお知らせ」（社内研修のため11:00-18:00。日英。カレンダーは受け取ったPDFを画像にして白い余白だけを切った `src/assets/img/news/20261126-shibuya-dec1-calendar.webp`、PC 330px・スマホ 260px）。ほかに、最新は 2026-11-21「RECOCO下北沢 年末年始休業のお知らせ」（カレンダーは `src/assets/img/news/20261121-shimokita-calendar.webp`、受け取った画像の左端の白い線だけを切ったもの。PC 330px・スマホ 260px）と 2026-11-26「RECOCO渋谷 年末年始休業のお知らせ」（カレンダーは `src/assets/img/news/20261126-shibuya-calendar.webp`、受け取ったスクリーンショットの端の黒い縁だけを切ったもの。PC 330px・スマホ 260px）。どちらも日英、休業明け以降も残す。11-20 に出した渋谷の同じお知らせ（12/1 の短縮営業の一文入り）は依頼者の指示で削除した）。`/news.json` を公開し、announce 以外を pom-inc.co.jp が取り込む（`newsSources` 追加済み） |
 | 計測 | GTM `GTM-5FQ27XG8`（旧サイトの Site Kit と同じコンテナ）。`link_click`・`click_cta` を dataLayer に送る |
 
 ## やりかけ・次にやること
