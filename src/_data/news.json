@@ -2,6 +2,26 @@
   "_説明": "お知らせ。書き方は README の「お知らせの書き方」。body がある記事だけ記事ページ（/news/id/）を作る。body がない記事は一覧に見出しだけを出す。英語ページ（/en/）には、genre が announce で titleEn がある記事だけを出す（bodyEn に1〜2行の説明を書ける）",
   "items": [
     {
+      "id": "20261126-shibuya-short-hours",
+      "date": "2026-11-26",
+      "store": "recoco",
+      "genre": "announce",
+      "title": "RECOCO渋谷 12月1日（火）短縮営業のお知らせ",
+      "titleEn": "RECOCO Shibuya: Shortened Business Hours on December 1",
+      "description": "2026年12月1日（火）、RECOCO渋谷は社内研修のため11:00-18:00の短縮営業です。",
+      "body": [
+        { "type": "h2", "text": "短縮営業日" },
+        "2026年12月1日（火）11:00-18:00",
+        "※社内研修のため短縮営業いたします。",
+        "何卒ご理解のほど、よろしくお願いいたします。",
+        { "type": "img", "src": "/assets/img/news/20261126-shibuya-dec1-calendar.webp", "width": 330, "widthSp": 260, "alt": "RECOCO渋谷の2026年12月〜2027年1月の営業カレンダー。12月1日は11時〜18時、12月29日〜1月3日は休業、そのほかの日は11時〜21時営業" }
+      ],
+      "bodyEn": [
+        "On Tuesday, December 1, 2026, we will be open from 11:00 to 18:00 due to staff training.",
+        "Thank you for your understanding."
+      ]
+    },
+    {
       "id": "2026winter-shimokita",
       "date": "2026-11-21",
       "store": "recoco",
