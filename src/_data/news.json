@@ -25,8 +25,8 @@
       ]
     },
     {
-      "id": "2026winter-shibuya",
-      "date": "2026-11-20",
+      "id": "20261126-shibuya-new-year-holiday",
+      "date": "2026-11-26",
       "store": "recoco",
       "genre": "announce",
       "title": "RECOCO渋谷 年末年始休業のお知らせ",
@@ -36,16 +36,14 @@
         { "type": "h2", "text": "年末年始休業日" },
         "2026年12月29日（火）〜2027年1月3日（日）",
         "※2027年1月4日（月）から通常営業",
-        "12月1日（火）は11時〜18時の短縮営業です。",
         "何卒ご理解のほど、よろしくお願いいたします。",
-        { "type": "img", "src": "/assets/img/news/20261120-shibuya-calendar.webp", "width": 330, "widthSp": 260, "alt": "RECOCO渋谷の2026年12月〜2027年1月の営業カレンダー。12月1日は11時〜18時、12月29日〜1月3日は休業、そのほかの日は11時〜21時営業" }
+        { "type": "img", "src": "/assets/img/news/20261126-shibuya-calendar.webp", "width": 330, "widthSp": 260, "alt": "RECOCO渋谷の2026年12月20日〜2027年1月9日の営業カレンダー。12月29日〜1月3日は休業、そのほかの日は11時〜21時営業" }
       ],
       "bodyEn": [
         "RECOCO Shibuya will be closed for the New Year holidays on the following dates.",
         { "type": "h3", "text": "Closure Dates" },
         "December 29, 2026 (Tue) – January 3, 2027 (Sun)",
         "We will reopen on Monday, January 4, 2027, with regular business hours.",
-        "Please note that on December 1 (Tue), we will be open from 11:00 to 18:00.",
         "Thank you for your understanding, and we look forward to seeing you in the new year!"
       ]
     },
